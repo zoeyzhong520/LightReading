@@ -30,6 +30,8 @@ let iPhone7 = IS_IPHONE && SCREEN_MAX_LENGTH == 667.0
 let iPhone7P = IS_IPHONE && SCREEN_MAX_LENGTH == 736.0
 let iPhoneX = IS_IPHONE && SCREEN_MAX_LENGTH == 812.0
 
+let TabBarHeight:CGFloat = iPhoneX ? 83.0 : 49.0
+
 //MARK: 颜色
 let RGB:(CGFloat,CGFloat,CGFloat) -> UIColor = { (r,g,b) in
     return UIColor.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1.0)
@@ -52,7 +54,8 @@ let LightGrayColor = UIColor.lightGray
 let TableViewBackgroundColor = RGB(244, 244, 244)
 let LineBackgroundColor = RGB(244, 244, 244)
 let CommonBackgroundColor = RGB(244, 244, 244)
-let BlurColor = RGB(0, 123, 250)
+let BlueColor = RGB(0, 123, 250)
+let MongolianlayerColor = RGBA(0, 0, 0, 0.2)
 
 //MARK: 字体
 // 自适应字体大小

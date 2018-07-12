@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController {
     func login(_ account:String, password:String) {
         if account == "Joe" && password == "123" {
             appDelegate.window?.rootViewController = MainTabBarViewController()
-            UserdefaultsTool.setToken()
+            UserdefaultsTool.setToken(account)
         } else {
             SVProgressHUD.showError(withStatus: LoginFailureStr)
         }

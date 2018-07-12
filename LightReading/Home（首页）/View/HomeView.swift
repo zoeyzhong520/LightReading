@@ -10,12 +10,36 @@ import UIKit
 
 class HomeView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    lazy var advertisingPageScrollView:AdvertisingPageScrollView = {
+        let advertisingPageScrollView = AdvertisingPageScrollView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: fontSizeScale(230)))
+        return advertisingPageScrollView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.createView()
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func createView() {
+        self.backgroundColor = .white
+        
+        self.addSubview(self.advertisingPageScrollView)
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

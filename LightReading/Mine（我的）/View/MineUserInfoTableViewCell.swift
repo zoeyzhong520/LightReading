@@ -22,17 +22,17 @@ class MineUserInfoTableViewCell: UITableViewCell {
     }()
     
     lazy var nameLabel:UILabel = {
-        let nameLabel = UILabel("Joe", font: FifthFont, textColor: BlackColor, alignment: .left)
+        let nameLabel = UILabel(UserdefaultsTool.getToken(), font: FifthFont, textColor: BlackColor, alignment: .left)
         return nameLabel
     }()
     
     lazy var userIDLabel:UILabel = {
-        let userIDLabel = UILabel("zhongzhaojunJoe", font: SixthFont, textColor: BlackColor, alignment: .left)
+        let userIDLabel = UILabel("ID：无", font: SixthFont, textColor: BlackColor, alignment: .left)
         return userIDLabel
     }()
     
     lazy var scoreLabel:UILabel = {
-        let scoreLabel = UILabel("88888888", font: SixthFont, textColor: BlackColor, alignment: .left)
+        let scoreLabel = UILabel("积分：无", font: SixthFont, textColor: BlackColor, alignment: .left)
         return scoreLabel
     }()
     

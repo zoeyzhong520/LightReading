@@ -10,6 +10,11 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+    lazy var homeView:HomeView = {
+        let homeView = HomeView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
+        return homeView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +25,11 @@ class HomeViewController: BaseViewController {
     func setPage() {
         
         self.addBarButtonItemWithImage(.right, image: "saoyisao", action: #selector(clickAction))
+        
+        self.view.addSubview(self.homeView)
+        self.homeView.advertisingPageScrollView.dataArray = ["", "", "", ""]
+        
+        
     }
     
     @objc func clickAction() {

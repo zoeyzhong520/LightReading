@@ -11,10 +11,9 @@ import UIKit
 class UserdefaultsTool: NSObject {
 
     ///set token
-    class func setToken() {
+    class func setToken(_ token:String) {
         let defaults = UserDefaults.standard
-        let UDID = UIDevice.current.identifierForVendor
-        defaults.set(UDID, forKey: "token")
+        defaults.set(token, forKey: "token")
         defaults.synchronize()
     }
     
@@ -27,3 +26,13 @@ class UserdefaultsTool: NSObject {
     
     
 }
+
+
+
+
+
+
+
+
+
+

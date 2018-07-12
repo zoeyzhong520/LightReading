@@ -33,6 +33,11 @@ class LoginView: UIView {
         return loginBtn
     }()
     
+    lazy var titleLabel:UILabel = {
+        let titleLabel = UILabel("轻阅读", font: FirstFont, textColor: BlackColor, alignment: .center)
+        return titleLabel
+    }()
+    
     var loginBlock:((LoginModel) -> Void)?
     
     override init(frame: CGRect) {
@@ -71,6 +76,13 @@ class LoginView: UIView {
             make.height.equalTo(fontSizeScale(44))
         }
         
+        self.addSubview(self.titleLabel)
+        self.titleLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(StatusBarHeight+NavigationBarHeight+fontSizeScale(20))
+            make.height.equalTo(fontSizeScale(22))
+        }
+        
         self.addNotification()
     }
 
@@ -92,7 +104,7 @@ class LoginView: UIView {
     func isCorrrect() {
         if self.accountTF.text?.isEmpty == false && self.passwordTF.text?.isEmpty == false {
             self.loginBtn.isUserInteractionEnabled = true
-            self.loginBtn.backgroundColor = BlurColor
+            self.loginBtn.backgroundColor = BlueColor
         } else {
             self.loginBtn.isUserInteractionEnabled = false
             self.loginBtn.backgroundColor = CommonBackgroundColor
