@@ -24,6 +24,8 @@ class MineView: UIView {
     var dataArray = [["轻阅读"], ["下载书籍", "个人收藏", "阅读痕迹", "积分商城"], ["设置"]]
     var imagesArray = [[""], ["download", "collection", "readingTrace" ,"pointsMall"], ["setting"]]
     
+    var cellClickBlock:((Enums.MineCellType) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -56,6 +58,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //头像、ID、积分
             let cell = MineUserInfoTableViewCell.createCell(tableView, indexPath: indexPath)
+            cell.model = MineModel.setupModel("Joe", userID: "zoeyzhong", score: "1000000000", avatarImg: AvatarImageUrl)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
@@ -85,6 +88,31 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        var cellType = Enums.MineCellType.UserInfoType
+        if indexPath.section == 0 {
+            //用户信息cell
+            cellType = .UserInfoType
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0:
+                cellType = .DownloadBookType
+            case 1:
+                cellType = .CollectionType
+            case 2:
+                cellType = .ReadingTraceType
+            case 3:
+                cellType = .PointsMallType
+            default:
+                break
+            }
+        } else if indexPath.section == 2 {
+            cellType = .SettingType
+        }
+        
+        //闭包传值
+        if self.cellClickBlock != nil {
+            self.cellClickBlock!(cellType)
+        }
     }
 }
 

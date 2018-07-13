@@ -1,47 +1,28 @@
 //
-//  MineViewController.swift
+//  PersonalInformationViewController.swift
 //  LightReading
 //
-//  Created by zhifu360 on 2018/7/11.
+//  Created by ZZJ on 2018/7/13.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-class MineViewController: BaseViewController {
+//MARK: 个人信息
 
-    lazy var mineView:MineView = {
-        let mineView = MineView(frame: self.view.bounds)
-        return mineView
-    }()
-    
+class PersonalInformationViewController: BaseViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setPage()
     }
-    
-    func setPage() {
-        self.view.addSubview(self.mineView)
-        self.mineView.cellClickBlock = { [weak self] cellType in
-            switch cellType {
-            case .UserInfoType:
-                self?.showViewController("PersonalInformationViewController")
-            case .DownloadBookType:
-                break
-            case .CollectionType:
-                break
-            case .ReadingTraceType:
-                break
-            case .PointsMallType:
-                break
-            case .SettingType:
-                break
-            }
-        }
-    }
 
+    func setPage() {
+        self.title = "个人信息"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

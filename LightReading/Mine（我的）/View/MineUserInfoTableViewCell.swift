@@ -17,7 +17,7 @@ class MineUserInfoTableViewCell: UITableViewCell {
     }
     
     lazy var imgView:UIImageView = {
-        let imgView = UIImageView(image: UIImage.init(named: "avatarImg_default"))
+        let imgView = UIImageView("avatarImg_default", makesToBounds: true, cornerRadius: 5)
         return imgView
     }()
     
@@ -34,6 +34,12 @@ class MineUserInfoTableViewCell: UITableViewCell {
     lazy var scoreLabel:UILabel = {
         let scoreLabel = UILabel("积分：无", font: SixthFont, textColor: BlackColor, alignment: .left)
         return scoreLabel
+    }()
+    
+    lazy var arrowImgView:UIImageView = {
+        //mineUserInfo_rightArrow
+        let arrowImgView = UIImageView(image: UIImage.init(named: "mineUserInfo_rightArrow"))
+        return arrowImgView
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -81,12 +87,29 @@ class MineUserInfoTableViewCell: UITableViewCell {
             make.height.equalTo(fontSizeScale(13))
         }
         
+        self.contentView.addSubview(self.arrowImgView)
+        self.arrowImgView.snp.makeConstraints { (make) in
+            make.right.equalTo(-fontSizeScale(10))
+            make.size.equalTo(CGSize(width: fontSizeScale(20), height: fontSizeScale(20)))
+            make.centerY.equalToSuperview()
+        }
     }
     
     func configModel() {
         self.nameLabel.text = self.model?.name
-        self.userIDLabel.text = self.model?.userID
-        self.scoreLabel.text = self.model?.score
+        
+        if let userID = self.model?.userID {
+            self.userIDLabel.text = "ID：\(userID)"
+        }
+        
+        if let score = self.model?.score {
+            self.scoreLabel.text = "积分：\(score)"
+        }
+        
+        if let avatarImg = self.model?.avatarImg {
+            print(avatarImg)
+            self.imgView.sd_setImage(with: URL.init(string: avatarImg), placeholderImage: PlaceholderImage)
+        }
     }
     
     ///创建cell

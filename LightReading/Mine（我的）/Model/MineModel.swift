@@ -13,4 +13,17 @@ class MineModel: NSObject {
     var name:String?
     var userID:String?
     var score:String?
+    
+    var avatarImg:String?
+    
+    class func setupModel(_ name:String?, userID:String?, score:String?, avatarImg:String?) -> MineModel {
+        
+        let model = MineModel()
+        model.name = name
+        model.userID = userID
+        model.score = score
+        
+        model.avatarImg = avatarImg
+        return model
+    }
 }

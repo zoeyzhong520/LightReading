@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    convenience init(_ backgroundColor: UIColor?) {
+    convenience init(_ backgroundColor: UIColor?=nil) {
         self.init()
         
         self.backgroundColor = backgroundColor

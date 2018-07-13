@@ -11,11 +11,23 @@ import UIKit
 //MARK: 广告页
 
 class AdvertisingPageScrollView: UIView {
-
+    
     //数据源
     var dataArray:Array<String>? {
         didSet {
             self.configDataArray()
+        }
+    }
+    
+    var enableTimer:Bool? {
+        didSet {
+            self.configTimer()
+        }
+    }
+    
+    var disableTimer:Bool? {
+        didSet {
+            self.invalidateTimer()
         }
     }
     
@@ -25,6 +37,7 @@ class AdvertisingPageScrollView: UIView {
         scrollView.isPagingEnabled = true
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.setContentOffset(CGPoint(x: ScreenWidth, y: 0), animated: false)
         return scrollView
     }()
     
@@ -37,6 +50,37 @@ class AdvertisingPageScrollView: UIView {
         pageControl.backgroundColor = MongolianlayerColor
         return pageControl
     }()
+    
+    lazy var leftImageView:UIImageView = {
+        let leftImageView = UIImageView.init(image: PlaceholderImage)
+        leftImageView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: self.bounds.size.height)
+        leftImageView.contentMode = .scaleAspectFill
+        leftImageView.clipsToBounds = true
+        return leftImageView
+    }()
+    
+    lazy var centerImageView:UIImageView = {
+        let centerImageView = UIImageView.init(image: PlaceholderImage)
+        centerImageView.frame = CGRect(x: ScreenWidth, y: 0, width: ScreenWidth, height: self.bounds.size.height)
+        centerImageView.contentMode = .scaleAspectFill
+        centerImageView.clipsToBounds = true
+        return centerImageView
+    }()
+    
+    lazy var rightImageView:UIImageView = {
+        let rightImageView = UIImageView.init(image: PlaceholderImage)
+        rightImageView.frame = CGRect(x: ScreenWidth*2, y: 0, width: ScreenWidth, height: self.bounds.size.height)
+        rightImageView.contentMode = .scaleAspectFill
+        rightImageView.clipsToBounds = true
+        return rightImageView
+    }()
+    
+    lazy var timer:ZZJTimer = {
+        let timer = ZZJTimer()
+        return timer
+    }()
+    
+    var currentImageIndex:Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,6 +96,10 @@ class AdvertisingPageScrollView: UIView {
         
         self.addSubview(self.scrollView)
         
+        self.scrollView.addSubview(self.leftImageView)
+        self.scrollView.addSubview(self.centerImageView)
+        self.scrollView.addSubview(self.rightImageView)
+        
         self.addSubview(self.pageControl)
         self.pageControl.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
@@ -60,44 +108,87 @@ class AdvertisingPageScrollView: UIView {
     }
     
     func configDataArray() {
-        
-        //构建subViews
+        if self.dataArray?.isEmpty == false {
+            let cnt = (self.dataArray?.count)!
+            
+            self.leftImageView.sd_setImage(with: URL.init(string: self.dataArray![cnt-1]), placeholderImage: PlaceholderImage)
+            self.centerImageView.sd_setImage(with: URL.init(string: self.dataArray![0]), placeholderImage: PlaceholderImage)
+            self.rightImageView.sd_setImage(with: URL.init(string: self.dataArray![1]), placeholderImage: PlaceholderImage)
+            
+            self.pageControl.numberOfPages = cnt
+            self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: 0)
+        }
+    }
+    
+    ///configTimer
+    func configTimer() {
+        if self.enableTimer == true {
+            print("定时器开启～")
+            self.timer.startTimerWithBlock(3) { [weak self] in
+                self?.scrollView.setContentOffset(CGPoint(x: ScreenWidth*2, y: 0), animated: true)
+            }
+        }
+    }
+    
+    ///invalidateTimer
+    func invalidateTimer() {
+        if self.disableTimer == true {
+            self.timer.stopTimer()
+            print("定时器关闭～")
+        }
+    }
+    
+    ///重新加载图片
+    func reloadImage() {
         if self.dataArray?.isEmpty == false {
             
             let cnt = (self.dataArray?.count)!
-            print("cnt == \(cnt)")
             
-            for i in 0..<cnt {
-                let subView = UIImageView()
-                subView.sd_setImage(with: URL.init(string: self.dataArray?[i] ?? ""), placeholderImage: UIImage.init(named: "placeholderImage"))
-                self.scrollView.addSubview(subView)
-                subView.snp.makeConstraints({ (make) in
-                    make.top.equalToSuperview()
-                    make.size.equalTo(CGSize(width: ScreenWidth, height: self.scrollView.bounds.size.height))
-                    make.left.equalTo(CGFloat(i)*ScreenWidth)
-                })
+            var leftImageIndex:Int = 0
+            var rightImageIndex:Int = 0
+            
+            let offSetX:CGFloat = self.scrollView.contentOffset.x
+            if offSetX > ScreenWidth {
+                self.currentImageIndex = (self.currentImageIndex+1) % cnt
+            } else if offSetX < ScreenWidth {
+                self.currentImageIndex = (self.currentImageIndex+cnt-1) % cnt
             }
             
-            //设置scrollView的contentSize
-            self.scrollView.contentSize = CGSize(width: ScreenWidth * CGFloat(cnt), height: self.bounds.size.height)
+            //重新设置图片
+            self.centerImageView.sd_setImage(with: URL.init(string: self.dataArray![currentImageIndex]), placeholderImage: PlaceholderImage)
             
-            //设置pageControl的numberOfPages
-            self.pageControl.numberOfPages = cnt
+            leftImageIndex = (currentImageIndex+cnt-1) % cnt
+            rightImageIndex = (currentImageIndex+1) % cnt
+            self.leftImageView.sd_setImage(with: URL.init(string: self.dataArray![leftImageIndex]), placeholderImage: PlaceholderImage)
+            self.rightImageView.sd_setImage(with: URL.init(string: self.dataArray![rightImageIndex]), placeholderImage: PlaceholderImage)
         }
     }
-
 }
 
 extension AdvertisingPageScrollView: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offSetX = scrollView.contentOffset.x
-        let currentIndex = Int(offSetX/ScreenWidth)
-        print("currentIndex == \(currentIndex)")
-        self.pageControl.currentPage = currentIndex
+        self.reloadImage()
+        scrollView.setContentOffset(CGPoint(x: ScreenWidth, y: 0), animated: false)
+        self.pageControl.currentPage = self.currentImageIndex
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.timer.stopTimer()
+    }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.configTimer()
+    }
+    
+    /*
+     setContentOffset:animated:方法执行完毕后不会调用scrollview的scrollViewDidEndDecelerating方法，但是会调用scrollViewDidEndScrollingAnimation方法
+     */
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.reloadImage()
+        scrollView.setContentOffset(CGPoint(x: ScreenWidth, y: 0), animated: false)
+        self.pageControl.currentPage = self.currentImageIndex
+    }
 }
 
 

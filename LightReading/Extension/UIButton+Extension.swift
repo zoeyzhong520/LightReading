@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
     
-    convenience init(_ title:String?, textColor:UIColor?, font:UIFont?, backgroundColor:UIColor?, makesToBounds:Bool?, cornerRadius:CGFloat?, borderWidth:CGFloat?, borderColor:UIColor?, target:Any?, action:Selector?) {
+    convenience init(_ title:String?=nil, textColor:UIColor?=nil, font:UIFont?=nil, backgroundColor:UIColor?=nil, makesToBounds:Bool?=nil, cornerRadius:CGFloat?=nil, borderWidth:CGFloat?=nil, borderColor:UIColor?=nil, target:Any?=nil, action:Selector?=nil) {
         
         self.init()
         

@@ -16,7 +16,7 @@ extension UIViewController {
     }
     
     ///设置导航栏Item
-    func addBarButtonItemWithTitle(_ position:BarButtonItemPosition, title:String?, action:Selector?) {
+    func addBarButtonItemWithTitle(_ position:BarButtonItemPosition, title:String?=nil, action:Selector?) {
         
         let barButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
         if position == .left {
@@ -34,6 +34,12 @@ extension UIViewController {
             self.navigationItem.leftBarButtonItem = barButtonItem
         } else if position == .right {
             self.navigationItem.rightBarButtonItem = barButtonItem
+        }
+    }
+    
+    func showViewController(_ vcName:String) {
+        if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {
+            self.navigationController?.pushViewController(vc.init(), animated: true)
         }
     }
 }

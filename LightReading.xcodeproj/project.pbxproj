@@ -37,6 +37,10 @@
 		36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823720F600670043B459 /* MainTabBarViewController.swift */; };
 		36D6823B20F600970043B459 /* MainTabBarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823A20F600970043B459 /* MainTabBarTool.swift */; };
 		7C68BD2021B77A63C8363335 /* Pods_LightReading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */; };
+		D84EAEC920F8E0A400CC6F4D /* ZZJTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAEC820F8E0A400CC6F4D /* ZZJTimer.swift */; };
+		D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */; };
+		D84EAECD20F8FD5500CC6F4D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAECC20F8FD5500CC6F4D /* Enums.swift */; };
+		D84EAECF20F8FFC800CC6F4D /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */; };
 		D8684F2B20F79109005A4CCB /* AdvertisingPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8684F2A20F79109005A4CCB /* AdvertisingPageScrollView.swift */; };
 		D8684F6B20F794A3005A4CCB /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F2E20F794A3005A4CCB /* UIImage+WebP.m */; };
 		D8684F6C20F794A3005A4CCB /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F2F20F794A3005A4CCB /* MKAnnotationView+WebCache.m */; };
@@ -153,6 +157,10 @@
 		6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightReading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB9E6C0FAD20B32CAE4B946 /* Pods-LightReading.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.debug.xcconfig"; sourceTree = "<group>"; };
 		D808BF6620F64D7800124DDC /* LightReading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightReading-Bridging-Header.h"; sourceTree = "<group>"; };
+		D84EAEC820F8E0A400CC6F4D /* ZZJTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZJTimer.swift; sourceTree = "<group>"; };
+		D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		D84EAECC20F8FD5500CC6F4D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		D8684F2A20F79109005A4CCB /* AdvertisingPageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingPageScrollView.swift; sourceTree = "<group>"; };
 		D8684F2D20F794A3005A4CCB /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		D8684F2E20F794A3005A4CCB /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
@@ -414,6 +422,7 @@
 				36D6822120F5EE440043B459 /* BaseViewController.swift */,
 				36D6823720F600670043B459 /* MainTabBarViewController.swift */,
 				D8684F2A20F79109005A4CCB /* AdvertisingPageScrollView.swift */,
+				D84EAECC20F8FD5500CC6F4D /* Enums.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -421,6 +430,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D84EAEC720F8E0A400CC6F4D /* ZZJTimer */,
 				36284B3620F73BF2008C2E81 /* UserdefaultsTool */,
 				36D6823920F600880043B459 /* MainTabBar */,
 			);
@@ -475,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				36D6822720F5EE6C0043B459 /* MineViewController.swift */,
+				D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -545,6 +556,14 @@
 				F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D84EAEC720F8E0A400CC6F4D /* ZZJTimer */ = {
+			isa = PBXGroup;
+			children = (
+				D84EAEC820F8E0A400CC6F4D /* ZZJTimer.swift */,
+			);
+			path = ZZJTimer;
 			sourceTree = "<group>";
 		};
 		D8684F2C20F794A3005A4CCB /* SDWebImage */ = {
@@ -623,6 +642,7 @@
 				36284B4320F73E9B008C2E81 /* UITextField+Extension.swift */,
 				36284B4520F741E0008C2E81 /* UIButton+Extension.swift */,
 				36284B4720F75E7B008C2E81 /* String+Extension.swift */,
+				D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -963,6 +983,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */,
 				36D6822420F5EE560043B459 /* HomeViewController.swift in Sources */,
 				D8B0D3B820F6552800AAD399 /* MJRefreshStateHeader.m in Sources */,
 				D8684F7E20F794A3005A4CCB /* SDWebImageTransition.m in Sources */,
@@ -996,6 +1017,7 @@
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
 				D8684F8120F794A3005A4CCB /* NSImage+WebCache.m in Sources */,
 				D8B0D3B620F6552800AAD399 /* MJRefreshAutoNormalFooter.m in Sources */,
+				D84EAEC920F8E0A400CC6F4D /* ZZJTimer.swift in Sources */,
 				36284B4420F73E9B008C2E81 /* UITextField+Extension.swift in Sources */,
 				D8684F6C20F794A3005A4CCB /* MKAnnotationView+WebCache.m in Sources */,
 				D8B0D3AE20F6552800AAD399 /* UIScrollView+MJExtension.m in Sources */,
@@ -1013,12 +1035,14 @@
 				D8684F8020F794A3005A4CCB /* UIImageView+WebCache.m in Sources */,
 				D8B0D3B420F6552800AAD399 /* MJRefreshAutoStateFooter.m in Sources */,
 				D8684F7720F794A3005A4CCB /* SDWebImageCompat.m in Sources */,
+				D84EAECD20F8FD5500CC6F4D /* Enums.swift in Sources */,
 				36D6823B20F600970043B459 /* MainTabBarTool.swift in Sources */,
 				D8684F7D20F794A3005A4CCB /* SDWebImageDownloaderOperation.m in Sources */,
 				D8B0D3BE20F6552800AAD399 /* MJRefreshComponent.m in Sources */,
 				36D6823220F5EEAA0043B459 /* SquareModel.swift in Sources */,
 				D8B0D3B920F6552800AAD399 /* MJRefreshGifHeader.m in Sources */,
 				D8684F2B20F79109005A4CCB /* AdvertisingPageScrollView.swift in Sources */,
+				D84EAECF20F8FFC800CC6F4D /* PersonalInformationViewController.swift in Sources */,
 				D8684F8320F794A3005A4CCB /* SDImageCacheConfig.m in Sources */,
 				D8684F6D20F794A3005A4CCB /* SDWebImageManager.m in Sources */,
 				D8B0D3B520F6552800AAD399 /* MJRefreshAutoGifFooter.m in Sources */,

@@ -27,13 +27,22 @@ class HomeViewController: BaseViewController {
         self.addBarButtonItemWithImage(.right, image: "saoyisao", action: #selector(clickAction))
         
         self.view.addSubview(self.homeView)
-        self.homeView.advertisingPageScrollView.dataArray = ["", "", "", ""]
-        
+        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         
     }
     
     @objc func clickAction() {
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.homeView.advertisingPageScrollView.enableTimer = true//开启定时器
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.homeView.advertisingPageScrollView.disableTimer = true //停止定时器
     }
     
     override func didReceiveMemoryWarning() {

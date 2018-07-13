@@ -11,7 +11,7 @@ import UIKit
 extension UILabel {
     
     ///init label
-    convenience init(_ text:String?, font:UIFont?, textColor:UIColor?, alignment:NSTextAlignment?) {
+    convenience init(_ text:String?=nil, font:UIFont?=nil, textColor:UIColor?=nil, alignment:NSTextAlignment?=nil) {
         
         self.init()
         self.text = text

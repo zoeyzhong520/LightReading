@@ -10,7 +10,7 @@ import UIKit
 
 extension UITextField {
     
-    convenience init(_ placeholder: String?, backgroundColor: UIColor?, font: UIFont?, makesToBounds:Bool?, cornerRadius:CGFloat?, borderWidth:CGFloat?, borderColor:UIColor?) {
+    convenience init(_ placeholder: String?=nil, backgroundColor: UIColor?=nil, font: UIFont?=nil, makesToBounds:Bool?=nil, cornerRadius:CGFloat?=nil, borderWidth:CGFloat?=nil, borderColor:UIColor?=nil) {
         self.init()
         
         self.placeholder = placeholder
