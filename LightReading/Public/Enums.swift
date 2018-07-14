@@ -19,4 +19,17 @@ class Enums: NSObject {
         case PointsMallType
         case SettingType
     }
+    
+    enum PersonalInformationCellType:Int {
+        case AvatarType = 0
+        case NameType
+        case UserIDType
+        case ScoreType
+    }
 }
+
+
+
+
+
+

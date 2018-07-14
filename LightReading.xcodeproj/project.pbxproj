@@ -71,6 +71,7 @@
 		D8684F8620F794A3005A4CCB /* SDWebImageImageIOCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6420F794A3005A4CCB /* SDWebImageImageIOCoder.m */; };
 		D8684F8720F794A3005A4CCB /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6820F794A3005A4CCB /* UIButton+WebCache.m */; };
 		D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */; };
+		D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */; };
 		D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36920F654EE00AAD399 /* MineUserInfoTableViewCell.swift */; };
 		D8B0D36E20F6550100AAD399 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36C20F6550100AAD399 /* UILabel+Extension.swift */; };
 		D8B0D36F20F6550100AAD399 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36D20F6550100AAD399 /* UIViewController+Extension.swift */; };
@@ -99,6 +100,10 @@
 		D8B0D3C120F6552800AAD399 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D3A720F6552800AAD399 /* SVProgressHUD.m */; };
 		D8B0D3C220F6552800AAD399 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D3A820F6552800AAD399 /* SVIndefiniteAnimatedView.m */; };
 		D8B0D3C320F6552800AAD399 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8B0D3A920F6552800AAD399 /* SVProgressHUD.bundle */; };
+		D8B4F99320F969C100A88D27 /* PersonalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99220F969C100A88D27 /* PersonalInformationView.swift */; };
+		D8B4F99520F9825000A88D27 /* PersonalInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */; };
+		D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */; };
+		D8B4F99920FA32A300A88D27 /* PersonalInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +226,7 @@
 		D8684F6820F794A3005A4CCB /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageWebPCoder.m; sourceTree = "<group>"; };
 		D8684F6A20F794A3005A4CCB /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarViewController.swift; sourceTree = "<group>"; };
 		D8B0D36920F654EE00AAD399 /* MineUserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineUserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D8B0D36C20F6550100AAD399 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		D8B0D36D20F6550100AAD399 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -274,6 +280,10 @@
 		D8B0D3A820F6552800AAD399 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		D8B0D3A920F6552800AAD399 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		D8B0D3AA20F6552800AAD399 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		D8B4F99220F969C100A88D27 /* PersonalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationView.swift; sourceTree = "<group>"; };
+		D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewCell.swift; sourceTree = "<group>"; };
+		D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationDefaultTableViewCell.swift; sourceTree = "<group>"; };
+		D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationModel.swift; sourceTree = "<group>"; };
 		F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -486,6 +496,7 @@
 			children = (
 				36D6822720F5EE6C0043B459 /* MineViewController.swift */,
 				D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */,
+				D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				36D6822F20F5EEA10043B459 /* MineModel.swift */,
+				D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,6 +515,9 @@
 			children = (
 				D8B0D36920F654EE00AAD399 /* MineUserInfoTableViewCell.swift */,
 				36D6822D20F5EE910043B459 /* MineView.swift */,
+				D8B4F99220F969C100A88D27 /* PersonalInformationView.swift */,
+				D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */,
+				D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +1010,7 @@
 				D8B0D3B120F6552800AAD399 /* MJRefreshBackGifFooter.m in Sources */,
 				D8B0D3BC20F6552800AAD399 /* MJRefreshBackFooter.m in Sources */,
 				36284B4820F75E7B008C2E81 /* String+Extension.swift in Sources */,
+				D8B4F99920FA32A300A88D27 /* PersonalInformationModel.swift in Sources */,
 				36D681E620F5ED180043B459 /* ViewController.swift in Sources */,
 				36284B3520F73916008C2E81 /* UIView+Extension.swift in Sources */,
 				D8B0D3BA20F6552800AAD399 /* MJRefreshFooter.m in Sources */,
@@ -1009,11 +1025,14 @@
 				36D6822820F5EE6C0043B459 /* MineViewController.swift in Sources */,
 				D8B0D3BD20F6552800AAD399 /* MJRefreshAutoFooter.m in Sources */,
 				D8B0D3B020F6552800AAD399 /* UIView+MJExtension.m in Sources */,
+				D8B4F99520F9825000A88D27 /* PersonalInformationTableViewCell.swift in Sources */,
 				36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */,
 				D8684F7C20F794A3005A4CCB /* SDImageCache.m in Sources */,
 				36284B3E20F73D51008C2E81 /* LoginViewController.swift in Sources */,
 				D8684F7520F794A3005A4CCB /* UIImage+MultiFormat.m in Sources */,
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
+				D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */,
+				D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */,
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
 				D8684F8120F794A3005A4CCB /* NSImage+WebCache.m in Sources */,
 				D8B0D3B620F6552800AAD399 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1049,6 +1068,7 @@
 				36284B4220F73D68008C2E81 /* LoginView.swift in Sources */,
 				D8684F8420F794A3005A4CCB /* UIView+WebCacheOperation.m in Sources */,
 				36D6822A20F5EE800043B459 /* HomeView.swift in Sources */,
+				D8B4F99320F969C100A88D27 /* PersonalInformationView.swift in Sources */,
 				36D6822C20F5EE8A0043B459 /* SquareView.swift in Sources */,
 				D8B0D3C020F6552800AAD399 /* SVProgressAnimatedView.m in Sources */,
 				D8684F7F20F794A3005A4CCB /* NSData+ImageContentType.m in Sources */,

@@ -1,22 +1,15 @@
 //
-//  PersonalInformationViewController.swift
+//  PersonalAvatarViewController.swift
 //  LightReading
 //
-//  Created by ZZJ on 2018/7/13.
+//  Created by ZZJ on 2018/7/14.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-//MARK: 个人信息
+class PersonalAvatarViewController: BaseViewController {
 
-class PersonalInformationViewController: BaseViewController {
-
-    lazy var personalInformationView:PersonalInformationView = {
-        let personalInformationView = PersonalInformationView(frame: self.view.bounds)
-        return personalInformationView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,17 +18,7 @@ class PersonalInformationViewController: BaseViewController {
     }
 
     func setPage() {
-        self.title = "个人信息"
-        
-        self.view.addSubview(self.personalInformationView)
-        self.personalInformationView.cellClickBlock = { [weak self] cellType in
-            switch cellType {
-            case .AvatarType:
-                self?.showViewController("PersonalAvatarViewController")
-            default:
-                break
-            }
-        }
+        self.title = "个人头像"
     }
     
     override func didReceiveMemoryWarning() {
