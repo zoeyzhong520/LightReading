@@ -37,11 +37,14 @@ extension UIViewController {
         }
     }
     
-    func showViewController(_ vcName:String) {
+    func showViewController(_ vcName:String, hidesBottomBarWhenPushed:Bool=false) {
         if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {
+            let tmpVC = vc.init()
+            tmpVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed
             self.navigationController?.pushViewController(vc.init(), animated: true)
         }
     }
+    
 }
 
 

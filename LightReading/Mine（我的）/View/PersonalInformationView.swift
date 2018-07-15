@@ -87,6 +87,12 @@ extension PersonalInformationView: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cellType = .AvatarType
+        case 1:
+            cellType = .NameType
+        case 2:
+            cellType = .UserIDType
+        case 3:
+            cellType = .ScoreType
         default:
             break
         }

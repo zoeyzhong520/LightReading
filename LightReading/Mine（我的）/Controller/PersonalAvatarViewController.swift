@@ -9,7 +9,12 @@
 import UIKit
 
 class PersonalAvatarViewController: BaseViewController {
-
+    
+    lazy var personalAvatarView:PersonalAvatarView = {
+        let personalAvatarView = PersonalAvatarView(frame: self.view.bounds)
+        return personalAvatarView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +24,15 @@ class PersonalAvatarViewController: BaseViewController {
 
     func setPage() {
         self.title = "个人头像"
+        
+        self.addBarButtonItemWithImage(.right, image: "detailItemImg.jpg", action: #selector(clickAction))
+        
+        self.view.addSubview(self.personalAvatarView)
+        self.personalAvatarView.imgUrl = AvatarImageUrl
+    }
+    
+    @objc func clickAction() {
+        
     }
     
     override func didReceiveMemoryWarning() {

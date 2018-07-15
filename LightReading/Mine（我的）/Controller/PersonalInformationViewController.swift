@@ -31,11 +31,17 @@ class PersonalInformationViewController: BaseViewController {
         self.personalInformationView.cellClickBlock = { [weak self] cellType in
             switch cellType {
             case .AvatarType:
-                self?.showViewController("PersonalAvatarViewController")
+                self?.showPersonalAvatarViewController()
             default:
                 break
             }
         }
+    }
+    
+    func showPersonalAvatarViewController() {
+        let vc = PersonalAvatarViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
