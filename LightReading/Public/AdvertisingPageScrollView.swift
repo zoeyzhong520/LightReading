@@ -113,7 +113,10 @@ class AdvertisingPageScrollView: UIView {
             
             self.leftImageView.sd_setImage(with: URL.init(string: self.dataArray![cnt-1]), placeholderImage: PlaceholderImage)
             self.centerImageView.sd_setImage(with: URL.init(string: self.dataArray![0]), placeholderImage: PlaceholderImage)
-            self.rightImageView.sd_setImage(with: URL.init(string: self.dataArray![1]), placeholderImage: PlaceholderImage)
+            
+            if cnt > 1 {
+                self.rightImageView.sd_setImage(with: URL.init(string: self.dataArray![1]), placeholderImage: PlaceholderImage)
+            }
             
             self.pageControl.numberOfPages = cnt
             self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: 0)
