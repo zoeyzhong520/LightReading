@@ -64,6 +64,7 @@ class AdvertisingPageScrollView: UIView {
         centerImageView.frame = CGRect(x: ScreenWidth, y: 0, width: ScreenWidth, height: self.bounds.size.height)
         centerImageView.contentMode = .scaleAspectFill
         centerImageView.clipsToBounds = true
+        centerImageView.isUserInteractionEnabled = true
         return centerImageView
     }()
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonalAvatarView: UIView {
-
+    
     var imgUrl:String? {
         didSet {
             self.configImgUrl()
@@ -33,6 +33,10 @@ class PersonalAvatarView: UIView {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapAction(_:)))
         tapGesture.numberOfTapsRequired = 2//添加双击手势
         imgView.addGestureRecognizer(tapGesture)
+        
+        let longPressgesture = UILongPressGestureRecognizer.init(target: self, action: #selector(imgViewLongPressAction(_:)))
+        imgView.addGestureRecognizer(longPressgesture)
+        tapGesture.require(toFail: longPressgesture)
         return imgView
     }()
     
@@ -54,7 +58,7 @@ class PersonalAvatarView: UIView {
         
         self.scrollView.addSubview(self.imgView)
     }
-
+    
     @objc func tapAction(_ gesture:UITapGestureRecognizer) {
         var newRect:CGFloat = 0.0
         if zoomOut_In {
@@ -83,6 +87,14 @@ class PersonalAvatarView: UIView {
     func configImgUrl() {
         if let imgUrl = self.imgUrl {
             self.imgView.sd_setImage(with: URL.init(string: imgUrl), placeholderImage: PlaceholderImage)
+        }
+    }
+    
+    @objc func imgViewLongPressAction(_ gesture:UIGestureRecognizer) {
+        if gesture.state == .began {
+            LRAlertView.createLRAlertView(["保存图片"]) { [weak self] (clickIndex) in
+                print("保存图片")
+            }
         }
     }
 }

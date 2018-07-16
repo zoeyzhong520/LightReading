@@ -116,9 +116,11 @@ let TenthImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_1
 //用户头像链接
 let AvatarImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531504554793&di=512f9b3bbb48c5aa55bd2cd6d2203582&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140516%2F0010023335708279_b.jpg"
 
+//MARK: 动画执行时长
+let AnimateDuration:TimeInterval = 0.3
 
-
-
+//MARK: key window
+let LRKeyWindow = UIApplication.shared.keyWindow
 
 
 
