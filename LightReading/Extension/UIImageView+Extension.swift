@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 extension UIImageView {
     
@@ -33,4 +34,38 @@ extension UIImageView {
         
         self.layer.borderColor = borderColor?.cgColor
     }
+    
+    ///保存图片到相册
+    func saveImageToPhotoLibrary(_ image:UIImage) {
+        PHPhotoLibrary.shared().performChanges({
+            
+            if let image = self.image {
+                let req = PHAssetChangeRequest.creationRequestForAsset(from: img)
+            }
+            
+        }) { (success, error) in
+            print("success = \(success)")
+            SVProgressHUD.showInfo(withStatus: success ? "保存成功" : "保存失败")
+            
+            if let error = error {
+                print("error = \(error.localizedDescription)")
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
