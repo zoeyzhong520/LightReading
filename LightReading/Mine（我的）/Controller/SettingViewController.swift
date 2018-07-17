@@ -1,20 +1,18 @@
 //
-//  PersonalInformationViewController.swift
+//  SettingViewController.swift
 //  LightReading
 //
-//  Created by ZZJ on 2018/7/13.
+//  Created by ZZJ on 2018/7/17.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-//MARK: 个人信息
+class SettingViewController: BaseViewController {
 
-class PersonalInformationViewController: BaseViewController {
-
-    lazy var personalInformationView:PersonalInformationView = {
-        let personalInformationView = PersonalInformationView(frame: self.view.bounds)
-        return personalInformationView
+    lazy var settingView:SettingView = {
+        let settingView = SettingView(frame: self.view.bounds)
+        return settingView
     }()
     
     override func viewDidLoad() {
@@ -25,17 +23,9 @@ class PersonalInformationViewController: BaseViewController {
     }
 
     func setPage() {
-        self.title = "个人信息"
+        self.title = "设置"
         
-        self.view.addSubview(self.personalInformationView)
-        self.personalInformationView.cellClickBlock = { [weak self] cellType in
-            switch cellType {
-            case .AvatarType:
-                self?.showViewController("PersonalAvatarViewController", hidesBottomBarWhenPushed: true)
-            default:
-                break
-            }
-        }
+        self.view.addSubview(self.settingView)
     }
     
     override func didReceiveMemoryWarning() {

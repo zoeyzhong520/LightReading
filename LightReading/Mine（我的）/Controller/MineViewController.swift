@@ -37,7 +37,7 @@ class MineViewController: BaseViewController {
             case .PointsMallType:
                 break
             case .SettingType:
-                break
+                self?.showViewController("SettingViewController")
             }
         }
     }

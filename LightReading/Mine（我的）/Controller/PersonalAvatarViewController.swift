@@ -33,7 +33,7 @@ class PersonalAvatarViewController: BaseViewController {
     
     @objc func clickAction() {
         LRAlertView.createLRAlertView(["保存图片"]) { [weak self] (clickIndex) in
-            self?.personalAvatarView.imgView.saveImageToPhotoLibrary()
+            PersonalAvatarTool.saveImageToPhotoLibrary(self?.personalAvatarView.imgView.image)
         }
     }
     

@@ -41,7 +41,7 @@ extension UIViewController {
         if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {
             let tmpVC = vc.init()
             tmpVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed
-            self.navigationController?.pushViewController(vc.init(), animated: true)
+            self.navigationController?.pushViewController(tmpVC, animated: true)
         }
     }
     

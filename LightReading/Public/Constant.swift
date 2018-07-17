@@ -122,6 +122,8 @@ let AnimateDuration:TimeInterval = 0.3
 //MARK: key window
 let LRKeyWindow = UIApplication.shared.keyWindow
 
+//MARK: 获取App的build版本号
+let AppBulidVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
 
 

@@ -93,7 +93,7 @@ class PersonalAvatarView: UIView {
     @objc func imgViewLongPressAction(_ gesture:UIGestureRecognizer) {
         if gesture.state == .began {
             LRAlertView.createLRAlertView(["保存图片"]) { [weak self] (clickIndex) in
-                self?.imgView.saveImageToPhotoLibrary()
+                PersonalAvatarTool.saveImageToPhotoLibrary(self?.imgView.image)
             }
         }
     }

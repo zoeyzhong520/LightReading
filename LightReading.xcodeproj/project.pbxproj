@@ -38,6 +38,11 @@
 		36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823720F600670043B459 /* MainTabBarViewController.swift */; };
 		36D6823B20F600970043B459 /* MainTabBarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823A20F600970043B459 /* MainTabBarTool.swift */; };
 		7C68BD2021B77A63C8363335 /* Pods_LightReading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */; };
+		D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */; };
+		D825ACC520FE27A200A5E069 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC420FE27A200A5E069 /* SettingViewController.swift */; };
+		D825ACC720FE284D00A5E069 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC620FE284D00A5E069 /* SettingView.swift */; };
+		D825ACC920FE29B200A5E069 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC820FE29B200A5E069 /* SettingTableViewCell.swift */; };
+		D825ACCB20FE2B5200A5E069 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACCA20FE2B5200A5E069 /* SettingModel.swift */; };
 		D84EAEC920F8E0A400CC6F4D /* ZZJTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAEC820F8E0A400CC6F4D /* ZZJTimer.swift */; };
 		D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */; };
 		D84EAECD20F8FD5500CC6F4D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EAECC20F8FD5500CC6F4D /* Enums.swift */; };
@@ -165,6 +170,11 @@
 		6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightReading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB9E6C0FAD20B32CAE4B946 /* Pods-LightReading.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.debug.xcconfig"; sourceTree = "<group>"; };
 		D808BF6620F64D7800124DDC /* LightReading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightReading-Bridging-Header.h"; sourceTree = "<group>"; };
+		D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarTool.swift; sourceTree = "<group>"; };
+		D825ACC420FE27A200A5E069 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D825ACC620FE284D00A5E069 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		D825ACC820FE29B200A5E069 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		D825ACCA20FE2B5200A5E069 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		D84EAEC820F8E0A400CC6F4D /* ZZJTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZJTimer.swift; sourceTree = "<group>"; };
 		D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D84EAECC20F8FD5500CC6F4D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -445,6 +455,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D825ACC120FE23A600A5E069 /* PersonalAvatarTool */,
 				D84EAEC720F8E0A400CC6F4D /* ZZJTimer */,
 				36284B3620F73BF2008C2E81 /* UserdefaultsTool */,
 				36D6823920F600880043B459 /* MainTabBar */,
@@ -502,6 +513,7 @@
 				36D6822720F5EE6C0043B459 /* MineViewController.swift */,
 				D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */,
 				D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */,
+				D825ACC420FE27A200A5E069 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -511,6 +523,7 @@
 			children = (
 				36D6822F20F5EEA10043B459 /* MineModel.swift */,
 				D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */,
+				D825ACCA20FE2B5200A5E069 /* SettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +537,8 @@
 				D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */,
 				D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */,
 				D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */,
+				D825ACC620FE284D00A5E069 /* SettingView.swift */,
+				D825ACC820FE29B200A5E069 /* SettingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +592,14 @@
 				F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D825ACC120FE23A600A5E069 /* PersonalAvatarTool */ = {
+			isa = PBXGroup;
+			children = (
+				D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */,
+			);
+			path = PersonalAvatarTool;
 			sourceTree = "<group>";
 		};
 		D84EAEC720F8E0A400CC6F4D /* ZZJTimer */ = {
@@ -1030,10 +1053,12 @@
 				D8B0D3BB20F6552800AAD399 /* MJRefreshHeader.m in Sources */,
 				36D6822820F5EE6C0043B459 /* MineViewController.swift in Sources */,
 				D8B0D3BD20F6552800AAD399 /* MJRefreshAutoFooter.m in Sources */,
+				D825ACC520FE27A200A5E069 /* SettingViewController.swift in Sources */,
 				D8B0D3B020F6552800AAD399 /* UIView+MJExtension.m in Sources */,
 				D8B4F99520F9825000A88D27 /* PersonalInformationTableViewCell.swift in Sources */,
 				36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */,
 				D8684F7C20F794A3005A4CCB /* SDImageCache.m in Sources */,
+				D825ACC920FE29B200A5E069 /* SettingTableViewCell.swift in Sources */,
 				36284B3E20F73D51008C2E81 /* LoginViewController.swift in Sources */,
 				D8684F7520F794A3005A4CCB /* UIImage+MultiFormat.m in Sources */,
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
@@ -1056,7 +1081,9 @@
 				D8B0D3B320F6552800AAD399 /* MJRefreshBackNormalFooter.m in Sources */,
 				D8B0D3BF20F6552800AAD399 /* SVRadialGradientLayer.m in Sources */,
 				36284B3320F73281008C2E81 /* UITableView+Extension.swift in Sources */,
+				D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */,
 				D8B0D3C120F6552800AAD399 /* SVProgressHUD.m in Sources */,
+				D825ACC720FE284D00A5E069 /* SettingView.swift in Sources */,
 				D8684F8020F794A3005A4CCB /* UIImageView+WebCache.m in Sources */,
 				D8B0D3B420F6552800AAD399 /* MJRefreshAutoStateFooter.m in Sources */,
 				D8684F7720F794A3005A4CCB /* SDWebImageCompat.m in Sources */,
@@ -1092,6 +1119,7 @@
 				D8B0D3AF20F6552800AAD399 /* NSBundle+MJRefresh.m in Sources */,
 				D8B0D3B720F6552800AAD399 /* MJRefreshNormalHeader.m in Sources */,
 				36D6822E20F5EE910043B459 /* MineView.swift in Sources */,
+				D825ACCB20FE2B5200A5E069 /* SettingModel.swift in Sources */,
 				D8684F7A20F794A3005A4CCB /* NSButton+WebCache.m in Sources */,
 				36D6822020F5EE2F0043B459 /* Constant.swift in Sources */,
 				36D6822620F5EE640043B459 /* SquareViewController.swift in Sources */,
