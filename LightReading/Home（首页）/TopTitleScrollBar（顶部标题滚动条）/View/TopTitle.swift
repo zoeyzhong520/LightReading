@@ -12,10 +12,14 @@ class TopTitle: UIView {
 
     lazy var label:UILabel = {
         let label = UILabel("全部", font: FourthFont, textColor: BlackColor, alignment: .center)
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         return label
     }()
     
     var labelText:String?
+    
+    var clickBlock:(() -> Void)?
     
     init(frame: CGRect, text:String?) {
         super.init(frame: frame)
@@ -28,12 +32,18 @@ class TopTitle: UIView {
     }
     
     func createView() {
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         
         self.label.text = self.labelText
         self.addSubview(self.label)
         self.label.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    @objc func tapAction() {
+        if self.clickBlock != nil {
+            self.clickBlock!()
         }
     }
 }
