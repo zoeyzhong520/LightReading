@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 个人头像
+
 class PersonalAvatarViewController: BaseViewController {
     
     lazy var personalAvatarView:PersonalAvatarView = {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 登录
+
 class LoginViewController: BaseViewController {
 
     lazy var loginView:LoginView = {

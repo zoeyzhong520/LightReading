@@ -57,6 +57,7 @@ let LineBackgroundColor = RGB(244, 244, 244)
 let CommonBackgroundColor = RGB(244, 244, 244)
 let BlueColor = RGB(0, 123, 250)
 let MongolianlayerColor = RGBA(0, 0, 0, 0.2)
+let RandomColor = RGB(CGFloat(arc4random() % 255), CGFloat(arc4random() % 255), CGFloat(arc4random() % 255))
 
 //MARK: 字体
 // 自适应字体大小

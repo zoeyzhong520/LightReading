@@ -22,9 +22,9 @@ class PersonalAvatarTool: NSObject {
     
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo:UnsafeRawPointer)       {
         if error.localizedDescription.count <= 0 {
-            SVProgressHUD.showInfo(withStatus: "保存图片成功")
+            SVProgressHUD.showSuccess(withStatus: "保存图片成功")
         } else {
-            SVProgressHUD.showInfo(withStatus: "保存图片失败")
+            SVProgressHUD.showError(withStatus: "保存图片失败")
         }
     }
 }

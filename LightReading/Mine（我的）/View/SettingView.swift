@@ -25,6 +25,8 @@ class SettingView: UIView {
     
     var dataArray = [SettingModel]()
     
+    var cellClickBlock:((Enums.SettingCellType) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -46,6 +48,10 @@ class SettingView: UIView {
         
         self.addSubview(self.tableView)
         self.tableView.reloadData()
+    }
+    
+    func getCell(_ row:Int, section:Int) -> SettingTableViewCell? {
+        return self.tableView.cellForRow(at: IndexPath(row: row, section: section)) as? SettingTableViewCell
     }
 }
 
@@ -69,6 +75,7 @@ extension SettingView: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
             cell.textLabel?.text = "退出登录"
             cell.textLabel?.font = FourthFont
+            cell.textLabel?.textColor = BlackColor
             cell.textLabel?.textAlignment = .center
             return cell
         } else {
@@ -80,7 +87,25 @@ extension SettingView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if indexPath.section == 1 {//退出登录
+            if self.cellClickBlock != nil {
+                self.cellClickBlock!(.SignOut)
+            }
+        } else {
+            if let type = self.dataArray[indexPath.row].type {
+                switch type {
+                case "0"://清除缓存
+                    ClearCacheTool.clearCacheSize()
+                    self.getCell(0, section: 0)?.rightLabel.text = "0.00M"
+                case "2"://关于我们
+                    if self.cellClickBlock != nil {
+                        self.cellClickBlock!(.AboutUsType)
+                    }
+                default:
+                    break
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

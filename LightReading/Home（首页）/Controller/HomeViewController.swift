@@ -8,11 +8,18 @@
 
 import UIKit
 
+//MARK: 首页
+
 class HomeViewController: BaseViewController {
 
     lazy var homeView:HomeView = {
         let homeView = HomeView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
         return homeView
+    }()
+    
+    lazy var topTitleMainView:TopTitleMainView = {
+        let topTitleMainView = TopTitleMainView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
+        return topTitleMainView
     }()
     
     override func viewDidLoad() {
@@ -26,9 +33,10 @@ class HomeViewController: BaseViewController {
         
         self.addBarButtonItemWithImage(.right, image: "saoyisao", action: #selector(clickAction))
         
-        self.view.addSubview(self.homeView)
-        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
+//        self.view.addSubview(self.homeView)
+//        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         
+        self.view.addSubview(self.topTitleMainView)
     }
     
     @objc func clickAction() {

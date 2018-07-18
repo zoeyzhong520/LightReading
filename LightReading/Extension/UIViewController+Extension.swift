@@ -37,6 +37,7 @@ extension UIViewController {
         }
     }
     
+    ///跳转到下一个页面
     func showViewController(_ vcName:String, hidesBottomBarWhenPushed:Bool=false) {
         if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {
             let tmpVC = vc.init()
@@ -45,6 +46,26 @@ extension UIViewController {
         }
     }
     
+    ///跳转至登录页
+    func showLoginViewController(showAlert:Bool=false) {
+        
+        if showAlert {
+            let alert = UIAlertController.init(title: "提示", message: "您确定要退出登录吗？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (action) in
+                if let vc = NSClassFromString("LightReading.LoginViewController") as? UIViewController.Type {
+                    UserdefaultsTool.setToken("")//清空token
+                    self.present(vc.init(), animated: true, completion: nil)
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            if let vc = NSClassFromString("LightReading.LoginViewController") as? UIViewController.Type {
+                UserdefaultsTool.setToken("")//清空token
+                self.present(vc.init(), animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 

@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 我的
+
 class MineViewController: BaseViewController {
 
     lazy var mineView:MineView = {

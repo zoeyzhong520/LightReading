@@ -28,6 +28,15 @@ extension UILabel {
             self.textAlignment = alignMent
         }
     }
+    
+    func getLabelWidth() -> CGFloat {
+        if self.text == nil {
+            return 0.0
+        }
+        
+        let labelWidth = (self.text! as NSString).size(withAttributes: [NSAttributedStringKey.font:self.font]).width
+        return labelWidth
+    }
 }
 
 

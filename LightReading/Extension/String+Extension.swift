@@ -14,4 +14,9 @@ extension String {
     func removeSpaces() {
         (self as NSString).replacingOccurrences(of: " ", with: "")
     }
+    
+    func getTitleWidth(_ font:UIFont) -> CGFloat {
+        let titleWidth = (self as NSString).size(withAttributes: [NSAttributedStringKey.font:font]).width
+        return titleWidth
+    }
 }

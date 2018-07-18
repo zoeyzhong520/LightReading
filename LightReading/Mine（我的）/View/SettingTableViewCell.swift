@@ -86,7 +86,7 @@ class SettingTableViewCell: UITableViewCell {
         if let type = self.model?.type {
             switch type {
             case "0"://清除缓存
-                break
+                self.rightLabel.text = String(format: "%.2fM", ClearCacheTool.checkCacheSize())
             case "1"://版本号
                 self.rightLabel.text = AppBulidVersion
             case "2"://关于我们

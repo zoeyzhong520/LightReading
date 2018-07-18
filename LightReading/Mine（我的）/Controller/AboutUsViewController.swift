@@ -1,20 +1,20 @@
 //
-//  SettingViewController.swift
+//  AboutUsViewController.swift
 //  LightReading
 //
-//  Created by ZZJ on 2018/7/17.
+//  Created by zhifu360 on 2018/7/18.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-//MARK: 设置
+//MARK: 关于我们
 
-class SettingViewController: BaseViewController {
+class AboutUsViewController: BaseViewController {
 
-    lazy var settingView:SettingView = {
-        let settingView = SettingView(frame: self.view.bounds)
-        return settingView
+    lazy var abousUsView:AboutUsView = {
+        let abousUsView = AboutUsView(frame: self.view.bounds)
+        return abousUsView
     }()
     
     override func viewDidLoad() {
@@ -25,17 +25,9 @@ class SettingViewController: BaseViewController {
     }
 
     func setPage() {
-        self.title = "设置"
+        self.title = "关于我们"
         
-        self.view.addSubview(self.settingView)
-        self.settingView.cellClickBlock = { [weak self] cellType in
-            switch cellType {
-            case .AboutUsType://关于我们
-                self?.showViewController("AboutUsViewController", hidesBottomBarWhenPushed:true)
-            case .SignOut://退出登录
-                self?.showLoginViewController(showAlert: true)
-            }
-        }
+        self.view.addSubview(self.abousUsView)
     }
     
     override func didReceiveMemoryWarning() {

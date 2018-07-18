@@ -26,6 +26,11 @@ class Enums: NSObject {
         case UserIDType
         case ScoreType
     }
+    
+    enum SettingCellType:Int {
+        case AboutUsType = 0
+        case SignOut
+    }
 }
 
 

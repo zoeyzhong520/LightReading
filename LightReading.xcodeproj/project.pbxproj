@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3600A4F420FEED0300EB42E1 /* ClearCacheTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A4F320FEED0300EB42E1 /* ClearCacheTool.swift */; };
+		3600A4F620FF16C900EB42E1 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A4F520FF16C900EB42E1 /* AboutUsViewController.swift */; };
+		3600A4F820FF1C1500EB42E1 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A4F720FF1C1500EB42E1 /* AboutUsView.swift */; };
+		3600A4FE20FF294400EB42E1 /* TopTitleScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A4FD20FF294400EB42E1 /* TopTitleScrollBar.swift */; };
+		3600A50020FF325800EB42E1 /* TopTitleMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A4FF20FF325800EB42E1 /* TopTitleMainView.swift */; };
+		3600A50220FF442500EB42E1 /* TopTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600A50120FF442500EB42E1 /* TopTitle.swift */; };
 		36284B3320F73281008C2E81 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B3220F73281008C2E81 /* UITableView+Extension.swift */; };
 		36284B3520F73916008C2E81 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B3420F73916008C2E81 /* UIView+Extension.swift */; };
 		36284B3820F73BFF008C2E81 /* UserdefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B3720F73BFF008C2E81 /* UserdefaultsTool.swift */; };
@@ -131,6 +137,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3600A4F320FEED0300EB42E1 /* ClearCacheTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCacheTool.swift; sourceTree = "<group>"; };
+		3600A4F520FF16C900EB42E1 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		3600A4F720FF1C1500EB42E1 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		3600A4FD20FF294400EB42E1 /* TopTitleScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleScrollBar.swift; sourceTree = "<group>"; };
+		3600A4FF20FF325800EB42E1 /* TopTitleMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleMainView.swift; sourceTree = "<group>"; };
+		3600A50120FF442500EB42E1 /* TopTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitle.swift; sourceTree = "<group>"; };
 		36284B3220F73281008C2E81 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		36284B3420F73916008C2E81 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		36284B3720F73BFF008C2E81 /* UserdefaultsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsTool.swift; sourceTree = "<group>"; };
@@ -335,6 +347,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3600A4F220FEECF800EB42E1 /* ClearCacheTool */ = {
+			isa = PBXGroup;
+			children = (
+				3600A4F320FEED0300EB42E1 /* ClearCacheTool.swift */,
+			);
+			path = ClearCacheTool;
+			sourceTree = "<group>";
+		};
+		3600A4F920FF281400EB42E1 /* TopTitleScrollBar（顶部标题滚动条） */ = {
+			isa = PBXGroup;
+			children = (
+				3600A4FA20FF281400EB42E1 /* Controller */,
+				3600A4FB20FF281400EB42E1 /* Model */,
+				3600A4FC20FF281400EB42E1 /* View */,
+			);
+			path = "TopTitleScrollBar（顶部标题滚动条）";
+			sourceTree = "<group>";
+		};
+		3600A4FA20FF281400EB42E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3600A4FB20FF281400EB42E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3600A4FC20FF281400EB42E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3600A4FD20FF294400EB42E1 /* TopTitleScrollBar.swift */,
+				3600A4FF20FF325800EB42E1 /* TopTitleMainView.swift */,
+				3600A50120FF442500EB42E1 /* TopTitle.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		36284B3620F73BF2008C2E81 /* UserdefaultsTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +509,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3600A4F220FEECF800EB42E1 /* ClearCacheTool */,
 				D825ACC120FE23A600A5E069 /* PersonalAvatarTool */,
 				D84EAEC720F8E0A400CC6F4D /* ZZJTimer */,
 				36284B3620F73BF2008C2E81 /* UserdefaultsTool */,
@@ -466,6 +521,7 @@
 		36D6821320F5EE0D0043B459 /* Home（首页） */ = {
 			isa = PBXGroup;
 			children = (
+				3600A4F920FF281400EB42E1 /* TopTitleScrollBar（顶部标题滚动条） */,
 				36D6821420F5EE0D0043B459 /* Controller */,
 				36D6821520F5EE0D0043B459 /* Model */,
 				36D6821620F5EE0D0043B459 /* View */,
@@ -514,6 +570,7 @@
 				D84EAECE20F8FFC800CC6F4D /* PersonalInformationViewController.swift */,
 				D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */,
 				D825ACC420FE27A200A5E069 /* SettingViewController.swift */,
+				3600A4F520FF16C900EB42E1 /* AboutUsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -539,6 +596,7 @@
 				D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */,
 				D825ACC620FE284D00A5E069 /* SettingView.swift */,
 				D825ACC820FE29B200A5E069 /* SettingTableViewCell.swift */,
+				3600A4F720FF1C1500EB42E1 /* AboutUsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1030,10 +1088,12 @@
 				D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */,
 				36D6822420F5EE560043B459 /* HomeViewController.swift in Sources */,
 				D8B0D3B820F6552800AAD399 /* MJRefreshStateHeader.m in Sources */,
+				3600A4FE20FF294400EB42E1 /* TopTitleScrollBar.swift in Sources */,
 				D8684F7E20F794A3005A4CCB /* SDWebImageTransition.m in Sources */,
 				36284B3820F73BFF008C2E81 /* UserdefaultsTool.swift in Sources */,
 				D8B0D3B220F6552800AAD399 /* MJRefreshBackStateFooter.m in Sources */,
 				D8684F7320F794A3005A4CCB /* SDWebImageDownloader.m in Sources */,
+				3600A4F820FF1C1500EB42E1 /* AboutUsView.swift in Sources */,
 				36D6823020F5EEA10043B459 /* MineModel.swift in Sources */,
 				D8B0D3C220F6552800AAD399 /* SVIndefiniteAnimatedView.m in Sources */,
 				D8B0D3B120F6552800AAD399 /* MJRefreshBackGifFooter.m in Sources */,
@@ -1059,6 +1119,7 @@
 				36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */,
 				D8684F7C20F794A3005A4CCB /* SDImageCache.m in Sources */,
 				D825ACC920FE29B200A5E069 /* SettingTableViewCell.swift in Sources */,
+				3600A4F620FF16C900EB42E1 /* AboutUsViewController.swift in Sources */,
 				36284B3E20F73D51008C2E81 /* LoginViewController.swift in Sources */,
 				D8684F7520F794A3005A4CCB /* UIImage+MultiFormat.m in Sources */,
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
@@ -1105,6 +1166,7 @@
 				D8B4F99320F969C100A88D27 /* PersonalInformationView.swift in Sources */,
 				36D6822C20F5EE8A0043B459 /* SquareView.swift in Sources */,
 				D8B0D3C020F6552800AAD399 /* SVProgressAnimatedView.m in Sources */,
+				3600A4F420FEED0300EB42E1 /* ClearCacheTool.swift in Sources */,
 				D8684F7F20F794A3005A4CCB /* NSData+ImageContentType.m in Sources */,
 				D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */,
 				D8684F7420F794A3005A4CCB /* UIImage+GIF.m in Sources */,
@@ -1115,7 +1177,9 @@
 				D8684F7620F794A3005A4CCB /* SDWebImageCoderHelper.m in Sources */,
 				D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */,
 				36D6823420F5EEB50043B459 /* HomeModel.swift in Sources */,
+				3600A50220FF442500EB42E1 /* TopTitle.swift in Sources */,
 				D8B0D3AC20F6552800AAD399 /* MJRefreshConst.m in Sources */,
+				3600A50020FF325800EB42E1 /* TopTitleMainView.swift in Sources */,
 				D8B0D3AF20F6552800AAD399 /* NSBundle+MJRefresh.m in Sources */,
 				D8B0D3B720F6552800AAD399 /* MJRefreshNormalHeader.m in Sources */,
 				36D6822E20F5EE910043B459 /* MineView.swift in Sources */,
