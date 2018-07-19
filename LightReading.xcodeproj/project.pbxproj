@@ -25,6 +25,8 @@
 		36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4520F741E0008C2E81 /* UIButton+Extension.swift */; };
 		36284B4820F75E7B008C2E81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4720F75E7B008C2E81 /* String+Extension.swift */; };
 		3645BC8A20FCA399002C938A /* LRAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645BC8920FCA399002C938A /* LRAlertView.swift */; };
+		36C732952100821A00201B01 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C732942100821A00201B01 /* UIScrollView+Extension.swift */; };
+		36C7329921008C0000201B01 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C7329821008C0000201B01 /* Protocols.swift */; };
 		36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D681E320F5ED180043B459 /* AppDelegate.swift */; };
 		36D681E620F5ED180043B459 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D681E520F5ED180043B459 /* ViewController.swift */; };
 		36D681E920F5ED180043B459 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D681E720F5ED180043B459 /* Main.storyboard */; };
@@ -157,6 +159,8 @@
 		36284B4520F741E0008C2E81 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		36284B4720F75E7B008C2E81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3645BC8920FCA399002C938A /* LRAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRAlertView.swift; sourceTree = "<group>"; };
+		36C732942100821A00201B01 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		36C7329821008C0000201B01 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		36D681E020F5ED180043B459 /* LightReading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightReading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D681E320F5ED180043B459 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D681E520F5ED180043B459 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 				D8684F2A20F79109005A4CCB /* AdvertisingPageScrollView.swift */,
 				D84EAECC20F8FD5500CC6F4D /* Enums.swift */,
 				3645BC8920FCA399002C938A /* LRAlertView.swift */,
+				36C7329821008C0000201B01 /* Protocols.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				36284B4520F741E0008C2E81 /* UIButton+Extension.swift */,
 				36284B4720F75E7B008C2E81 /* String+Extension.swift */,
 				D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */,
+				36C732942100821A00201B01 /* UIScrollView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1140,6 +1146,7 @@
 				D8B0D3AE20F6552800AAD399 /* UIScrollView+MJExtension.m in Sources */,
 				D8684F8720F794A3005A4CCB /* UIButton+WebCache.m in Sources */,
 				D8684F7120F794A3005A4CCB /* SDWebImageCodersManager.m in Sources */,
+				36C732952100821A00201B01 /* UIScrollView+Extension.swift in Sources */,
 				D8B0D3AB20F6552800AAD399 /* UIScrollView+MJRefresh.m in Sources */,
 				D8B0D36F20F6550100AAD399 /* UIViewController+Extension.swift in Sources */,
 				D8B0D36E20F6550100AAD399 /* UILabel+Extension.swift in Sources */,
@@ -1149,6 +1156,7 @@
 				D8B0D3BF20F6552800AAD399 /* SVRadialGradientLayer.m in Sources */,
 				36284B3320F73281008C2E81 /* UITableView+Extension.swift in Sources */,
 				D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */,
+				36C7329921008C0000201B01 /* Protocols.swift in Sources */,
 				D8B0D3C120F6552800AAD399 /* SVProgressHUD.m in Sources */,
 				D825ACC720FE284D00A5E069 /* SettingView.swift in Sources */,
 				D8684F8020F794A3005A4CCB /* UIImageView+WebCache.m in Sources */,

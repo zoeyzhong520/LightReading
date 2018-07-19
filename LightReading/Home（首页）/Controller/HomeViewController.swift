@@ -37,6 +37,8 @@ class HomeViewController: BaseViewController {
 //        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         
         self.view.addSubview(self.topTitleMainView)
+        self.topTitleMainView.titlesArray = ["全部", "中文文", "古诗鉴赏", "阶梯阅读读", "儿童文学文学", "中文经典文经典", "古诗鉴赏古诗鉴赏", "阶梯阅读赏古诗鉴赏", "儿阶梯阅读赏古诗鉴赏", "儿阶梯阅读赏古诗鉴赏典"]
+        self.topTitleMainView.subViewsArray = [UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView()]
     }
     
     @objc func clickAction() {

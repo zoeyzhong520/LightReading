@@ -21,6 +21,12 @@ class TopTitle: UIView {
     
     var clickBlock:(() -> Void)?
     
+    var font:UIFont? {
+        didSet {
+            self.configFont()
+        }
+    }
+    
     init(frame: CGRect, text:String?) {
         super.init(frame: frame)
         self.labelText = text
@@ -44,6 +50,13 @@ class TopTitle: UIView {
     @objc func tapAction() {
         if self.clickBlock != nil {
             self.clickBlock!()
+        }
+    }
+    
+    ///设置font
+    func configFont() {
+        if let font = self.font {
+            self.label.font = font
         }
     }
 }

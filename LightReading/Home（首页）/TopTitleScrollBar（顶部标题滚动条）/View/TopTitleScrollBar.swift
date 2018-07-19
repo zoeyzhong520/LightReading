@@ -27,13 +27,29 @@ class TopTitleScrollBar: UIView {
     
     var Margin = fontSizeScale(10)
     
-    var titlesArray = [String]()
+    ///标题数组
+    var titlesArray:Array<String>? {
+        didSet {
+            self.setupTopTitle()
+            self.setScrollViewContentSize()
+            self.setLineFrame(0)
+        }
+    }
     
-    init(frame: CGRect, titlesArray:[String]) {
+    weak var delegate:TopTitleScrollBarDelegate?
+    
+    ///当前index
+    var currentIndex:Int? {
+        didSet {
+            self.configCurrentIndex()
+        }
+    }
+    
+    ///存放TopTitle的数组
+    var TopTitleArray = [TopTitle]()
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.titlesArray = titlesArray
-        self.setScrollViewContentSize()
-        self.setLineFrame(0)
         self.createView()
     }
     
@@ -46,40 +62,60 @@ class TopTitleScrollBar: UIView {
         
         self.addSubview(self.scrollView)
         
-        if self.titlesArray.isEmpty == false {
+        self.scrollView.addSubview(self.line)
+    }
+    
+    ///创建TopTitle
+    func setupTopTitle() {
+        if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
             
-            for i in 0..<self.titlesArray.count {
-                let titleViewW = self.titlesArray[i].getTitleWidth(FourthFont) + Margin
+            for i in 0..<(self.titlesArray?.count)! {
+                let titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
                 contentWidth += titleViewW
                 
                 let titleViewH = self.bounds.size.height
                 
-                let titleView = TopTitle(frame: .zero, text: self.titlesArray[i])
+                let titleView = TopTitle(frame: .zero, text: self.titlesArray?[i])
+                titleView.tag = i
                 self.scrollView.addSubview(titleView)
                 titleView.clickBlock = { [weak self] in
-                    print("i = \(i)")
                     self?.setScrollViewContentOffset(i)
                     self?.setLineFrame(i)
+                    self?.configDelegate(i)
+                    self?.setupTopTitleTextFont(i, topTitleView: titleView)
                 }
                 titleView.snp.makeConstraints({ (make) in
                     make.centerY.equalToSuperview()
                     make.size.equalTo(CGSize(width: titleViewW, height: titleViewH))
                     make.left.equalTo(contentWidth-titleViewW)
                 })
+                
+                self.TopTitleArray.append(titleView)
             }
         }
-        
-        self.scrollView.addSubview(self.line)
+    }
+    
+    ///设置TopTitle的字体
+    func setupTopTitleTextFont(_ index:Int, topTitleView:TopTitle) {
+        if self.TopTitleArray.isEmpty == false {
+            for topTitle in self.TopTitleArray {
+                if topTitle.tag == index {
+                    topTitleView.font = FourthFont
+                } else {
+                    topTitle.font = FifthFont
+                }
+            }
+        }
     }
     
     ///设置scrollView的contentSize
     func setScrollViewContentSize() {
-        if self.titlesArray.isEmpty == false {
+        if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
             
-            for i in 0..<self.titlesArray.count {
-                let titleViewW = self.titlesArray[i].getTitleWidth(FourthFont) + Margin
+            for i in 0..<(self.titlesArray?.count)! {
+                let titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
                 contentWidth += titleViewW
             }
             self.scrollView.contentSize = CGSize(width: contentWidth, height: self.bounds.size.height)
@@ -88,30 +124,49 @@ class TopTitleScrollBar: UIView {
     
     ///设置scrollView的contentOffset
     func setScrollViewContentOffset(_ index:Int) {
-        var contentWidth:CGFloat = 0.0
-        var titleViewW:CGFloat = 0.0
-        
-        for i in 0..<index {
-            titleViewW = self.titlesArray[i].getTitleWidth(FourthFont) + Margin
-            contentWidth += titleViewW
+        if self.titlesArray?.isEmpty == false {
+            var contentWidth:CGFloat = 0.0
+            var titleViewW:CGFloat = 0.0
+            
+            for i in 0..<index {
+                titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
+                contentWidth += titleViewW
+            }
+            self.scrollView.setContentOffset(CGPoint(x: contentWidth-titleViewW, y: 0), animated: true)
         }
-        self.scrollView.setContentOffset(CGPoint(x: contentWidth-titleViewW, y: 0), animated: true)
     }
     
     ///设置line的frame
     func setLineFrame(_ index:Int) {
-        var contentWidth:CGFloat = 0.0
-        let titleViewW = self.titlesArray[index].getTitleWidth(FourthFont) + Margin
-        
-        for i in 0..<index {
-            let tmpTitleViewW = self.titlesArray[i].getTitleWidth(FourthFont) + Margin
-            contentWidth += tmpTitleViewW
+        if self.titlesArray?.isEmpty == false {
+            var contentWidth:CGFloat = 0.0
+            let titleViewW = self.titlesArray![index].getTitleWidth(FourthFont) + Margin
+            
+            for i in 0..<index {
+                let tmpTitleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
+                contentWidth += tmpTitleViewW
+            }
+            
+            //动画
+            UIView.animate(withDuration: AnimateDuration, animations: {
+                self.line.frame = CGRect(x: contentWidth, y: self.bounds.size.height-fontSizeScale(2), width: titleViewW, height: fontSizeScale(2))
+            }, completion: nil)
         }
-        
-        //动画
-        UIView.animate(withDuration: AnimateDuration, animations: {
-            self.line.frame = CGRect(x: contentWidth, y: self.bounds.size.height-fontSizeScale(2), width: titleViewW, height: fontSizeScale(2))
-        }, completion: nil)
+    }
+    
+    ///代理传值
+    func configDelegate(_ index:Int) {
+        if self.delegate != nil {
+            self.delegate?.didClickTitle(index)
+        }
+    }
+    
+    ///设置currentIndex
+    func configCurrentIndex() {
+        if let index = self.currentIndex {
+            self.setScrollViewContentOffset(index)
+            self.setLineFrame(index)
+        }
     }
 }
 
