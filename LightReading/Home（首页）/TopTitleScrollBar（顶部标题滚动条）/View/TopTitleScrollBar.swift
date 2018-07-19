@@ -31,6 +31,7 @@ class TopTitleScrollBar: UIView {
     var titlesArray:Array<String>? {
         didSet {
             self.setupTopTitle()
+            self.setupTopTitleTextFont(0)
             self.setScrollViewContentSize()
             self.setLineFrame(0)
         }
@@ -83,7 +84,7 @@ class TopTitleScrollBar: UIView {
                     self?.setScrollViewContentOffset(i)
                     self?.setLineFrame(i)
                     self?.configDelegate(i)
-                    self?.setupTopTitleTextFont(i, topTitleView: titleView)
+                    self?.setupTopTitleTextFont(i)
                 }
                 titleView.snp.makeConstraints({ (make) in
                     make.centerY.equalToSuperview()
@@ -96,14 +97,25 @@ class TopTitleScrollBar: UIView {
         }
     }
     
-    ///设置TopTitle的字体
-    func setupTopTitleTextFont(_ index:Int, topTitleView:TopTitle) {
+    ///设置TopTitle的字体、颜色
+    func setupTopTitleTextFont(_ index:Int) {
         if self.TopTitleArray.isEmpty == false {
             for topTitle in self.TopTitleArray {
-                if topTitle.tag == index {
-                    topTitleView.font = FourthFont
-                } else {
+                if topTitle.tag == index {//添加动画
                     topTitle.font = FifthFont
+                    topTitle.textColor = LightGrayColor
+                    UIView.animate(withDuration: AnimateDuration, animations: {
+                        topTitle.font = FourthFont
+                        topTitle.textColor = BlueColor
+                    }, completion: nil)
+                    
+                } else {
+                    topTitle.font = FourthFont
+                    topTitle.textColor = BlueColor
+                    UIView.animate(withDuration: AnimateDuration, animations: {
+                        topTitle.font = FifthFont
+                        topTitle.textColor = LightGrayColor
+                    }, completion: nil)
                 }
             }
         }
@@ -117,6 +129,7 @@ class TopTitleScrollBar: UIView {
             for i in 0..<(self.titlesArray?.count)! {
                 let titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
                 contentWidth += titleViewW
+                print("titleViewW = \(titleViewW), contentWidth = \(contentWidth)")
             }
             self.scrollView.contentSize = CGSize(width: contentWidth, height: self.bounds.size.height)
         }
@@ -132,7 +145,7 @@ class TopTitleScrollBar: UIView {
                 titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
                 contentWidth += titleViewW
             }
-            self.scrollView.setContentOffset(CGPoint(x: contentWidth-titleViewW, y: 0), animated: true)
+            self.scrollView.setContentOffset(CGPoint(x: contentWidth/2, y: 0), animated: true)
         }
     }
     
@@ -149,7 +162,7 @@ class TopTitleScrollBar: UIView {
             
             //动画
             UIView.animate(withDuration: AnimateDuration, animations: {
-                self.line.frame = CGRect(x: contentWidth, y: self.bounds.size.height-fontSizeScale(2), width: titleViewW, height: fontSizeScale(2))
+                self.line.frame = CGRect(x: contentWidth, y: self.bounds.size.height-fontSizeScale(3), width: titleViewW, height: fontSizeScale(3))
             }, completion: nil)
         }
     }
@@ -166,6 +179,7 @@ class TopTitleScrollBar: UIView {
         if let index = self.currentIndex {
             self.setScrollViewContentOffset(index)
             self.setLineFrame(index)
+            self.setupTopTitleTextFont(index)
         }
     }
 }

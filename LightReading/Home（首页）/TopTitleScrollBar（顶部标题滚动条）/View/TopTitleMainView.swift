@@ -31,6 +31,14 @@ class TopTitleMainView: UIView {
         }
     }
     
+    ///子控制器数组
+    var subViewControllersArray:Array<UIViewController>? {
+        didSet {
+            self.setupSubViewControllers()
+            self.setScrollViewContentSizeWithSubViewControllers()
+        }
+    }
+    
     lazy var scrollView:UIScrollView = {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: fontSizeScale(30), width: self.bounds.size.width, height: self.bounds.size.height-fontSizeScale(30)))
         scrollView.backgroundColor = .clear
@@ -73,10 +81,34 @@ class TopTitleMainView: UIView {
         }
     }
     
+    ///设置subViewControllers
+    func setupSubViewControllers() {
+        if self.subViewControllersArray?.isEmpty == false {
+            for i in 0..<(self.subViewControllersArray?.count)! {
+                let subView = self.subViewControllersArray![i].view
+                subView?.backgroundColor = i % 2 == 0 ? UIColor.magenta : UIColor.brown
+                self.scrollView.addSubview(subView!)
+                subView?.snp.makeConstraints({ (make) in
+                    make.left.equalTo(ScreenWidth*CGFloat(i))
+                    make.size.equalTo(CGSize(width: ScreenWidth, height: self.bounds.size.height-fontSizeScale(30)))
+                    make.top.equalToSuperview()
+                })
+            }
+        }
+    }
+    
     ///设置scrollView的contentSize
     func setScrollViewContentSize() {
         if self.subViewsArray?.isEmpty == false {
             let cnt = (self.subViewsArray?.count)!
+            self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: self.bounds.size.height-fontSizeScale(30))
+        }
+    }
+    
+    ///设置scrollView的contentSize
+    func setScrollViewContentSizeWithSubViewControllers() {
+        if self.subViewControllersArray?.isEmpty == false {
+            let cnt = (self.subViewControllersArray?.count)!
             self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: self.bounds.size.height-fontSizeScale(30))
         }
     }

@@ -11,7 +11,7 @@ import UIKit
 //MARK: 首页
 
 class HomeViewController: BaseViewController {
-
+    
     lazy var homeView:HomeView = {
         let homeView = HomeView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
         return homeView
@@ -24,21 +24,43 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.setPage()
     }
-
+    
     func setPage() {
         
         self.addBarButtonItemWithImage(.right, image: "saoyisao", action: #selector(clickAction))
         
-//        self.view.addSubview(self.homeView)
-//        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
+        //        self.view.addSubview(self.homeView)
+        //        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         
         self.view.addSubview(self.topTitleMainView)
-        self.topTitleMainView.titlesArray = ["全部", "中文文", "古诗鉴赏", "阶梯阅读读", "儿童文学文学", "中文经典文经典", "古诗鉴赏古诗鉴赏", "阶梯阅读赏古诗鉴赏", "儿阶梯阅读赏古诗鉴赏", "儿阶梯阅读赏古诗鉴赏典"]
-        self.topTitleMainView.subViewsArray = [UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView(), UIView()]
+        self.topTitleMainView.titlesArray = [
+            "全部",
+            "中文经典",
+            "古诗鉴赏",
+            "阶梯阅读",
+            "儿童文学",
+            "文学名著",
+            "国学名著",
+            "自然科普",
+            "人文社科",
+            "成长励志"
+        ]
+        self.topTitleMainView.subViewControllersArray = [
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController()
+        ]
     }
     
     @objc func clickAction() {
@@ -60,15 +82,15 @@ class HomeViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

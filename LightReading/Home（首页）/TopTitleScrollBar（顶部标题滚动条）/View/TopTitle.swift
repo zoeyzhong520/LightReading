@@ -11,7 +11,7 @@ import UIKit
 class TopTitle: UIView {
 
     lazy var label:UILabel = {
-        let label = UILabel("全部", font: FourthFont, textColor: BlackColor, alignment: .center)
+        let label = UILabel("全部", font: FourthFont, textColor: LightGrayColor, alignment: .center)
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         return label
@@ -24,6 +24,12 @@ class TopTitle: UIView {
     var font:UIFont? {
         didSet {
             self.configFont()
+        }
+    }
+    
+    var textColor:UIColor? {
+        didSet {
+            self.configTextColor()
         }
     }
     
@@ -57,6 +63,13 @@ class TopTitle: UIView {
     func configFont() {
         if let font = self.font {
             self.label.font = font
+        }
+    }
+    
+    ///设置color
+    func configTextColor() {
+        if let color = self.textColor {
+            self.label.textColor = color
         }
     }
 }
