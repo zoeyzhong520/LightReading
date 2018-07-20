@@ -10,21 +10,21 @@ import UIKit
 
 class TopTitleMainView: UIView {
 
-    lazy var topTitleScrollBar:TopTitleScrollBar = {
+    lazy fileprivate var topTitleScrollBar:TopTitleScrollBar = {
         let frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: fontSizeScale(30))
         let topTitleScrollBar = TopTitleScrollBar(frame: frame)
         topTitleScrollBar.delegate = self
         return topTitleScrollBar
     }()
     
-    var titlesArray:Array<String>? {
+    fileprivate var titlesArray:Array<String>? {
         didSet {
             self.topTitleScrollBar.titlesArray = titlesArray
         }
     }
     
     ///子视图数组
-    var subViewsArray:Array<UIView>? {
+    fileprivate var subViewsArray:Array<UIView>? {
         didSet {
             self.setupSubViews()
             self.setScrollViewContentSize()
@@ -32,7 +32,7 @@ class TopTitleMainView: UIView {
     }
     
     ///子控制器数组
-    var subViewControllersArray:Array<UIViewController>? {
+    fileprivate var subViewControllersArray:Array<UIViewController>? {
         didSet {
             self.setupSubViewControllers()
             self.setScrollViewContentSizeWithSubViewControllers()
@@ -48,6 +48,12 @@ class TopTitleMainView: UIView {
         return scrollView
     }()
     
+    weak var delegate:TopTitleMainViewDelegate? {
+        didSet {
+            self.configDelegate()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -57,7 +63,7 @@ class TopTitleMainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createView() {
+    fileprivate func createView() {
         self.backgroundColor = .white
         
         self.addSubview(self.topTitleScrollBar)
@@ -66,7 +72,7 @@ class TopTitleMainView: UIView {
     }
     
     ///设置subViews
-    func setupSubViews() {
+    fileprivate func setupSubViews() {
         if self.subViewsArray?.isEmpty == false {
             for i in 0..<(self.subViewsArray?.count)! {
                 let subView = self.subViewsArray![i]
@@ -82,7 +88,7 @@ class TopTitleMainView: UIView {
     }
     
     ///设置subViewControllers
-    func setupSubViewControllers() {
+    fileprivate func setupSubViewControllers() {
         if self.subViewControllersArray?.isEmpty == false {
             for i in 0..<(self.subViewControllersArray?.count)! {
                 let subView = self.subViewControllersArray![i].view
@@ -98,7 +104,7 @@ class TopTitleMainView: UIView {
     }
     
     ///设置scrollView的contentSize
-    func setScrollViewContentSize() {
+    fileprivate func setScrollViewContentSize() {
         if self.subViewsArray?.isEmpty == false {
             let cnt = (self.subViewsArray?.count)!
             self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: self.bounds.size.height-fontSizeScale(30))
@@ -106,7 +112,7 @@ class TopTitleMainView: UIView {
     }
     
     ///设置scrollView的contentSize
-    func setScrollViewContentSizeWithSubViewControllers() {
+    fileprivate func setScrollViewContentSizeWithSubViewControllers() {
         if self.subViewControllersArray?.isEmpty == false {
             let cnt = (self.subViewControllersArray?.count)!
             self.scrollView.contentSize = CGSize(width: ScreenWidth*CGFloat(cnt), height: self.bounds.size.height-fontSizeScale(30))
@@ -114,8 +120,16 @@ class TopTitleMainView: UIView {
     }
     
     ///设置scrollView的contentOffset
-    func setScrollViewContentOffset(_ index:Int) {
+    fileprivate func setScrollViewContentOffset(_ index:Int) {
         self.scrollView.setContentOffset(CGPoint(x: ScreenWidth*CGFloat(index), y: 0), animated: true)
+    }
+    
+    ///设置delegate
+    fileprivate func configDelegate() {
+        if self.delegate != nil {
+            self.titlesArray = self.delegate?.titlesForTopTitleView()
+            self.subViewControllersArray = self.delegate?.viewControllersForTopTitleView()
+        }
     }
 }
 

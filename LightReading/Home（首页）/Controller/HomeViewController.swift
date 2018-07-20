@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController {
     
     lazy var topTitleMainView:TopTitleMainView = {
         let topTitleMainView = TopTitleMainView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
+        topTitleMainView.delegate = self
         return topTitleMainView
     }()
     
@@ -37,30 +38,6 @@ class HomeViewController: BaseViewController {
         //        self.homeView.advertisingPageScrollView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         
         self.view.addSubview(self.topTitleMainView)
-        self.topTitleMainView.titlesArray = [
-            "全部",
-            "中文经典",
-            "古诗鉴赏",
-            "阶梯阅读",
-            "儿童文学",
-            "文学名著",
-            "国学名著",
-            "自然科普",
-            "人文社科",
-            "成长励志"
-        ]
-        self.topTitleMainView.subViewControllersArray = [
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController(),
-            TopTitleMainViewController()
-        ]
     }
     
     @objc func clickAction() {
@@ -94,3 +71,46 @@ class HomeViewController: BaseViewController {
      */
     
 }
+
+extension HomeViewController: TopTitleMainViewDelegate {
+    
+    func titlesForTopTitleView() -> [String]? {
+        return [
+            "全部",
+            "中文经典",
+            "古诗鉴赏",
+            "阶梯阅读",
+            "儿童文学",
+            "文学名著",
+            "国学名著",
+            "自然科普",
+            "人文社科",
+            "成长励志"
+        ]
+    }
+    
+    func viewControllersForTopTitleView() -> [UIViewController]? {
+        return [
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController(),
+            TopTitleMainViewController()
+        ]
+    }
+}
+
+
+
+
+
+
+
+
+
+

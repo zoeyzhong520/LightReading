@@ -10,14 +10,14 @@ import UIKit
 
 class TopTitle: UIView {
 
-    lazy var label:UILabel = {
+    lazy fileprivate var label:UILabel = {
         let label = UILabel("全部", font: FourthFont, textColor: LightGrayColor, alignment: .center)
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         return label
     }()
     
-    var labelText:String?
+    fileprivate var labelText:String?
     
     var clickBlock:(() -> Void)?
     
@@ -43,7 +43,7 @@ class TopTitle: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createView() {
+    fileprivate func createView() {
         self.backgroundColor = .clear
         
         self.label.text = self.labelText
@@ -60,14 +60,14 @@ class TopTitle: UIView {
     }
     
     ///设置font
-    func configFont() {
+    fileprivate func configFont() {
         if let font = self.font {
             self.label.font = font
         }
     }
     
     ///设置color
-    func configTextColor() {
+    fileprivate func configTextColor() {
         if let color = self.textColor {
             self.label.textColor = color
         }

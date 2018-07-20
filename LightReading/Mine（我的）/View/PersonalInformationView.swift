@@ -18,7 +18,7 @@ class PersonalInformationView: UIView {
     
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: self.bounds, style: .grouped)
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = TableViewBackgroundColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.sectionHeaderHeight = fontSizeScale(15)

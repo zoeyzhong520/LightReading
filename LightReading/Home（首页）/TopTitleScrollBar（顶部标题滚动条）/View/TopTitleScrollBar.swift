@@ -10,7 +10,7 @@ import UIKit
 
 class TopTitleScrollBar: UIView {
 
-    lazy var scrollView:UIScrollView = {
+    lazy fileprivate var scrollView:UIScrollView = {
         let scrollView = UIScrollView(frame: self.bounds)
         scrollView.backgroundColor = .clear
         scrollView.delegate = self
@@ -20,7 +20,7 @@ class TopTitleScrollBar: UIView {
     }()
     
     ///下划线
-    lazy var line:UIView = {
+    lazy fileprivate var line:UIView = {
         let line = UIView(BlueColor)
         return line
     }()
@@ -47,7 +47,7 @@ class TopTitleScrollBar: UIView {
     }
     
     ///存放TopTitle的数组
-    var TopTitleArray = [TopTitle]()
+    fileprivate var TopTitleArray = [TopTitle]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,7 +58,7 @@ class TopTitleScrollBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createView() {
+    fileprivate func createView() {
         self.backgroundColor = .white
         
         self.addSubview(self.scrollView)
@@ -67,7 +67,7 @@ class TopTitleScrollBar: UIView {
     }
     
     ///创建TopTitle
-    func setupTopTitle() {
+    fileprivate func setupTopTitle() {
         if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
             
@@ -98,7 +98,7 @@ class TopTitleScrollBar: UIView {
     }
     
     ///设置TopTitle的字体、颜色
-    func setupTopTitleTextFont(_ index:Int) {
+    fileprivate func setupTopTitleTextFont(_ index:Int) {
         if self.TopTitleArray.isEmpty == false {
             for topTitle in self.TopTitleArray {
                 if topTitle.tag == index {//添加动画
@@ -122,7 +122,7 @@ class TopTitleScrollBar: UIView {
     }
     
     ///设置scrollView的contentSize
-    func setScrollViewContentSize() {
+    fileprivate func setScrollViewContentSize() {
         if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
             
@@ -136,21 +136,22 @@ class TopTitleScrollBar: UIView {
     }
     
     ///设置scrollView的contentOffset
-    func setScrollViewContentOffset(_ index:Int) {
+    fileprivate func setScrollViewContentOffset(_ index:Int) {
         if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
-            var titleViewW:CGFloat = 0.0
+            let singleTextW = "阅".getTitleWidth(FourthFont) + Margin
+            let cnt = (self.titlesArray?.count)!
             
             for i in 0..<index {
-                titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
+                let titleViewW = self.titlesArray![i].getTitleWidth(FourthFont) + Margin
                 contentWidth += titleViewW
             }
-            self.scrollView.setContentOffset(CGPoint(x: contentWidth/2, y: 0), animated: true)
+            self.scrollView.setContentOffset(CGPoint(x: contentWidth/2 + (index == cnt-1 ? singleTextW : 0.0), y: 0), animated: true)
         }
     }
     
     ///设置line的frame
-    func setLineFrame(_ index:Int) {
+    fileprivate func setLineFrame(_ index:Int) {
         if self.titlesArray?.isEmpty == false {
             var contentWidth:CGFloat = 0.0
             let titleViewW = self.titlesArray![index].getTitleWidth(FourthFont) + Margin
@@ -168,14 +169,14 @@ class TopTitleScrollBar: UIView {
     }
     
     ///代理传值
-    func configDelegate(_ index:Int) {
+    fileprivate func configDelegate(_ index:Int) {
         if self.delegate != nil {
             self.delegate?.didClickTitle(index)
         }
     }
     
     ///设置currentIndex
-    func configCurrentIndex() {
+    fileprivate func configCurrentIndex() {
         if let index = self.currentIndex {
             self.setScrollViewContentOffset(index)
             self.setLineFrame(index)
