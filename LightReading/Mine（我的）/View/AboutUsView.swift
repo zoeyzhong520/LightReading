@@ -17,7 +17,7 @@ class AboutUsView: UIView {
     }()
     
     lazy var titleLabel:UILabel = {
-        let titleLabel = UILabel("轻阅读 LightReading 1.0", font: FourthFont, textColor: LightGrayColor, alignment: .center)
+        let titleLabel = UILabel("轻阅读 LightReading \(AppBulidVersion ?? "1.0")", font: FourthFont, textColor: LightGrayColor, alignment: .center)
         return titleLabel
     }()
     

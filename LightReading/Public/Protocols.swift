@@ -15,6 +15,7 @@ protocol TopTitleScrollBarDelegate: NSObjectProtocol {
 @objc protocol TopTitleMainViewDelegate: NSObjectProtocol {
     ///返回标题数组
     func titlesForTopTitleView() -> [String]?
+    
     ///返回控制器数组
     func viewControllersForTopTitleView() -> [UIViewController]?
 }

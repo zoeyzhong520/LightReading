@@ -121,6 +121,9 @@
 		D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */; };
 		D8B4F99920FA32A300A88D27 /* PersonalInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */; };
 		D8ED045020FB72C8007D732A /* PersonalAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */; };
+		D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A4210210AA0012D633 /* HomeChildViewController.swift */; };
+		D8F053A7210213EF0012D633 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */; };
+		D8F053AB210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -318,6 +321,9 @@
 		D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationModel.swift; sourceTree = "<group>"; };
 		D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarView.swift; sourceTree = "<group>"; };
+		D8F053A4210210AA0012D633 /* HomeChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChildViewController.swift; sourceTree = "<group>"; };
+		D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAdvertisingPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -544,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				36D6822320F5EE560043B459 /* HomeViewController.swift */,
+				D8F053A4210210AA0012D633 /* HomeChildViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -559,7 +566,9 @@
 		36D6821620F5EE0D0043B459 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */,
 				36D6822920F5EE800043B459 /* HomeView.swift */,
+				D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1118,6 +1127,7 @@
 				36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */,
 				D8684F7B20F794A3005A4CCB /* SDAnimatedImageRep.m in Sources */,
 				D8684F8620F794A3005A4CCB /* SDWebImageImageIOCoder.m in Sources */,
+				D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */,
 				36D6822220F5EE440043B459 /* BaseViewController.swift in Sources */,
 				D8684F7820F794A3005A4CCB /* SDWebImagePrefetcher.m in Sources */,
 				36284B4020F73D5C008C2E81 /* LoginModel.swift in Sources */,
@@ -1155,6 +1165,7 @@
 				D8B0D3B320F6552800AAD399 /* MJRefreshBackNormalFooter.m in Sources */,
 				D8B0D3BF20F6552800AAD399 /* SVRadialGradientLayer.m in Sources */,
 				36284B3320F73281008C2E81 /* UITableView+Extension.swift in Sources */,
+				D8F053A7210213EF0012D633 /* HomeCollectionViewCell.swift in Sources */,
 				D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */,
 				36C7329921008C0000201B01 /* Protocols.swift in Sources */,
 				D8B0D3C120F6552800AAD399 /* SVProgressHUD.m in Sources */,
@@ -1201,6 +1212,7 @@
 				36D6822E20F5EE910043B459 /* MineView.swift in Sources */,
 				D825ACCB20FE2B5200A5E069 /* SettingModel.swift in Sources */,
 				D8684F7A20F794A3005A4CCB /* NSButton+WebCache.m in Sources */,
+				D8F053AB210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift in Sources */,
 				36D6822020F5EE2F0043B459 /* Constant.swift in Sources */,
 				36D6822620F5EE640043B459 /* SquareViewController.swift in Sources */,
 			);
