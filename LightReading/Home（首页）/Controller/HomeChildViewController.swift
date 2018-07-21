@@ -32,15 +32,6 @@ class HomeChildViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.homeView.advertisingPageScrollView.enableTimer = true//开启定时器
-//    }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.homeView.advertisingPageScrollView.disableTimer = true //停止定时器
-//    }
     
     /*
     // MARK: - Navigation

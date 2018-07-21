@@ -30,8 +30,8 @@ class HomeView: UIView {
     }()
     
     var dataArray:Array<String>? {
-        didSet {
-            self.collectionView.reloadData()
+        didSet {//刷新第一个分组数据
+            self.collectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
         }
     }
     
