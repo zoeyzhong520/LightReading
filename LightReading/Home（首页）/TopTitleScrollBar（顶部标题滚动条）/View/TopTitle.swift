@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 顶部标题
+
 class TopTitle: UIView {
 
     lazy fileprivate var label:UILabel = {

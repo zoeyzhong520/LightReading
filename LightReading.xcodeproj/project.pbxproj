@@ -87,7 +87,10 @@
 		D8684F8620F794A3005A4CCB /* SDWebImageImageIOCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6420F794A3005A4CCB /* SDWebImageImageIOCoder.m */; };
 		D8684F8720F794A3005A4CCB /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6820F794A3005A4CCB /* UIButton+WebCache.m */; };
 		D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */; };
+		D88B701D2104CC6A0067F164 /* LRWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B701C2104CC6A0067F164 /* LRWebViewController.swift */; };
 		D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */; };
+		D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */; };
+		D8AD7FF221042B2A002FA05E /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD7FF121042B2A002FA05E /* HomeMainView.swift */; };
 		D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36920F654EE00AAD399 /* MineUserInfoTableViewCell.swift */; };
 		D8B0D36E20F6550100AAD399 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36C20F6550100AAD399 /* UILabel+Extension.swift */; };
 		D8B0D36F20F6550100AAD399 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0D36D20F6550100AAD399 /* UIViewController+Extension.swift */; };
@@ -262,7 +265,10 @@
 		D8684F6820F794A3005A4CCB /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageWebPCoder.m; sourceTree = "<group>"; };
 		D8684F6A20F794A3005A4CCB /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		D88B701C2104CC6A0067F164 /* LRWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRWebViewController.swift; sourceTree = "<group>"; };
 		D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarViewController.swift; sourceTree = "<group>"; };
+		D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
+		D8AD7FF121042B2A002FA05E /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		D8B0D36920F654EE00AAD399 /* MineUserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineUserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D8B0D36C20F6550100AAD399 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		D8B0D36D20F6550100AAD399 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -519,6 +525,7 @@
 				D84EAECC20F8FD5500CC6F4D /* Enums.swift */,
 				3645BC8920FCA399002C938A /* LRAlertView.swift */,
 				36C7329821008C0000201B01 /* Protocols.swift */,
+				D88B701C2104CC6A0067F164 /* LRWebViewController.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -551,6 +558,7 @@
 			children = (
 				36D6822320F5EE560043B459 /* HomeViewController.swift */,
 				D8F053A4210210AA0012D633 /* HomeChildViewController.swift */,
+				D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -569,6 +577,7 @@
 				D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */,
 				36D6822920F5EE800043B459 /* HomeView.swift */,
 				D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */,
+				D8AD7FF121042B2A002FA05E /* HomeMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1106,6 +1115,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8AD7FF221042B2A002FA05E /* HomeMainView.swift in Sources */,
 				D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */,
 				36D6822420F5EE560043B459 /* HomeViewController.swift in Sources */,
 				D8B0D3B820F6552800AAD399 /* MJRefreshStateHeader.m in Sources */,
@@ -1198,6 +1208,7 @@
 				D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */,
 				D8684F7420F794A3005A4CCB /* UIImage+GIF.m in Sources */,
 				36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */,
+				D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */,
 				D8ED045020FB72C8007D732A /* PersonalAvatarView.swift in Sources */,
 				D8684F7920F794A3005A4CCB /* SDWebImageCoder.m in Sources */,
 				D8684F8520F794A3005A4CCB /* UIView+WebCache.m in Sources */,
@@ -1215,6 +1226,7 @@
 				D8F053AB210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift in Sources */,
 				36D6822020F5EE2F0043B459 /* Constant.swift in Sources */,
 				36D6822620F5EE640043B459 /* SquareViewController.swift in Sources */,
+				D88B701D2104CC6A0067F164 /* LRWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,6 +56,7 @@ class AdvertisingPageScrollView: UIView {
         leftImageView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: self.bounds.size.height)
         leftImageView.contentMode = .scaleAspectFill
         leftImageView.clipsToBounds = true
+        leftImageView.isUserInteractionEnabled = true
         return leftImageView
     }()
     
@@ -64,7 +65,6 @@ class AdvertisingPageScrollView: UIView {
         centerImageView.frame = CGRect(x: ScreenWidth, y: 0, width: ScreenWidth, height: self.bounds.size.height)
         centerImageView.contentMode = .scaleAspectFill
         centerImageView.clipsToBounds = true
-        centerImageView.isUserInteractionEnabled = true
         return centerImageView
     }()
     
@@ -83,6 +83,8 @@ class AdvertisingPageScrollView: UIView {
     
     var currentImageIndex:Int = 0
     
+    var clickBlock:((Int) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -94,6 +96,8 @@ class AdvertisingPageScrollView: UIView {
     
     func createView() {
         self.backgroundColor = .white
+        
+        self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction(_:))))
         
         self.addSubview(self.scrollView)
         
@@ -165,6 +169,13 @@ class AdvertisingPageScrollView: UIView {
             rightImageIndex = (currentImageIndex+1) % cnt
             self.leftImageView.sd_setImage(with: URL.init(string: self.dataArray![leftImageIndex]), placeholderImage: PlaceholderImage)
             self.rightImageView.sd_setImage(with: URL.init(string: self.dataArray![rightImageIndex]), placeholderImage: PlaceholderImage)
+        }
+    }
+    
+    ///tap Action
+    @objc fileprivate func tapAction(_ tap:UITapGestureRecognizer) {
+        if self.clickBlock != nil {
+            self.clickBlock!(self.currentImageIndex)
         }
     }
 }

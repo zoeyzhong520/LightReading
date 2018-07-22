@@ -1,14 +1,14 @@
 //
-//  HomeView.swift
+//  HomeMainView.swift
 //  LightReading
 //
-//  Created by zhifu360 on 2018/7/11.
+//  Created by ZZJ on 2018/7/22.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-class HomeView: UIView {
+class HomeMainView: UIView {
     
     lazy var collectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -25,17 +25,8 @@ class HomeView: UIView {
         collectionView.dataSource = self
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCollectionViewCellID")
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
-        collectionView.register(HomeAdvertisingPageCollectionViewCell.self, forCellWithReuseIdentifier: "HomeAdvertisingPageCollectionViewCellID")
         return collectionView
     }()
-    
-    var dataArray:Array<String>? {
-        didSet {//刷新第一个分组数据
-            self.collectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
-        }
-    }
-    
-    var advertisingCellClickBlock:((Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,35 +45,20 @@ class HomeView: UIView {
     }
 }
 
-extension HomeView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeMainView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10+1
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return 6
-        }
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 0 {
-            let cell = HomeAdvertisingPageCollectionViewCell.createCell(collectionView, indexPath: indexPath)
-            cell.dataArray = self.dataArray
-            cell.clickBlock = { [weak self] index in
-                if self?.advertisingCellClickBlock != nil {
-                    self?.advertisingCellClickBlock!(index)
-                }
-            }
-            return cell
-        } else {
-            let cell = HomeCollectionViewCell.createCell(collectionView, indexPath: indexPath)
-            return cell
-        }
+        let cell = HomeCollectionViewCell.createCell(collectionView, indexPath: indexPath)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -100,31 +76,8 @@ extension HomeView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate
         }
         return UICollectionReusableView()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: ScreenWidth, height: fontSizeScale(230))
-        } else {
-            return CGSize(width: fontSizeScale(105), height: fontSizeScale(170))
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 0 {
-            return CGSize(width: ScreenWidth, height: fontSizeScale(0))
-        } else {
-            return CGSize(width: ScreenWidth, height: fontSizeScale(30))
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 0 {
-            return UIEdgeInsetsMake(fontSizeScale(15), 0, 0, 0)
-        } else {
-            return UIEdgeInsetsMake(fontSizeScale(15), fontSizeScale(15), fontSizeScale(15), fontSizeScale(15))
-        }
-    }
 }
+
 
 
 

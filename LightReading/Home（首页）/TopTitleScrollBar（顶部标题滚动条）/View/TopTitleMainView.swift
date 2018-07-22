@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 包含顶部标题滚动条的视图
+
 class TopTitleMainView: UIView {
 
     lazy fileprivate var topTitleScrollBar:TopTitleScrollBar = {

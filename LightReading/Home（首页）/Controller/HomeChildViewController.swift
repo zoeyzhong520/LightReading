@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 带广告页的子控制器
+
 class HomeChildViewController: BaseViewController {
 
     lazy var homeView:HomeView = {
@@ -25,6 +27,12 @@ class HomeChildViewController: BaseViewController {
     func setPage() {
         self.view.addSubview(self.homeView)
         self.homeView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
+        self.homeView.advertisingCellClickBlock = { [weak self] index in
+            print("index = \(index)")
+            self?.showLRWebViewController(BaiduLink)
+        }
+        
+        self.navigationController?.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,6 +40,16 @@ class HomeChildViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        NotificationCenter.default.post(name: HomeChildViewWillAppear_Notification, object: nil)
+//        print("HomeChildViewWillAppear_Notification")
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        NotificationCenter.default.post(name: HomeChildViewWillDisappear_Notification, object: nil)
+//    }
     
     /*
     // MARK: - Navigation
@@ -44,3 +62,24 @@ class HomeChildViewController: BaseViewController {
     */
 
 }
+
+extension HomeChildViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        let isShow = viewController.isKind(of: HomeChildViewController.classForCoder())
+        self.navigationController?.navigationBar.isHidden = isShow
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

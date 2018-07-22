@@ -126,6 +126,25 @@ let LRKeyWindow = UIApplication.shared.keyWindow
 //MARK: 获取App的build版本号
 let AppBulidVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
+//MARK: 通知名称
+///ApplicationDidBecomeActive
+let ApplicationDidBecomeActive = NSNotification.Name.UIApplicationDidBecomeActive
+
+///ApplicationWillTerminate
+let ApplicationWillTerminate = NSNotification.Name.UIApplicationWillTerminate
+
+///ApplicationDidEnterBackground
+let ApplicationDidEnterBackground = NSNotification.Name.UIApplicationDidEnterBackground
+
+///HomeChildViewWillAppear_Notification
+let HomeChildViewWillAppear_Notification = NSNotification.Name.init("HomeChildViewWillAppear_Notification")
+
+///HomeChildViewWillDisappear_Notification
+let HomeChildViewWillDisappear_Notification = NSNotification.Name.init("HomeChildViewWillDisappear_Notification")
+
+//MARK: BaiduLink
+let BaiduLink = "https://www.baidu.com/"
+
 
 
 

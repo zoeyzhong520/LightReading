@@ -66,6 +66,13 @@ extension UIViewController {
             }
         }
     }
+    
+    ///跳转到LRWebViewController
+    func showLRWebViewController(_ url:String?) {
+        let vc = LRWebViewController()
+        vc.url = url
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

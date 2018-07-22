@@ -73,16 +73,16 @@ extension HomeViewController: TopTitleMainViewDelegate {
     
     func viewControllersForTopTitleView() -> [UIViewController]? {
         return [
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController(),
-            HomeChildViewController()
+            UINavigationController.init(rootViewController: HomeChildViewController()),//带广告页的控制器
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController(),
+            HomeMainViewController()
         ]
     }
 }

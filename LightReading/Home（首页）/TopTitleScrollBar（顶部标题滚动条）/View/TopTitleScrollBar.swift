@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: 顶部标题滚动条
+
 class TopTitleScrollBar: UIView {
 
     lazy fileprivate var scrollView:UIScrollView = {

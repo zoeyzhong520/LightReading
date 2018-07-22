@@ -1,16 +1,21 @@
 //
-//  TopTitleMainViewController.swift
+//  HomeMainViewController.swift
 //  LightReading
 //
-//  Created by zhifu360 on 2018/7/18.
+//  Created by ZZJ on 2018/7/22.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-//MARK: 顶部标题滚动条控制器
+//MARK: 子控制器
 
-class TopTitleMainViewController: UIViewController {
+class HomeMainViewController: BaseViewController {
+
+    lazy var homeMainView:HomeMainView = {
+        let homeMainView = HomeMainView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight - fontSizeScale(30)))
+        return homeMainView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +25,7 @@ class TopTitleMainViewController: UIViewController {
     }
 
     func setPage() {
-        self.view.backgroundColor = .white
-        
+        self.view.addSubview(self.homeMainView)
     }
     
     override func didReceiveMemoryWarning() {
