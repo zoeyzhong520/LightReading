@@ -114,8 +114,11 @@ let EighthImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_
 let NinethImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531501882346&di=6b056aed0df91331ed9647d4bdf4be20&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F59%2F99%2F88i58PICSPY_1024.jpg"
 let TenthImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531502143066&di=7193db36685908177b3667081e45f7e9&imgtype=0&src=http%3A%2F%2Fi-4.yxdown.com%2F2018%2F1%2F10%2F6d185e5d-bfc4-49ee-8f0d-d843ae943a9c.jpg"
 
-//用户头像链接
+///用户头像链接
 let AvatarImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531504554793&di=512f9b3bbb48c5aa55bd2cd6d2203582&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140516%2F0010023335708279_b.jpg"
+
+///书封面链接
+let BookCoverUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532360982661&di=5d0be83b0689776cd6ab319b6e8e7ce7&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F88ed9cd706b70f88ec6f5ea895d95f5bafc3686c.jpg"
 
 //MARK: 动画执行时长
 let AnimateDuration:TimeInterval = 0.3
@@ -144,6 +147,12 @@ let HomeChildViewWillDisappear_Notification = NSNotification.Name.init("HomeChil
 
 ///HomeChildViewAdvertisingClickBlock_Notification
 let HomeChildViewAdvertisingClickBlock_Notification = NSNotification.Name.init("HomeChildViewAdvertisingClickBlock_Notification")
+
+///HomeChildViewBookCoverClickBlock_Notification
+let HomeChildViewBookCoverClickBlock_Notification = NSNotification.Name.init("HomeChildViewBookCoverClickBlock_Notification")
+
+///HomeMainViewBookCoverClickBlock_Notification
+let HomeMainViewBookCoverClickBlock_Notification = NSNotification.Name.init("HomeMainViewBookCoverClickBlock_Notification")
 
 //MARK: BaiduLink
 let BaiduLink = "https://www.baidu.com/"

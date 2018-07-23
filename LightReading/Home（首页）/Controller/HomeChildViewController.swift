@@ -32,7 +32,10 @@ class HomeChildViewController: BaseViewController {
             NotificationCenter.default.post(name: HomeChildViewAdvertisingClickBlock_Notification, object: nil)
         }
         
-        self.navigationController?.delegate = self
+        self.homeView.bookCoverClickBlock = { [weak self] in
+            print("点击书籍")
+            NotificationCenter.default.post(name: HomeChildViewBookCoverClickBlock_Notification, object: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,24 +65,5 @@ class HomeChildViewController: BaseViewController {
     */
 
 }
-
-extension HomeChildViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
-        let isShow = viewController.isKind(of: HomeChildViewController.classForCoder())
-        self.navigationController?.navigationBar.isHidden = isShow
-    }
-}
-
-
-
-
-
-
-
-
-
-
 
 

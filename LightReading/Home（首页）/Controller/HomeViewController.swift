@@ -44,10 +44,18 @@ class HomeViewController: BaseViewController {
     ///注册通知
     func registNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(homeChildViewAdvertisingClickBlock), name: HomeChildViewAdvertisingClickBlock_Notification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bookCoverClickAction), name: HomeChildViewBookCoverClickBlock_Notification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bookCoverClickAction), name: HomeMainViewBookCoverClickBlock_Notification, object: nil)
     }
     
     @objc func homeChildViewAdvertisingClickBlock() {
         self.showLRWebViewController(BaiduLink)
+    }
+    
+    @objc func bookCoverClickAction() {
+        self.showViewController("BookDetailViewController", hidesBottomBarWhenPushed: true)//跳转到书籍详情页
     }
     
     ///移除通知

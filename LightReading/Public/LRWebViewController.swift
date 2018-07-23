@@ -27,6 +27,7 @@ class LRWebViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setPage()
+        self.addObserver()
     }
 
     func setPage() {
@@ -35,6 +36,20 @@ class LRWebViewController: BaseViewController {
         if let URL = URL.init(string: self.url ?? "") {
             self.webView.load(URLRequest.init(url: URL))
         }
+    }
+    
+    ///添加监听
+    func addObserver() {
+        self.webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
+    }
+    
+    ///移除监听
+    func removeObserver() {
+        self.webView.removeObserver(self, forKeyPath: "title")
+    }
+    
+    deinit {
+        self.removeObserver()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,7 +92,24 @@ extension LRWebViewController: WKNavigationDelegate {
     }
 }
 
-
+extension LRWebViewController {
+    
+    //WkWebView的 回调
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "title" {
+            if let object = object as? WKWebView {
+                if object == self.webView {
+                    self.title = self.webView.title
+                    print("title = \(self.webView.title ?? "")")
+                } else {
+                    super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+                }
+            }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+}
 
 
 

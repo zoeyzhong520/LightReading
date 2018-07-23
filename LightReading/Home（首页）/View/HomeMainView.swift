@@ -13,20 +13,22 @@ class HomeMainView: UIView {
     lazy var collectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: fontSizeScale(105), height: fontSizeScale(170))
+        flowLayout.itemSize = CGSize(width: fontSizeScale(105), height: fontSizeScale(190))
         flowLayout.headerReferenceSize = CGSize(width: ScreenWidth, height: fontSizeScale(30))
         flowLayout.minimumLineSpacing = fontSizeScale(15)//设置行间距(最小)
         flowLayout.minimumInteritemSpacing = fontSizeScale(15)//设置列间距(最小)
         flowLayout.sectionInset = UIEdgeInsetsMake(fontSizeScale(15), fontSizeScale(15), fontSizeScale(15), fontSizeScale(15))//设置分区缩进量
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = TableViewBackgroundColor
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCollectionViewCellID")
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
         return collectionView
     }()
+    
+    var bookCoverClickBlock:(() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +65,9 @@ extension HomeMainView: UICollectionViewDelegateFlowLayout, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        if self.bookCoverClickBlock != nil {
+            self.bookCoverClickBlock!()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

@@ -123,6 +123,8 @@
 		D8B4F99520F9825000A88D27 /* PersonalInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */; };
 		D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */; };
 		D8B4F99920FA32A300A88D27 /* PersonalInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */; };
+		D8E6B85321060DC000886B52 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6B85221060DC000886B52 /* BookDetailViewController.swift */; };
+		D8E6B85521060DE200886B52 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6B85421060DE200886B52 /* BookDetailView.swift */; };
 		D8ED045020FB72C8007D732A /* PersonalAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */; };
 		D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A4210210AA0012D633 /* HomeChildViewController.swift */; };
 		D8F053A7210213EF0012D633 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */; };
@@ -326,6 +328,8 @@
 		D8B4F99420F9825000A88D27 /* PersonalInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D8B4F99620FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		D8B4F99820FA32A300A88D27 /* PersonalInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationModel.swift; sourceTree = "<group>"; };
+		D8E6B85221060DC000886B52 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		D8E6B85421060DE200886B52 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		D8ED044F20FB72C8007D732A /* PersonalAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarView.swift; sourceTree = "<group>"; };
 		D8F053A4210210AA0012D633 /* HomeChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChildViewController.swift; sourceTree = "<group>"; };
 		D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 				36D6822320F5EE560043B459 /* HomeViewController.swift */,
 				D8F053A4210210AA0012D633 /* HomeChildViewController.swift */,
 				D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */,
+				D8E6B85221060DC000886B52 /* BookDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				36D6822920F5EE800043B459 /* HomeView.swift */,
 				D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */,
 				D8AD7FF121042B2A002FA05E /* HomeMainView.swift */,
+				D8E6B85421060DE200886B52 /* BookDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1119,6 +1125,7 @@
 				D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */,
 				36D6822420F5EE560043B459 /* HomeViewController.swift in Sources */,
 				D8B0D3B820F6552800AAD399 /* MJRefreshStateHeader.m in Sources */,
+				D8E6B85521060DE200886B52 /* BookDetailView.swift in Sources */,
 				3600A4FE20FF294400EB42E1 /* TopTitleScrollBar.swift in Sources */,
 				D8684F7E20F794A3005A4CCB /* SDWebImageTransition.m in Sources */,
 				36284B3820F73BFF008C2E81 /* UserdefaultsTool.swift in Sources */,
@@ -1157,6 +1164,7 @@
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
 				D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */,
 				D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */,
+				D8E6B85321060DC000886B52 /* BookDetailViewController.swift in Sources */,
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
 				D8684F8120F794A3005A4CCB /* NSImage+WebCache.m in Sources */,
 				D8B0D3B620F6552800AAD399 /* MJRefreshAutoNormalFooter.m in Sources */,

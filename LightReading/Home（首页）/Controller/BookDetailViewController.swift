@@ -1,22 +1,17 @@
 //
-//  HomeMainViewController.swift
+//  BookDetailViewController.swift
 //  LightReading
 //
-//  Created by ZZJ on 2018/7/22.
+//  Created by ZZJ on 2018/7/23.
 //  Copyright © 2018年 智富金融. All rights reserved.
 //
 
 import UIKit
 
-//MARK: 子控制器
+//MARK: 书籍详情页
 
-class HomeMainViewController: BaseViewController {
+class BookDetailViewController: BaseViewController {
 
-    lazy var homeMainView:HomeMainView = {
-        let homeMainView = HomeMainView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight - fontSizeScale(30)))
-        return homeMainView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,11 +20,7 @@ class HomeMainViewController: BaseViewController {
     }
 
     func setPage() {
-        self.view.addSubview(self.homeMainView)
-        self.homeMainView.bookCoverClickBlock = { [weak self] in
-            print("点击书籍")
-            NotificationCenter.default.post(name: HomeMainViewBookCoverClickBlock_Notification, object: nil)
-        }
+        self.title = "千与千寻"
     }
     
     override func didReceiveMemoryWarning() {

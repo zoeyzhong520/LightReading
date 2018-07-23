@@ -16,6 +16,12 @@ class HomeCollectionViewCell: UICollectionViewCell {
         return imgView
     }()
     
+    lazy var titleLabel:UILabel = {
+        let titleLabel = UILabel.init("千与千寻", font: SixthFont, textColor: BlackColor, alignment: .center)
+        titleLabel.numberOfLines = 2
+        return titleLabel
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -28,9 +34,16 @@ class HomeCollectionViewCell: UICollectionViewCell {
     func createView() {
         self.backgroundColor = .white
         
+        self.imgView.sd_setImage(with: URL.init(string: BookCoverUrl), placeholderImage: PlaceholderImage)
         self.addSubview(self.imgView)
         self.imgView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(UIEdgeInsetsMake(0, 0, fontSizeScale(30), 0))
+        }
+        
+        self.addSubview(self.titleLabel)
+        self.titleLabel.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.imgView.snp.bottom)
         }
     }
     
