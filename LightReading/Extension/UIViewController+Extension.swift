@@ -71,6 +71,7 @@ extension UIViewController {
     func showLRWebViewController(_ url:String?) {
         let vc = LRWebViewController()
         vc.url = url
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

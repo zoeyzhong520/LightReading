@@ -23,6 +23,11 @@ class HomeViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
         self.setPage()
+        self.registNotification()
+    }
+    
+    deinit {
+        self.removeNotification()
     }
     
     func setPage() {
@@ -34,6 +39,20 @@ class HomeViewController: BaseViewController {
     
     @objc func clickAction() {
         print("扫一扫")
+    }
+    
+    ///注册通知
+    func registNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(homeChildViewAdvertisingClickBlock), name: HomeChildViewAdvertisingClickBlock_Notification, object: nil)
+    }
+    
+    @objc func homeChildViewAdvertisingClickBlock() {
+        self.showLRWebViewController(BaiduLink)
+    }
+    
+    ///移除通知
+    func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: HomeChildViewAdvertisingClickBlock_Notification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,7 +92,7 @@ extension HomeViewController: TopTitleMainViewDelegate {
     
     func viewControllersForTopTitleView() -> [UIViewController]? {
         return [
-            UINavigationController.init(rootViewController: HomeChildViewController()),//带广告页的控制器
+            HomeChildViewController(),//带广告页的控制器
             HomeMainViewController(),
             HomeMainViewController(),
             HomeMainViewController(),

@@ -29,7 +29,7 @@ class HomeChildViewController: BaseViewController {
         self.homeView.dataArray = [FirstImageUrl, SecondImageUrl, ThirdImageUrl, FourthImageUrl]
         self.homeView.advertisingCellClickBlock = { [weak self] index in
             print("index = \(index)")
-            self?.showLRWebViewController(BaiduLink)
+            NotificationCenter.default.post(name: HomeChildViewAdvertisingClickBlock_Notification, object: nil)
         }
         
         self.navigationController?.delegate = self

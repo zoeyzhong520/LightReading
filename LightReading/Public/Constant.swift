@@ -142,6 +142,9 @@ let HomeChildViewWillAppear_Notification = NSNotification.Name.init("HomeChildVi
 ///HomeChildViewWillDisappear_Notification
 let HomeChildViewWillDisappear_Notification = NSNotification.Name.init("HomeChildViewWillDisappear_Notification")
 
+///HomeChildViewAdvertisingClickBlock_Notification
+let HomeChildViewAdvertisingClickBlock_Notification = NSNotification.Name.init("HomeChildViewAdvertisingClickBlock_Notification")
+
 //MARK: BaiduLink
 let BaiduLink = "https://www.baidu.com/"
 
