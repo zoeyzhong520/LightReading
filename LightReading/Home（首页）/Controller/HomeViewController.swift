@@ -39,6 +39,7 @@ class HomeViewController: BaseViewController {
     
     @objc func clickAction() {
         print("扫一扫")
+        self.showViewController("ScanViewController", hidesBottomBarWhenPushed: true)
     }
     
     ///注册通知
