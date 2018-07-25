@@ -39,7 +39,11 @@ class HomeViewController: BaseViewController {
     
     @objc func clickAction() {
         print("扫一扫")
-        self.showViewController("ScanViewController", hidesBottomBarWhenPushed: true)
+        if TARGET_IPHONE_SIMULATOR == 1 {//模拟器
+            self.alert("提示", msg: "模拟器不支持二维码/条码", buttonsArray: ["确定"], confirmBlock: nil)
+        } else {//真机
+            self.showViewController("ScanViewController", hidesBottomBarWhenPushed: true)
+        }
     }
     
     ///注册通知

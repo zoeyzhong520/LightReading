@@ -30,6 +30,11 @@ class LRWebViewController: BaseViewController {
         self.addObserver()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SVProgressHUD.dismiss()
+    }
+    
     func setPage() {
         self.view.addSubview(self.webView)
         

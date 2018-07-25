@@ -130,6 +130,8 @@
 		D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A4210210AA0012D633 /* HomeChildViewController.swift */; };
 		D8F053A7210213EF0012D633 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */; };
 		D8F053AB210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */; };
+		D8FD8B862108B028002680DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD8B852108B028002680DA /* ScanView.swift */; };
+		D8FD8B882108B034002680DA /* ScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD8B872108B034002680DA /* ScanModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +338,8 @@
 		D8F053A4210210AA0012D633 /* HomeChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChildViewController.swift; sourceTree = "<group>"; };
 		D8F053A6210213EF0012D633 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAdvertisingPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D8FD8B852108B028002680DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		D8FD8B872108B034002680DA /* ScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModel.swift; sourceTree = "<group>"; };
 		F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -532,7 +536,6 @@
 				3645BC8920FCA399002C938A /* LRAlertView.swift */,
 				36C7329821008C0000201B01 /* Protocols.swift */,
 				D88B701C2104CC6A0067F164 /* LRWebViewController.swift */,
-				D8E5A09421076308000CF06B /* ScanViewController.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D8FD8B812108B010002680DA /* ScanTool */,
 				3600A4F220FEECF800EB42E1 /* ClearCacheTool */,
 				D825ACC120FE23A600A5E069 /* PersonalAvatarTool */,
 				D84EAEC720F8E0A400CC6F4D /* ZZJTimer */,
@@ -910,6 +914,40 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		D8FD8B812108B010002680DA /* ScanTool */ = {
+			isa = PBXGroup;
+			children = (
+				D8FD8B822108B010002680DA /* Controller */,
+				D8FD8B832108B010002680DA /* Model */,
+				D8FD8B842108B010002680DA /* View */,
+			);
+			path = ScanTool;
+			sourceTree = "<group>";
+		};
+		D8FD8B822108B010002680DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8E5A09421076308000CF06B /* ScanViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D8FD8B832108B010002680DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8FD8B872108B034002680DA /* ScanModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8FD8B842108B010002680DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8FD8B852108B028002680DA /* ScanView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1217,9 +1255,11 @@
 				3600A50420FF482F00EB42E1 /* TopTitleMainViewController.swift in Sources */,
 				3600A4F420FEED0300EB42E1 /* ClearCacheTool.swift in Sources */,
 				D8684F7F20F794A3005A4CCB /* NSData+ImageContentType.m in Sources */,
+				D8FD8B862108B028002680DA /* ScanView.swift in Sources */,
 				D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */,
 				D8684F7420F794A3005A4CCB /* UIImage+GIF.m in Sources */,
 				36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */,
+				D8FD8B882108B034002680DA /* ScanModel.swift in Sources */,
 				D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */,
 				D8ED045020FB72C8007D732A /* PersonalAvatarView.swift in Sources */,
 				D8684F7920F794A3005A4CCB /* SDWebImageCoder.m in Sources */,

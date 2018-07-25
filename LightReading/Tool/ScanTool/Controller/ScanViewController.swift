@@ -38,7 +38,15 @@ class ScanViewController: BaseViewController {
     
     var maskLayer:CALayer!
     
-    var scanView:UIView!
+    lazy var scanView:ScanView = {
+        let scanViewW:CGFloat = ScreenWidth-fontSizeScale(50*2)
+        let scanViewH:CGFloat = scanViewW
+        let scanViewX:CGFloat = fontSizeScale(50)
+        let scanViewY:CGFloat = (ScreenHeight-NavigationBarHeight-StatusBarHeight-scanViewH)/2
+        
+        let scanView = ScanView(frame: CGRect(x: scanViewX, y: scanViewY, width: scanViewW, height: scanViewH))
+        return scanView
+    }()
     
     var scanImageView:UIImageView!
     
@@ -52,12 +60,15 @@ class ScanViewController: BaseViewController {
     func setPage() {
         self.title = "二维码/条码"
         
+        self.view.addSubview(self.scanView)
+        
         //设置扫描二维码
         self.setupScanQRCode()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         //添加扫描线以及开启扫描线的动画
         self.startAnimate()
         
@@ -135,16 +146,16 @@ class ScanViewController: BaseViewController {
     
     ///添加扫描线以及开启扫描线的动画
     func startAnimate() {
-        let scanImageViewX:CGFloat = self.scanView.frame.origin.x
-        let scanImageViewY:CGFloat = self.scanView.frame.origin.y
+        let scanImageViewX:CGFloat = 0
+        let scanImageViewY:CGFloat = 0
         let scanImageViewW:CGFloat = self.scanView.frame.size.width
         let scanImageViewH:CGFloat = fontSizeScale(7)
         
-        scanImageView = UIImageView.init(image: UIImage.init(named: ""))
+        scanImageView = UIImageView.init(image: UIImage.init(named: "scanLineImg"))
         scanImageView.frame = CGRect(x: scanImageViewX, y: scanImageViewY, width: scanImageViewW, height: scanImageViewH)
         self.scanView.addSubview(scanImageView)
         
-        UIView.animate(withDuration: AnimateDuration, delay: 0, options: .repeat, animations: {
+        UIView.animate(withDuration: 5, delay: 0, options: .repeat, animations: {
             self.scanImageView.frame = CGRect(x: scanImageViewX, y: scanImageViewY+self.scanView.frame.size.height, width: scanImageViewW, height: scanImageViewH)
         }, completion: nil)
     }
@@ -178,13 +189,27 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             session.stopRunning()
             
             // 将扫描的线从父控件中移除
-            
+            scanImageView.removeFromSuperview()
             
             let metadataObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject
             if let tmpStringValue = metadataObject?.stringValue {
                 stringValue = tmpStringValue
             }
             print("stringValue = \(stringValue)")
+            
+            //判断识别出来的字符类型，并进行相应处理
+            self.doSomething(stringValue)
+        }
+    }
+    
+    ///判断识别出来的字符类型，并进行相应处理
+    func doSomething(_ stringValue:String) {
+        if stringValue.hasPrefix("http") || stringValue.hasPrefix("https") {//跳转到LRWebViewController
+            self.showLRWebViewController(stringValue)
+        } else {//加载弹框，并添加复制到剪贴板功能
+            self.alert("检测到以下文本", msg: stringValue, buttonsArray: ["关闭", "复制"], confirmBlock: {
+                print("复制")
+            })
         }
     }
 }

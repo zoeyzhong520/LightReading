@@ -74,6 +74,32 @@ extension UIViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    ///弹框（包含两个按钮）
+    func alert(_ title:String?, msg:String?, buttonsArray:[String]?, confirmBlock:(() -> Void)?) {
+        
+        let alertCtrl = UIAlertController.init(title: title, message: msg, preferredStyle: .alert)
+        
+        if let cnt = buttonsArray?.count {
+            if cnt == 1 {
+                alertCtrl.addAction(UIAlertAction.init(title: buttonsArray?.last, style: .default, handler: { (action) in
+                    if confirmBlock != nil {
+                        confirmBlock!()
+                    }
+                }))
+            } else {
+                alertCtrl.addAction(UIAlertAction.init(title: buttonsArray?.first, style: .cancel, handler: nil))
+                
+                alertCtrl.addAction(UIAlertAction.init(title: buttonsArray?.last, style: .default, handler: { (action) in
+                    if confirmBlock != nil {
+                        confirmBlock!()
+                    }
+                }))
+            }
+        }
+        
+        self.present(alertCtrl, animated: true, completion: nil)
+    }
 }
 
 
