@@ -40,6 +40,8 @@ class ScanViewController: BaseViewController {
     
     var scanView:UIView!
     
+    var scanImageView:UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +51,29 @@ class ScanViewController: BaseViewController {
     
     func setPage() {
         self.title = "二维码/条码"
+        
+        //设置扫描二维码
+        self.setupScanQRCode()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //添加扫描线以及开启扫描线的动画
+        self.startAnimate()
+        
+        //开启二维码扫描
+        self.session.startRunning()
+    }
+    
+    deinit {
+        // 删除预览图层
+        if self.preview != nil {
+            self.preview.removeFromSuperlayer()
+        }
+        
+        if self.maskLayer != nil {
+            self.maskLayer.delegate = nil
+        }
     }
     
     ///设置扫描二维码
@@ -106,6 +131,22 @@ class ScanViewController: BaseViewController {
             let fixPadding:CGFloat = (fixWidth-size.width)/2
             output.rectOfInterest = CGRect(x: scanViewY/size.height, y: (scanViewX+fixPadding)/fixWidth, width: scanViewHeight/size.height, height: scanViewWidth/fixWidth)
         }
+    }
+    
+    ///添加扫描线以及开启扫描线的动画
+    func startAnimate() {
+        let scanImageViewX:CGFloat = self.scanView.frame.origin.x
+        let scanImageViewY:CGFloat = self.scanView.frame.origin.y
+        let scanImageViewW:CGFloat = self.scanView.frame.size.width
+        let scanImageViewH:CGFloat = fontSizeScale(7)
+        
+        scanImageView = UIImageView.init(image: UIImage.init(named: ""))
+        scanImageView.frame = CGRect(x: scanImageViewX, y: scanImageViewY, width: scanImageViewW, height: scanImageViewH)
+        self.scanView.addSubview(scanImageView)
+        
+        UIView.animate(withDuration: AnimateDuration, delay: 0, options: .repeat, animations: {
+            self.scanImageView.frame = CGRect(x: scanImageViewX, y: scanImageViewY+self.scanView.frame.size.height, width: scanImageViewW, height: scanImageViewH)
+        }, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
