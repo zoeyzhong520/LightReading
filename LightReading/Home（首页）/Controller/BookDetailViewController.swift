@@ -12,6 +12,11 @@ import UIKit
 
 class BookDetailViewController: BaseViewController {
 
+    lazy var bookDetailView:BookDetailView = {
+        let bookDetailView = BookDetailView(frame: self.view.bounds)
+        return bookDetailView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +26,8 @@ class BookDetailViewController: BaseViewController {
 
     func setPage() {
         self.title = "千与千寻"
+        
+        self.view.addSubview(self.bookDetailView)
     }
     
     override func didReceiveMemoryWarning() {

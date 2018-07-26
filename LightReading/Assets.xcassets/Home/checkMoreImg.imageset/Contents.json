@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "saoyisao@1x.png",
+      "filename" : "checkMoreImg@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "saoyisao@2x.png",
+      "filename" : "checkMoreImg@2x.png",
       "scale" : "2x"
     },
     {

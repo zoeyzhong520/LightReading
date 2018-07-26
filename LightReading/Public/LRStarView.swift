@@ -47,6 +47,7 @@ class LRStarView: UIView {
         tmpRect = self.bounds
         let starSize = (stars as NSString).size(withAttributes: [NSAttributedStringKey.font:DRBoldFont(self.starSize)])
         tmpRect.size = starSize
+        print("tmpRect = \(tmpRect)")
         self.emptyColor.set()
         (stars as NSString).draw(in: tmpRect, withAttributes: [NSAttributedStringKey.font:DRBoldFont(self.starSize)])
         
@@ -55,7 +56,7 @@ class LRStarView: UIView {
         context?.clip(to: clip)
         self.fullColor.set()
         (stars as NSString).draw(in: tmpRect, withAttributes: [NSAttributedStringKey.font:DRBoldFont(self.starSize)])
-        self.backgroundColor = .green
+        self.backgroundColor = .clear
     }
 }
 

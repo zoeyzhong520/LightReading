@@ -8,9 +8,11 @@
 
 import UIKit
 
-//MARK: 功能按钮区 加入书架、离线全本、开始阅读
+//MARK: 功能按钮区 加入收藏、离线全本、开始阅读
 
 class BookIntroductionFunctionView: UIView {
+    
+    var tapBlock:((Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +27,21 @@ class BookIntroductionFunctionView: UIView {
         self.backgroundColor = TableViewBackgroundColor
         
         let btnNamesArray = ["加入收藏", "离线全本", "开始阅读"]
-        let imgsArray = ["collectImg", "", "startReadingImg"]
+        let imgsArray = ["collectImg", "downloadImg", "startReadingImg"]
         for i in 0..<btnNamesArray.count {
             let viewW:CGFloat = (ScreenWidth - fontSizeScale(15*2) - fontSizeScale(10*2))/3
             let viewH:CGFloat = fontSizeScale(40)
             
             let view = UIView()
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 5
+            view.layer.borderWidth = fontSizeScale(1)
+            view.layer.borderColor = BlueColor.cgColor
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+            view.addGestureRecognizer(tap)
+            view.tag = i
+            
             self.addSubview(view)
             view.snp.makeConstraints({ (make) in
                 make.left.equalTo(fontSizeScale(15)+CGFloat(i)*(viewW+fontSizeScale(10)))
@@ -38,7 +49,9 @@ class BookIntroductionFunctionView: UIView {
                 make.size.equalTo(CGSize(width: viewW, height: viewH))
             })
             
-            let imgView = UIImageView.init(image: UIImage.init(named: imgsArray[i]))
+            let img = UIImage.init(named: imgsArray[i])?.withRenderingMode(.alwaysTemplate)
+            let imgView = UIImageView.init(image: img)
+            imgView.tintColor = BlueColor
             view.addSubview(imgView)
             imgView.snp.makeConstraints({ (make) in
                 make.centerY.equalToSuperview()
@@ -53,6 +66,14 @@ class BookIntroductionFunctionView: UIView {
                 make.centerY.right.equalToSuperview()
                 make.height.equalTo(viewH)
             })
+        }
+    }
+    
+    @objc func tapAction(_ gesture:UITapGestureRecognizer) {
+        if let tag = gesture.view?.tag {//tag = 0，加入收藏；tag = 1，离线全本；tag = 2，开始阅读
+            if self.tapBlock != nil {
+                self.tapBlock!(tag)
+            }
         }
     }
 }
