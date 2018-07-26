@@ -209,6 +209,8 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         } else {//加载弹框，并添加复制到剪贴板功能
             self.alert("检测到以下文本", msg: stringValue, buttonsArray: ["关闭", "复制"], confirmBlock: {
                 print("复制")
+                UIPasteboard.general.string = stringValue
+                SVProgressHUD.showSuccess(withStatus: "复制成功")
             })
         }
     }
