@@ -140,6 +140,9 @@
 		D8F053AB210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */; };
 		D8FD8B862108B028002680DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD8B852108B028002680DA /* ScanView.swift */; };
 		D8FD8B882108B034002680DA /* ScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD8B872108B034002680DA /* ScanModel.swift */; };
+		D8FE1FF7210B66B500949C6B /* TableOfContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE1FF6210B66B500949C6B /* TableOfContentsView.swift */; };
+		D8FE1FF9210B67FE00949C6B /* TableOfContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE1FF8210B67FE00949C6B /* TableOfContentsTableViewCell.swift */; };
+		D8FE1FFB210B69C800949C6B /* TableOfContentsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE1FFA210B69C800949C6B /* TableOfContentsTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +360,9 @@
 		D8F053AA210220A00012D633 /* HomeAdvertisingPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAdvertisingPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8FD8B852108B028002680DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D8FD8B872108B034002680DA /* ScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModel.swift; sourceTree = "<group>"; };
+		D8FE1FF6210B66B500949C6B /* TableOfContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentsView.swift; sourceTree = "<group>"; };
+		D8FE1FF8210B67FE00949C6B /* TableOfContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentsTableViewCell.swift; sourceTree = "<group>"; };
+		D8FE1FFA210B69C800949C6B /* TableOfContentsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentsTableHeaderView.swift; sourceTree = "<group>"; };
 		F68C5CE8A411E67B1A90BD7A /* Pods-LightReading.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -615,6 +621,9 @@
 				D8EF1BCA210A1CC700D70322 /* BookIntroductionBookCoverView.swift */,
 				36FF9207210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift */,
 				36FF9209210AEF7200FE9098 /* BookCommentTableViewCell.swift */,
+				D8FE1FF6210B66B500949C6B /* TableOfContentsView.swift */,
+				D8FE1FF8210B67FE00949C6B /* TableOfContentsTableViewCell.swift */,
+				D8FE1FFA210B69C800949C6B /* TableOfContentsTableHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1206,6 +1215,7 @@
 			files = (
 				D8AD7FF221042B2A002FA05E /* HomeMainView.swift in Sources */,
 				D84EAECB20F8F86200CC6F4D /* UIImageView+Extension.swift in Sources */,
+				D8FE1FF9210B67FE00949C6B /* TableOfContentsTableViewCell.swift in Sources */,
 				36D6822420F5EE560043B459 /* HomeViewController.swift in Sources */,
 				D8B0D3B820F6552800AAD399 /* MJRefreshStateHeader.m in Sources */,
 				D8E6B85521060DE200886B52 /* BookDetailView.swift in Sources */,
@@ -1218,12 +1228,14 @@
 				36D6823020F5EEA10043B459 /* MineModel.swift in Sources */,
 				D8B0D3C220F6552800AAD399 /* SVIndefiniteAnimatedView.m in Sources */,
 				D8B0D3B120F6552800AAD399 /* MJRefreshBackGifFooter.m in Sources */,
+				D8FE1FF7210B66B500949C6B /* TableOfContentsView.swift in Sources */,
 				D8B0D3BC20F6552800AAD399 /* MJRefreshBackFooter.m in Sources */,
 				36284B4820F75E7B008C2E81 /* String+Extension.swift in Sources */,
 				D8B4F99920FA32A300A88D27 /* PersonalInformationModel.swift in Sources */,
 				36D681E620F5ED180043B459 /* ViewController.swift in Sources */,
 				36B298742109C1FF004CED7D /* LRStarView.swift in Sources */,
 				36284B3520F73916008C2E81 /* UIView+Extension.swift in Sources */,
+				D8FE1FFB210B69C800949C6B /* TableOfContentsTableHeaderView.swift in Sources */,
 				D8B0D3BA20F6552800AAD399 /* MJRefreshFooter.m in Sources */,
 				36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */,
 				D8684F7B20F794A3005A4CCB /* SDAnimatedImageRep.m in Sources */,

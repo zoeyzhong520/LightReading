@@ -12,6 +12,11 @@ import UIKit
 
 class TableOfContentsViewController: BaseViewController {
 
+    lazy var tableOfContentsView:TableOfContentsView = {
+        let tableOfContentsView = TableOfContentsView(frame: self.view.bounds)
+        return tableOfContentsView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +27,7 @@ class TableOfContentsViewController: BaseViewController {
     func setPage() {
         self.title = "目录"
         
-        
+        self.view.addSubview(self.tableOfContentsView)
     }
     
     override func didReceiveMemoryWarning() {
