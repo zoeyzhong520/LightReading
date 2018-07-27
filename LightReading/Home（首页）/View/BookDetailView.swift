@@ -17,8 +17,16 @@ class BookDetailView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookIntroductionTableViewCell.self, forCellReuseIdentifier: "BookIntroductionTableViewCellID")
+        tableView.register(BookTableOfContentsTableViewCell.self, forCellReuseIdentifier: "BookTableOfContentsTableViewCellID")
+        tableView.register(BookCommentTableViewCell.self, forCellReuseIdentifier: "BookCommentTableViewCellID")
+        tableView.separatorStyle = .none
         return tableView
     }()
+    
+    ///BookIntroductionTableViewCell的高度值
+    var BookIntroductionTableViewCellNewH:CGFloat?
+    
+    var clickBlock:((Enums.BookDetailCellType) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +52,9 @@ extension BookDetailView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2 {
+            return 3
+        }
         return 1
     }
     
@@ -51,21 +62,53 @@ extension BookDetailView: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             let cell = BookIntroductionTableViewCell.createCell(tableView, indexPath: indexPath)
+            cell.checkAllIntructionBlock = { [weak self] textH in
+                print("textH = \(textH)")
+                self?.BookIntroductionTableViewCellNewH = fontSizeScale(260+textH)
+                self?.tableView.reloadData()
+            }
+            cell.clickBlock = { [weak self] clickType in
+                if self?.clickBlock != nil {
+                    self?.clickBlock!(clickType)
+                }
+            }
+            cell.selectionStyle = .none
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = BookTableOfContentsTableViewCell.createCell(tableView, indexPath: indexPath)
+            return cell
+        } else {
+            let cell = BookCommentTableViewCell.createCell(tableView, indexPath: indexPath)
+            cell.commentBlock = { [weak self] in
+                if self?.clickBlock != nil {
+                    self?.clickBlock!(Enums.BookDetailCellType.Comment)
+                }
+            }
+            cell.selectionStyle = .none
             return cell
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return fontSizeScale(300)
+            return self.BookIntroductionTableViewCellNewH != nil ? self.BookIntroductionTableViewCellNewH! : fontSizeScale(300)
+        } else if indexPath.section == 1 {
+            return fontSizeScale(40)
+        } else {
+            return fontSizeScale(350)
         }
-        return fontSizeScale(40)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if indexPath.section == 0 || indexPath.section == 2 {
+            //不做操作
+        } else {//目录
+            let cellType = Enums.BookDetailCellType.TableOfContents
+            if self.clickBlock != nil {
+                self.clickBlock!(cellType)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

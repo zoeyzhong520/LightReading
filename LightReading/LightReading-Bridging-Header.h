@@ -6,3 +6,4 @@
 #import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 #import "SDImageCache.h"
+#import "StarView.h"

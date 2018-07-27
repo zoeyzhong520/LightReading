@@ -23,12 +23,12 @@ class BookIntroductionBookCoverView: UIView {
     }()
     
     lazy var starView:LRStarView = {
-        let starView = LRStarView(frame: CGRect(x: 0, y: 0, width: fontSizeScale(70), height: fontSizeScale(20)))
+        let starView = LRStarView(frame: .zero)
         return starView
     }()
     
     lazy var scoreLabel:UILabel = {
-        let scoreLabel = UILabel("5分", font: SixthFont, textColor: BlackColor, alignment: .left)
+        let scoreLabel = UILabel("4分", font: SixthFont, textColor: BlackColor, alignment: .left)
         return scoreLabel
     }()
     
@@ -64,17 +64,17 @@ class BookIntroductionBookCoverView: UIView {
             make.height.equalTo(fontSizeScale(17))
         }
         
-        self.starView.showStar = 4.2
+        self.starView.showStar = 4
         self.addSubview(self.starView)
         self.starView.snp.makeConstraints { (make) in
             make.leftMargin.equalTo(self.bookNameLabel)
-            make.top.equalTo(self.bookNameLabel.snp.bottom).offset(fontSizeScale(10))
-            make.size.equalTo(CGSize(width: fontSizeScale(70), height: fontSizeScale(20)))
+            make.top.equalTo(self.bookNameLabel.snp.bottom).offset(fontSizeScale(5))
+            make.size.equalTo(CGSize(width: self.starView.getWidth(), height: fontSizeScale(20)))
         }
         
         self.addSubview(self.scoreLabel)
         self.scoreLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.starView.snp.right)
+            make.left.equalTo(self.starView.snp.right).offset(fontSizeScale(5))
             make.centerY.equalTo(self.starView)
             make.right.equalToSuperview()
             make.height.equalTo(fontSizeScale(13))
@@ -83,7 +83,7 @@ class BookIntroductionBookCoverView: UIView {
         self.addSubview(self.authorLabel)
         self.authorLabel.snp.makeConstraints { (make) in
             make.leftMargin.equalTo(self.starView)
-            make.top.equalTo(self.starView.snp.bottom).offset(fontSizeScale(15))
+            make.top.equalTo(self.starView.snp.bottom).offset(fontSizeScale(10))
             make.right.equalToSuperview()
             make.height.equalTo(fontSizeScale(13))
         }

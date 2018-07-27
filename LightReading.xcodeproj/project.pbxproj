@@ -50,6 +50,10 @@
 		36D6823420F5EEB50043B459 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823320F5EEB50043B459 /* HomeModel.swift */; };
 		36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823720F600670043B459 /* MainTabBarViewController.swift */; };
 		36D6823B20F600970043B459 /* MainTabBarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6823A20F600970043B459 /* MainTabBarTool.swift */; };
+		36FF9206210AC46300FE9098 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FF9205210AC46300FE9098 /* StarView.m */; };
+		36FF9208210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF9207210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift */; };
+		36FF920A210AEF7200FE9098 /* BookCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF9209210AEF7200FE9098 /* BookCommentTableViewCell.swift */; };
+		36FF920E210B287900FE9098 /* TableOfContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF920D210B287900FE9098 /* TableOfContentsViewController.swift */; };
 		7C68BD2021B77A63C8363335 /* Pods_LightReading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */; };
 		D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */; };
 		D825ACC520FE27A200A5E069 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC420FE27A200A5E069 /* SettingViewController.swift */; };
@@ -205,6 +209,11 @@
 		36D6823320F5EEB50043B459 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		36D6823720F600670043B459 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		36D6823A20F600970043B459 /* MainTabBarTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTool.swift; sourceTree = "<group>"; };
+		36FF9204210AC46300FE9098 /* StarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		36FF9205210AC46300FE9098 /* StarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
+		36FF9207210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableOfContentsTableViewCell.swift; sourceTree = "<group>"; };
+		36FF9209210AEF7200FE9098 /* BookCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCommentTableViewCell.swift; sourceTree = "<group>"; };
+		36FF920D210B287900FE9098 /* TableOfContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentsViewController.swift; sourceTree = "<group>"; };
 		6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightReading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB9E6C0FAD20B32CAE4B946 /* Pods-LightReading.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.debug.xcconfig"; sourceTree = "<group>"; };
 		D808BF6620F64D7800124DDC /* LightReading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightReading-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -544,7 +553,6 @@
 				3645BC8920FCA399002C938A /* LRAlertView.swift */,
 				36C7329821008C0000201B01 /* Protocols.swift */,
 				D88B701C2104CC6A0067F164 /* LRWebViewController.swift */,
-				36B298732109C1FF004CED7D /* LRStarView.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -552,6 +560,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				36FF91FD210AC02500FE9098 /* LRStarViewTool */,
 				D8FD8B812108B010002680DA /* ScanTool */,
 				3600A4F220FEECF800EB42E1 /* ClearCacheTool */,
 				D825ACC120FE23A600A5E069 /* PersonalAvatarTool */,
@@ -580,6 +589,7 @@
 				D8F053A4210210AA0012D633 /* HomeChildViewController.swift */,
 				D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */,
 				D8E6B85221060DC000886B52 /* BookDetailViewController.swift */,
+				36FF920D210B287900FE9098 /* TableOfContentsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -603,6 +613,8 @@
 				36B298712109BADE004CED7D /* BookIntroductionTableViewCell.swift */,
 				36B298752109CD93004CED7D /* BookIntroductionFunctionView.swift */,
 				D8EF1BCA210A1CC700D70322 /* BookIntroductionBookCoverView.swift */,
+				36FF9207210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift */,
+				36FF9209210AEF7200FE9098 /* BookCommentTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -695,6 +707,24 @@
 				36D6823A20F600970043B459 /* MainTabBarTool.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		36FF91FD210AC02500FE9098 /* LRStarViewTool */ = {
+			isa = PBXGroup;
+			children = (
+				36FF91FE210AC05E00FE9098 /* LRStarView的OC版本 */,
+				36B298732109C1FF004CED7D /* LRStarView.swift */,
+			);
+			path = LRStarViewTool;
+			sourceTree = "<group>";
+		};
+		36FF91FE210AC05E00FE9098 /* LRStarView的OC版本 */ = {
+			isa = PBXGroup;
+			children = (
+				36FF9204210AC46300FE9098 /* StarView.h */,
+				36FF9205210AC46300FE9098 /* StarView.m */,
+			);
+			path = "LRStarView的OC版本";
 			sourceTree = "<group>";
 		};
 		3CB9E33F41E18D0A7421A32A /* Pods */ = {
@@ -1200,7 +1230,9 @@
 				D8684F8620F794A3005A4CCB /* SDWebImageImageIOCoder.m in Sources */,
 				D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */,
 				36D6822220F5EE440043B459 /* BaseViewController.swift in Sources */,
+				36FF9206210AC46300FE9098 /* StarView.m in Sources */,
 				D8684F7820F794A3005A4CCB /* SDWebImagePrefetcher.m in Sources */,
+				36FF9208210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift in Sources */,
 				36284B4020F73D5C008C2E81 /* LoginModel.swift in Sources */,
 				D8684F6F20F794A3005A4CCB /* SDWebImageFrame.m in Sources */,
 				D8B0D3BB20F6552800AAD399 /* MJRefreshHeader.m in Sources */,
@@ -1218,6 +1250,7 @@
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
 				D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */,
 				D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */,
+				36FF920A210AEF7200FE9098 /* BookCommentTableViewCell.swift in Sources */,
 				D8E6B85321060DC000886B52 /* BookDetailViewController.swift in Sources */,
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
 				D8684F8120F794A3005A4CCB /* NSImage+WebCache.m in Sources */,
@@ -1253,6 +1286,7 @@
 				D8B0D3BE20F6552800AAD399 /* MJRefreshComponent.m in Sources */,
 				36D6823220F5EEAA0043B459 /* SquareModel.swift in Sources */,
 				3600A50620FF484B00EB42E1 /* TopTitleModel.swift in Sources */,
+				36FF920E210B287900FE9098 /* TableOfContentsViewController.swift in Sources */,
 				D8B0D3B920F6552800AAD399 /* MJRefreshGifHeader.m in Sources */,
 				D8684F2B20F79109005A4CCB /* AdvertisingPageScrollView.swift in Sources */,
 				D84EAECF20F8FFC800CC6F4D /* PersonalInformationViewController.swift in Sources */,

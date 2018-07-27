@@ -19,4 +19,10 @@ extension String {
         let titleWidth = (self as NSString).size(withAttributes: [NSAttributedStringKey.font:font]).width
         return titleWidth
     }
+    
+    ///计算字符串尺寸
+    func sizeAttributes(_ width:CGFloat, height:CGFloat, font:UIFont) -> CGSize {
+        let size = (self as NSString).boundingRect(with: CGSize(width: width, height: height), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:font], context: nil).size
+        return size
+    }
 }

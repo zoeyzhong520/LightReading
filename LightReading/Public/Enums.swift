@@ -31,6 +31,14 @@ class Enums: NSObject {
         case AboutUsType = 0
         case SignOut
     }
+    
+    enum BookDetailCellType:Int {
+        case Collect = 0
+        case Download
+        case StartReading
+        case TableOfContents
+        case Comment
+    }
 }
 
 

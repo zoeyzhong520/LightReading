@@ -27,6 +27,7 @@ class BookIntroductionTableViewCell: UITableViewCell {
     ///简介
     lazy var intructionView:UIView = {
         let intructionView = UIView(.white)
+        intructionView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         return intructionView
     }()
     
@@ -39,6 +40,7 @@ class BookIntroductionTableViewCell: UITableViewCell {
         let intructionLabel = UILabel("10岁的少女千寻与父母一起从都市搬家到了乡下。没想到在搬家的途中，一家人发生了意外。他们进入了汤屋老板魔女控制的奇特世界——在那里不劳动的人将会被变成动物。千寻的爸爸妈妈因贪吃变成了猪，千寻为了救爸爸妈妈经历了很多磨难，在期间她遇见了白龙，一个既聪明又冷酷的少年，在经历了很多事情之后，千寻最后救出了爸爸妈妈，拯救了白龙", font: SixthFont, textColor: LightGrayColor, alignment: .left)
         intructionLabel.lineBreakMode = .byTruncatingTail
         intructionLabel.numberOfLines = 0
+        intructionLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         return intructionLabel
     }()
     
@@ -47,6 +49,11 @@ class BookIntroductionTableViewCell: UITableViewCell {
         intructionRightImgView.tintColor = LightGrayColor
         return intructionRightImgView
     }()
+    
+    ///点击查看全部简介
+    var checkAllIntructionBlock:((CGFloat) -> Void)?
+    
+    var clickBlock:((Enums.BookDetailCellType) -> Void)?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -74,10 +81,16 @@ class BookIntroductionTableViewCell: UITableViewCell {
             make.top.equalTo(self.bookCoverView.snp.bottom)
             make.height.equalTo(fontSizeScale(60))
         }
+        self.functionView.tapBlock = { [weak self] clickType in
+            if self?.clickBlock != nil {
+                self?.clickBlock!(clickType)
+            }
+        }
         
         self.addSubview(self.intructionView)
         self.intructionView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.functionView.snp.bottom)
+            make.left.right.equalToSuperview()
             make.height.equalTo(fontSizeScale(100))
         }
         
@@ -100,7 +113,7 @@ class BookIntroductionTableViewCell: UITableViewCell {
         self.intructionRightImgView.snp.makeConstraints { (make) in
             make.bottom.equalTo(-fontSizeScale(15))
             make.right.equalTo(-fontSizeScale(5))
-            make.size.equalTo(CGSize(width: fontSizeScale(15), height: fontSizeScale(15)))
+            make.size.equalTo(CGSize(width: fontSizeScale(10), height: fontSizeScale(10)))
         }
     }
     
@@ -112,6 +125,30 @@ class BookIntroductionTableViewCell: UITableViewCell {
             print("创建cell失败")
         }
         return cell!
+    }
+    
+    ///单击事件处理
+    @objc func tapAction() {
+        self.intructionRightImgView.isHidden = true
+        
+        let intructionLabelH:CGFloat = self.getIntructionLabelH()
+        
+        self.intructionView.snp.updateConstraints({ (make) in//更新高度值
+            make.height.equalTo(fontSizeScale(intructionLabelH+56))
+        })
+        
+        if self.checkAllIntructionBlock != nil {
+            self.checkAllIntructionBlock!(intructionLabelH)
+        }
+    }
+    
+    ///计算intructionLabel的文本高度值
+    func getIntructionLabelH() -> CGFloat {
+        if let size = self.intructionLabel.text?.sizeAttributes(ScreenWidth-fontSizeScale(15*2), height: CGFloat(MAXFLOAT), font: SixthFont) {
+            
+            return size.height
+        }
+        return 0.0
     }
     
     override func awakeFromNib() {

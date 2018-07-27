@@ -12,7 +12,7 @@ import UIKit
 
 class BookIntroductionFunctionView: UIView {
     
-    var tapBlock:((Int) -> Void)?
+    var tapBlock:((Enums.BookDetailCellType) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,13 +56,13 @@ class BookIntroductionFunctionView: UIView {
             imgView.snp.makeConstraints({ (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize(width: fontSizeScale(20), height: fontSizeScale(20)))
-                make.left.equalTo(fontSizeScale(20))
+                make.left.equalTo(fontSizeScale(15))
             })
             
-            let label = UILabel.init(btnNamesArray[i], font: FourthFont, textColor: BlueColor, alignment: .left)
+            let label = UILabel.init(btnNamesArray[i], font: FifthFont, textColor: BlueColor, alignment: .left)
             view.addSubview(label)
             label.snp.makeConstraints({ (make) in
-                make.left.equalTo(imgView.snp.right).offset(fontSizeScale(5))
+                make.left.equalTo(imgView.snp.right)
                 make.centerY.right.equalToSuperview()
                 make.height.equalTo(viewH)
             })
@@ -71,8 +71,21 @@ class BookIntroductionFunctionView: UIView {
     
     @objc func tapAction(_ gesture:UITapGestureRecognizer) {
         if let tag = gesture.view?.tag {//tag = 0，加入收藏；tag = 1，离线全本；tag = 2，开始阅读
+            
+            var clickType = Enums.BookDetailCellType.Collect
+            switch tag {
+            case 0:
+                clickType = .Collect
+            case 1:
+                clickType = .Download
+            case 2:
+                clickType = .StartReading
+            default:
+                break
+            }
+            
             if self.tapBlock != nil {
-                self.tapBlock!(tag)
+                self.tapBlock!(clickType)
             }
         }
     }

@@ -28,6 +28,25 @@ class BookDetailViewController: BaseViewController {
         self.title = "千与千寻"
         
         self.view.addSubview(self.bookDetailView)
+        self.bookDetailView.clickBlock = { [weak self] clickType in
+            var str = "加入收藏"
+            
+            switch clickType {
+            case .Collect:
+                str = "加入收藏"
+            case .Comment:
+                str = "点击评论"
+            case .Download:
+                str = "离线全本"
+            case .StartReading:
+                str = "开始阅读"
+            case .TableOfContents:
+                str = "目录"
+                self?.showViewController("TableOfContentsViewController")
+            }
+            
+            print("clickType = \(str)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
