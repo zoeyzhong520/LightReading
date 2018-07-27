@@ -134,7 +134,7 @@ class BookIntroductionTableViewCell: UITableViewCell {
         let intructionLabelH:CGFloat = self.getIntructionLabelH()
         
         self.intructionView.snp.updateConstraints({ (make) in//更新高度值
-            make.height.equalTo(fontSizeScale(intructionLabelH+56))
+            make.height.equalTo(fontSizeScale(intructionLabelH+60))
         })
         
         if self.checkAllIntructionBlock != nil {
