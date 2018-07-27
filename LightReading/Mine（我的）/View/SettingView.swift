@@ -16,7 +16,7 @@ class SettingView: UIView {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = fontSizeScale(30)
+        tableView.rowHeight = fontSizeScale(40)
         tableView.sectionHeaderHeight = fontSizeScale(15)
         tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: "SettingTableViewCellID")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")

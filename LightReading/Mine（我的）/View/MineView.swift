@@ -75,7 +75,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             return fontSizeScale(60)
         } else {
-            return fontSizeScale(30)
+            return fontSizeScale(40)
         }
     }
     

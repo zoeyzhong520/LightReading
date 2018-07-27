@@ -107,7 +107,7 @@ extension PersonalInformationView: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return fontSizeScale(60)
             } else {
-                return fontSizeScale(30)
+                return fontSizeScale(40)
             }
         }
         return 0.1
