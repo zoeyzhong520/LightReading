@@ -29,7 +29,7 @@ class TableOfContentsViewController: BaseViewController {
         
         self.view.addSubview(self.tableOfContentsView)
         self.tableOfContentsView.clickBlock = { [weak self] in
-            self?.openBook("最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆")
+            self?.openBook("The Silver Chair")
         }
     }
     

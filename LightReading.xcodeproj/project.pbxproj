@@ -55,6 +55,7 @@
 		36FF920A210AEF7200FE9098 /* BookCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF9209210AEF7200FE9098 /* BookCommentTableViewCell.swift */; };
 		36FF920E210B287900FE9098 /* TableOfContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF920D210B287900FE9098 /* TableOfContentsViewController.swift */; };
 		7C68BD2021B77A63C8363335 /* Pods_LightReading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */; };
+		D80C7CA2210E020400A29B65 /* The Silver Chair.epub in Resources */ = {isa = PBXBuildFile; fileRef = D80C7CA1210E020400A29B65 /* The Silver Chair.epub */; };
 		D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */; };
 		D825ACC520FE27A200A5E069 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC420FE27A200A5E069 /* SettingViewController.swift */; };
 		D825ACC720FE284D00A5E069 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825ACC620FE284D00A5E069 /* SettingView.swift */; };
@@ -222,6 +223,7 @@
 		6C2BA588D2DE0BF62F72659D /* Pods_LightReading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightReading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB9E6C0FAD20B32CAE4B946 /* Pods-LightReading.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightReading.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightReading/Pods-LightReading.debug.xcconfig"; sourceTree = "<group>"; };
 		D808BF6620F64D7800124DDC /* LightReading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightReading-Bridging-Header.h"; sourceTree = "<group>"; };
+		D80C7CA1210E020400A29B65 /* The Silver Chair.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Silver Chair.epub"; sourceTree = "<group>"; };
 		D825ACC220FE23B200A5E069 /* PersonalAvatarTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarTool.swift; sourceTree = "<group>"; };
 		D825ACC420FE27A200A5E069 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D825ACC620FE284D00A5E069 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -843,6 +845,7 @@
 		D893EB79210DF6C0009EBD7F /* Epub */ = {
 			isa = PBXGroup;
 			children = (
+				D80C7CA1210E020400A29B65 /* The Silver Chair.epub */,
 				D893EB7C210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub */,
 				D893EB7A210DF6C0009EBD7F /* 最后的大佬.epub */,
 			);
@@ -1136,6 +1139,7 @@
 				D8B0D3C320F6552800AAD399 /* SVProgressHUD.bundle in Resources */,
 				36D681EE20F5ED180043B459 /* LaunchScreen.storyboard in Resources */,
 				36D681EB20F5ED180043B459 /* Assets.xcassets in Resources */,
+				D80C7CA2210E020400A29B65 /* The Silver Chair.epub in Resources */,
 				D8B0D3AD20F6552800AAD399 /* MJRefresh.bundle in Resources */,
 				36D681E920F5ED180043B459 /* Main.storyboard in Resources */,
 				D893EB7B210DF6C0009EBD7F /* 最后的大佬.epub in Resources */,
