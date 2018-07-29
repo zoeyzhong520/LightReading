@@ -34,12 +34,15 @@ class BookDetailViewController: BaseViewController {
             switch clickType {
             case .Collect:
                 str = "加入收藏"
+                SVProgressHUD.showSuccess(withStatus: "收藏成功")
             case .Comment:
                 str = "点击评论"
             case .Download:
                 str = "离线全本"
+                SVProgressHUD.showSuccess(withStatus: "离线全本")
             case .StartReading:
                 str = "开始阅读"
+                self?.openBook("最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆")
             case .TableOfContents:
                 str = "目录"
                 self?.showViewController("TableOfContentsViewController")

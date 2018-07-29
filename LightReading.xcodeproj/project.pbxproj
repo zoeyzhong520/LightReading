@@ -95,6 +95,8 @@
 		D8684F8720F794A3005A4CCB /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6820F794A3005A4CCB /* UIButton+WebCache.m */; };
 		D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */; };
 		D88B701D2104CC6A0067F164 /* LRWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B701C2104CC6A0067F164 /* LRWebViewController.swift */; };
+		D893EB7B210DF6C0009EBD7F /* 最后的大佬.epub in Resources */ = {isa = PBXBuildFile; fileRef = D893EB7A210DF6C0009EBD7F /* 最后的大佬.epub */; };
+		D893EB7D210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub in Resources */ = {isa = PBXBuildFile; fileRef = D893EB7C210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub */; };
 		D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */; };
 		D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */; };
 		D8AD7FF221042B2A002FA05E /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD7FF121042B2A002FA05E /* HomeMainView.swift */; };
@@ -290,6 +292,8 @@
 		D8684F6920F794A3005A4CCB /* SDWebImageWebPCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageWebPCoder.m; sourceTree = "<group>"; };
 		D8684F6A20F794A3005A4CCB /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		D88B701C2104CC6A0067F164 /* LRWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRWebViewController.swift; sourceTree = "<group>"; };
+		D893EB7A210DF6C0009EBD7F /* 最后的大佬.epub */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "最后的大佬.epub"; sourceTree = "<group>"; };
+		D893EB7C210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub"; sourceTree = "<group>"; };
 		D89AF3D920FA54A600016A6A /* PersonalAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAvatarViewController.swift; sourceTree = "<group>"; };
 		D8AD7FEF21042B14002FA05E /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		D8AD7FF121042B2A002FA05E /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
@@ -511,6 +515,7 @@
 		36D681E220F5ED180043B459 /* LightReading */ = {
 			isa = PBXGroup;
 			children = (
+				D893EB78210DF6C0009EBD7F /* Resource */,
 				D8B0D36B20F6550100AAD399 /* Extension */,
 				D8B0D37020F6552800AAD399 /* Include */,
 				36284B3920F73D20008C2E81 /* Login（登录） */,
@@ -827,6 +832,23 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		D893EB78210DF6C0009EBD7F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D893EB79210DF6C0009EBD7F /* Epub */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D893EB79210DF6C0009EBD7F /* Epub */ = {
+			isa = PBXGroup;
+			children = (
+				D893EB7C210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub */,
+				D893EB7A210DF6C0009EBD7F /* 最后的大佬.epub */,
+			);
+			path = Epub;
+			sourceTree = "<group>";
+		};
 		D8B0D36B20F6550100AAD399 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,11 +1132,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D893EB7D210DFA48009EBD7F /* 最寒冷的冬天-美国人眼中的朝鲜战争(节选) - 大卫·哈伯斯塔姆.epub in Resources */,
 				D8B0D3C320F6552800AAD399 /* SVProgressHUD.bundle in Resources */,
 				36D681EE20F5ED180043B459 /* LaunchScreen.storyboard in Resources */,
 				36D681EB20F5ED180043B459 /* Assets.xcassets in Resources */,
 				D8B0D3AD20F6552800AAD399 /* MJRefresh.bundle in Resources */,
 				36D681E920F5ED180043B459 /* Main.storyboard in Resources */,
+				D893EB7B210DF6C0009EBD7F /* 最后的大佬.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

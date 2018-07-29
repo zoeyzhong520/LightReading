@@ -28,6 +28,8 @@ class TableOfContentsView: UIView {
         return tableHeaderView
     }()
     
+    var clickBlock:(() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -66,7 +68,9 @@ extension TableOfContentsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if self.clickBlock != nil {
+            self.clickBlock!()
+        }
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FolioReaderKit
 
 extension UIViewController {
     
@@ -99,6 +100,18 @@ extension UIViewController {
         }
         
         self.present(alertCtrl, animated: true, completion: nil)
+    }
+    
+    ///打开epub书籍
+    func openBook(_ resource:String?) {
+        let config = FolioReaderConfig()
+        let bookPath = Bundle.main.path(forResource: resource, ofType: "epub")
+        let folioReader = FolioReader()
+        if bookPath == nil {
+            SVProgressHUD.showError(withStatus: "书籍目录不存在")
+            return
+        }
+        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: true, animated: true)
     }
 }
 
