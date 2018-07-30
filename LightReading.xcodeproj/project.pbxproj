@@ -1036,7 +1036,6 @@
 				36D681DD20F5ED180043B459 /* Frameworks */,
 				36D681DE20F5ED180043B459 /* Resources */,
 				3A325AE2C89673C0A984CFBF /* [CP] Embed Pods Frameworks */,
-				0498287B170CB846BF7D8F42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1163,21 +1162,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0498287B170CB846BF7D8F42 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LightReading/Pods-LightReading-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3A325AE2C89673C0A984CFBF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

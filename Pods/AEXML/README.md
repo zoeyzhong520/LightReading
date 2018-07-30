@@ -1,7 +1,7 @@
 # AEXML
 **Simple and lightweight XML parser written in Swift**
 
-[![Language Swift 3.0](https://img.shields.io/badge/Language-Swift%203.0-orange.svg?style=flat)](https://swift.org)
+[![Language Swift 4.0](https://img.shields.io/badge/Language-Swift%204.0-orange.svg?style=flat)](https://swift.org)
 [![Platforms iOS | watchOS | tvOS | OSX](https://img.shields.io/badge/Platforms-iOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20OS%20X-lightgray.svg?style=flat)](http://www.apple.com)
 [![License MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)](https://github.com/tadija/AEXML/blob/master/LICENSE)
 
@@ -12,20 +12,11 @@
 > This is not a robust full featured XML parser, but rather simple,  
 lightweight and easy to use utility for casual XML handling.
 
-**AEXML** is a [minion](http://tadija.net/public/minion.png) which consists of these classes:  
-
-Class | Description
------------- | -------------
-`AEXMLElement` | Base class
-`AEXMLDocument` | Inherited from `AEXMLElement` with a few addons
-`AEXMLParser` | Simple (private) wrapper around `Foundation.XMLParser`
-
 ## Index
 - [Features](#features)
-- [Example](#example)
+- [Usage](#usage)
     - [Read XML](#read-xml)
     - [Write XML](#write-xml)
-- [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
 
@@ -33,9 +24,9 @@ Class | Description
 - **Read XML** data
 - **Write XML** string
 - Covered with [unit tests](https://github.com/tadija/AEXML/blob/master/Tests/AEXMLTests.swift)
-- Covered with [docs](http://cocoadocs.org/docsets/AEXML)
+- Covered with inline docs
 
-## Example
+## Usage
 
 ### Read XML
 Let's say this is some XML string you picked up somewhere and made a variable `data: Data` from that.
@@ -173,10 +164,6 @@ getStockPrice.addChild(name: "m:StockName", value: "AAPL")
 // prints the same XML structure as original
 print(soapRequest.xml)
 ```
-
-## Requirements
-- Xcode 8.0+
-- AEXML doesn't require any additional libraries for it to work.
 
 ## Installation
 

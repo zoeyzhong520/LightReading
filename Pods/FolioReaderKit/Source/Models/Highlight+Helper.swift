@@ -199,77 +199,6 @@ extension Highlight {
     }
 }
 
-// MARK: - Static functions
-
-extension Highlight {
-
-    @available(*, deprecated, message: "Shared instance removed. Use a local instance instead.")
-    private static var readerConfig : FolioReaderConfig {
-        return FolioReader.shared.readerContainer!.readerConfig
-    }
-
-    /// Save a Highlight with completion block
-    ///
-    /// - Parameter completion: Completion block
-    @available(*, deprecated, message: "Use 'persist(withConfiguration:completion:)' instead.")
-    public func persist(_ completion: Completion? = nil) {
-        self.persist(withConfiguration: Highlight.readerConfig, completion: completion)
-    }
-
-    /// Return all Highlights
-    ///
-    /// - Returns: Return all Highlights
-    @available(*, deprecated, message: "Use 'all(withConfiguration:)' instead.")
-    public static func all() -> [Highlight] {
-        return Highlight.all(withConfiguration: Highlight.readerConfig)
-    }
-
-    /// Return a list of Highlights with a given ID
-    ///
-    /// - Parameters:
-    ///   - bookId: Book ID
-    ///   - page: Page number
-    /// - Returns: Return a list of Highlights
-    @available(*, deprecated, message: "Use 'allByBookId(withConfiguration:bookId:andPage:)' instead.")
-    public static func allByBookId(_ bookId: String, andPage page: NSNumber? = nil) -> [Highlight] {
-        return Highlight.allByBookId(withConfiguration: Highlight.readerConfig, bookId: bookId, andPage: page)
-    }
-
-    /// Update a Highlight by ID
-    ///
-    /// - Parameters:
-    ///   - highlightId: The ID to be removed
-    ///   - type: The `HighlightStyle`
-    @available(*, deprecated, message: "Use 'updateById(withConfiguration:highlightId:type:)' instead.")
-    public static func updateById(_ highlightId: String, type: HighlightStyle) {
-        Highlight.updateById(withConfiguration: Highlight.readerConfig, highlightId: highlightId, type: type)
-    }
-
-    /// Remove a Highlight by ID
-    ///
-    /// - Parameter highlightId: The ID to be removed
-    @available(*, deprecated, message: "Use 'removeById(withConfiguration:highlightId:)' instead.")
-    public static func removeById(_ highlightId: String) {
-        Highlight.removeById(withConfiguration: Highlight.readerConfig, highlightId: highlightId)
-    }
-
-    /// Remove a Highlight
-    @available(*, deprecated, message: "Use 'remove(withConfiguration:)' instead.")
-    public func remove() {
-        self.remove(withConfiguration: Highlight.readerConfig)
-    }
-
-    /// Remove a Highlight from HTML by ID
-    ///
-    /// - Parameter highlightId: The ID to be removed
-    /// - Returns: The removed id
-    @available(*, deprecated, message: "Use 'removeFromHTMLById(withinPage:highlightId:)' instead.")
-    @discardableResult public static func removeFromHTMLById(_ highlightId: String) -> String? {
-        let page = FolioReader.shared.readerCenter?.currentPage
-        return self.removeFromHTMLById(withinPage: page, highlightId: highlightId)
-    }
-}
-
 // MARK: - HTML Methods
 
 extension Highlight {
@@ -303,7 +232,7 @@ extension Highlight {
             let highlight = Highlight()
             highlight.highlightId = matchingHighlight.id
             highlight.type = HighlightStyle.styleForClass(str.substring(with: match.range(at: 1))).rawValue
-            highlight.date = Foundation.Date()
+            highlight.date = Date()
             highlight.content = Highlight.removeSentenceSpam(str.substring(with: match.range(at: 2)))
             highlight.contentPre = Highlight.removeSentenceSpam(contentPre)
             highlight.contentPost = Highlight.removeSentenceSpam(contentPost)
@@ -322,7 +251,7 @@ extension Highlight {
         var updatedContent = content
         if updatedContent.range(of: rangeString) != nil {
             let regex = try? NSRegularExpression(pattern: pattern, options: [])
-            let searchString = regex?.firstMatch(in: updatedContent, options: .reportProgress, range: NSRange(location: 0, length: updatedContent.characters.count))
+            let searchString = regex?.firstMatch(in: updatedContent, options: .reportProgress, range: NSRange(location: 0, length: updatedContent.count))
 
             if let string = searchString, (string.range.location != NSNotFound) {
                 updatedContent = (updatedContent as NSString).substring(with: string.range)
@@ -341,7 +270,7 @@ extension Highlight {
     @discardableResult public static func removeFromHTMLById(withinPage page: FolioReaderPage?, highlightId: String) -> String? {
         guard let currentPage = page else { return nil }
         
-        if let removedId = currentPage.webView.js("removeHighlightById('\(highlightId)')") {
+        if let removedId = currentPage.webView?.js("removeHighlightById('\(highlightId)')") {
             return removedId
         } else {
             print("Error removing Highlight from page")

@@ -81,13 +81,13 @@ class FolioReaderQuoteShare: UIViewController {
         quoteLabel.translatesAutoresizingMaskIntoConstraints = false
         quoteLabel.adjustsFontSizeToFitWidth = true
         quoteLabel.minimumScaleFactor = 0.3
-        quoteLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 100), for: .vertical)
+        quoteLabel.setContentCompressionResistancePriority(UILayoutPriority(100), for: .vertical)
         filterImage.addSubview(quoteLabel)
 
         var bookTitle = ""
         var authorName = ""
 
-        if let title = self.book.title() {
+        if let title = self.book.title {
             bookTitle = title
         }
 
@@ -104,7 +104,7 @@ class FolioReaderQuoteShare: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.8
-        titleLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 600), for: .vertical)
+        titleLabel.setContentCompressionResistancePriority(UILayoutPriority(600), for: .vertical)
         filterImage.addSubview(titleLabel)
 
         // Attributed author
@@ -262,7 +262,7 @@ class FolioReaderQuoteShare: UIViewController {
         var shareItems = [AnyObject]()
 
         // Get book title
-        if let title = self.book.title() {
+        if let title = self.book.title {
             bookTitle = title
             subject += " “\(title)”"
         }

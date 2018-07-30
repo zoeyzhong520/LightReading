@@ -2,6 +2,11 @@
 ![FolioReader logo](https://raw.githubusercontent.com/FolioReader/FolioReaderKit/assets/folioreader.png)
 FolioReaderKit is an ePub reader and parser framework for iOS written in Swift.
 
+![Version](https://img.shields.io/cocoapods/v/FolioReaderKit.svg)
+![Downloads](https://img.shields.io/cocoapods/dt/FolioReaderKit.svg)
+![Apps using](https://img.shields.io/cocoapods/at/FolioReaderKit.svg)
+![License](https://img.shields.io/cocoapods/l/FolioReaderKit.svg)
+
 ## Features
 
 - [x] ePub 2 and ePub 3 support
@@ -127,14 +132,15 @@ class StoryboardFolioReaderContrainer: FolioReaderContainer {
     }
 }
 ```
+
 Go to your storyboard file, choose or create the view controller that should present the epub reader. In the identity inspector set StoryboardFolioReaderContrainer as class.
 
 ## Documentation
 Checkout [Example](/Example) and [API Documentation](http://cocoadocs.org/docsets/FolioReaderKit)
-Current state: [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/FolioReaderKit.svg?maxAge=86400)](http://cocoadocs.org/docsets/FolioReaderKit)
 
 You can always use the header-doc. (use **alt+click** in Xcode)
-<img src="https://d2ppvlu71ri8gs.cloudfront.net/items/3x3l0h002u3X2n1P0H3e/Screen%20Shot%202017-05-30%20at%2011.46.45%20PM.png" width="521px"/>
+
+<img src="https://raw.githubusercontent.com/FolioReader/FolioReaderKit/assets/header-doc.png" width="521px"/>
 
 ### Migration
 If you are migrating to a newer version check out [MIGRATION](/MIGRATION.md) and [CHANGELOG](/CHANGELOG.md).

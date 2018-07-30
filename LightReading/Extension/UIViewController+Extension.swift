@@ -105,13 +105,15 @@ extension UIViewController {
     ///打开epub书籍
     func openBook(_ resource:String?) {
         let config = FolioReaderConfig()
+        config.shouldHideNavigationOnTap = false
         let bookPath = Bundle.main.path(forResource: resource, ofType: "epub")
         let folioReader = FolioReader()
         if bookPath == nil {
             SVProgressHUD.showError(withStatus: "书籍目录不存在")
             return
         }
-        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: true, animated: true)
+//        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: false, animated: true)
+        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config)
     }
 }
 
