@@ -112,7 +112,6 @@ extension UIViewController {
             SVProgressHUD.showError(withStatus: "书籍目录不存在")
             return
         }
-//        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: false, animated: true)
         folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config)
     }
 }

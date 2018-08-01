@@ -56,6 +56,7 @@ let TableViewBackgroundColor = RGB(244, 244, 244)
 let LineBackgroundColor = RGB(244, 244, 244)
 let CommonBackgroundColor = RGB(244, 244, 244)
 let BlueColor = RGB(0, 123, 250)
+///蒙层背景颜色
 let MongolianlayerColor = RGBA(0, 0, 0, 0.2)
 let RandomColor = RGB(CGFloat(arc4random() % 255), CGFloat(arc4random() % 255), CGFloat(arc4random() % 255))
 

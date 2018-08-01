@@ -37,6 +37,7 @@ class BookDetailViewController: BaseViewController {
                 SVProgressHUD.showSuccess(withStatus: "收藏成功")
             case .Comment:
                 str = "点击评论"
+                self?.addCommentView()
             case .Download:
                 str = "离线全本"
                 SVProgressHUD.showSuccess(withStatus: "离线全本")
@@ -50,6 +51,12 @@ class BookDetailViewController: BaseViewController {
             
             print("clickType = \(str)")
         }
+    }
+    
+    ///点击评论
+    func addCommentView() {
+        let commentView = BookInputCommentView(frame: .zero)
+        commentView.showInView(LRKeyWindow)
     }
     
     override func didReceiveMemoryWarning() {
