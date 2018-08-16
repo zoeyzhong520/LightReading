@@ -14,6 +14,8 @@ class BookInputCommentView: UIView {
 
     var contentView:UIView?
     
+    fileprivate var contentViewH:CGFloat = fontSizeScale(40)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -30,8 +32,8 @@ class BookInputCommentView: UIView {
         self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         
         if contentView == nil {
-            contentView = UIView(LightGrayColor)
-            contentView?.frame = CGRect(x: 0, y: ScreenHeight-fontSizeScale(100), width: ScreenWidth, height: fontSizeScale(100))
+            contentView = UIView(.white)
+            contentView?.frame = CGRect(x: 0, y: ScreenHeight-contentViewH, width: ScreenWidth, height: contentViewH)
             self.addSubview(contentView!)
             
             self.configContent()
@@ -51,22 +53,22 @@ class BookInputCommentView: UIView {
         view?.addSubview(self)
         
         self.alpha = 0.0
-        self.contentView?.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: fontSizeScale(100))
+        self.contentView?.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: contentViewH)
         
         UIView.animate(withDuration: AnimateDuration, animations: {
             self.alpha = 1.0
-            self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-fontSizeScale(100), width: ScreenWidth, height: fontSizeScale(100))
+            self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-self.contentViewH, width: ScreenWidth, height: self.contentViewH)
         }, completion: nil)
     }
     
     //MARK: 移除View
     func disMiss() {
         self.alpha = 1.0
-        self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-fontSizeScale(100), width: ScreenWidth, height: fontSizeScale(100))
+        self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-contentViewH, width: ScreenWidth, height: contentViewH)
         
         UIView.animate(withDuration: AnimateDuration, animations: {
             self.alpha = 0.0
-            self.contentView?.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: fontSizeScale(100))
+            self.contentView?.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: self.contentViewH)
         }) { (finished) in
             self.removeFromSuperview()
             self.contentView?.removeFromSuperview()
@@ -76,6 +78,41 @@ class BookInputCommentView: UIView {
     ///处理Tap手势
     @objc func tapAction() {
         self.disMiss()
+    }
+    
+    //MARK: 添加监听
+    func registNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: KeyboardWillShow_Notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: KeyboardWillHide_Notification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ noti:Notification) {
+        let userInfo = noti.userInfo as! NSDictionary
+        var keyBoardBounds = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        var keyBoardBoundsRect = self.convert(keyBoardBounds, to: nil)
+        var keyBaoardViewFrame = contentView?.frame
+        var deltaY = keyBoardBounds.size.height
+        
+        let animations:(() -> Void) = {
+            self.contentView?.transform = CGAffineTransform.init(translationX: 0, y: -deltaY)
+        }
+        
+        if duration > 0 {
+            let options = UIViewAnimationOptions.init(rawValue: UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).intValue << 16))
+            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
+        } else {
+            animations()
+        }
+    }
+    
+    @objc func keyboardWillHide(_ noti:Notification) {
+        
+    }
+    
+    //移除监听
+    func removeNotification() {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

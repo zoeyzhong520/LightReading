@@ -155,6 +155,12 @@ let HomeChildViewBookCoverClickBlock_Notification = NSNotification.Name.init("Ho
 ///HomeMainViewBookCoverClickBlock_Notification
 let HomeMainViewBookCoverClickBlock_Notification = NSNotification.Name.init("HomeMainViewBookCoverClickBlock_Notification")
 
+///KeyboardWillShow_Notification
+let KeyboardWillShow_Notification = NSNotification.Name.UIKeyboardWillShow
+
+///KeyboardWillHide_Notification
+let KeyboardWillHide_Notification = NSNotification.Name.UIKeyboardWillHide
+
 //MARK: BaiduLink
 let BaiduLink = "https://www.baidu.com/"
 
