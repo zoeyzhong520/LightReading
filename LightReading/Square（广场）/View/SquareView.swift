@@ -15,6 +15,15 @@ class SquareView: UIView {
         return advertisingPageScrollView
     }()
     
+    lazy var tableView:UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+//        tableView.separatorStyle = .none
+        tableView.rowHeight = fontSizeScale(100)
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -27,7 +36,36 @@ class SquareView: UIView {
     func createView() {
         self.backgroundColor = .white
         
-        self.addSubview(self.advertisingPageScrollView)
+//        self.addSubview(self.advertisingPageScrollView)
+        
+        self.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        self.tableView.reloadData()
     }
 
 }
+
+extension SquareView: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 25
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+}
+
+
+

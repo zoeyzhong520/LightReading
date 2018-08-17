@@ -56,7 +56,7 @@ class BookDetailViewController: BaseViewController {
     ///点击评论
     func addCommentView() {
         let commentView = BookInputCommentView(frame: .zero)
-        commentView.showInView(LRKeyWindow)
+        commentView.show()
     }
     
     override func didReceiveMemoryWarning() {

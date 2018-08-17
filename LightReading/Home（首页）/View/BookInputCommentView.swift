@@ -11,10 +11,18 @@ import UIKit
 //MARK: 输入评论页
 
 class BookInputCommentView: UIView {
-
+    
     var contentView:UIView?
     
-    fileprivate var contentViewH:CGFloat = fontSizeScale(40)
+    fileprivate var contentViewH:CGFloat = fontSizeScale(100)
+    
+    lazy var textView:UITextView = {
+        let textView = UITextView(backgroundColor: LineBackgroundColor, font: FifthFont, textColor: .black, isEditable: true)
+        textView.becomeFirstResponder()
+        textView.text = UserdefaultsTool.getInputComment(INPUTCOMMENTKEY)
+        textView.delegate = self
+        return textView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +37,7 @@ class BookInputCommentView: UIView {
         self.backgroundColor = MongolianlayerColor
         
         self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
-        self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
+//        self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
         
         if contentView == nil {
             contentView = UIView(.white)
@@ -41,28 +49,32 @@ class BookInputCommentView: UIView {
     }
     
     func configContent() {
+        self.registNotification()
         
+        self.contentView?.addSubview(self.textView)
+        textView.snp.makeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsetsMake(fontSizeScale(5), fontSizeScale(5), fontSizeScale(5), fontSizeScale(5)))
+        }
+    }
+    
+    deinit {
+        self.removeNotification()
     }
     
     //MARK: 显示View
-    func showInView(_ view:UIView?) {
-        if view == nil {
-            return
-        }
-        
-        view?.addSubview(self)
-        
+    func show() {
         self.alpha = 0.0
         self.contentView?.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: contentViewH)
         
         UIView.animate(withDuration: AnimateDuration, animations: {
             self.alpha = 1.0
             self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-self.contentViewH, width: ScreenWidth, height: self.contentViewH)
+            LRKeyWindow?.addSubview(self)
         }, completion: nil)
     }
     
     //MARK: 移除View
-    func disMiss() {
+    @objc func disMiss() {
         self.alpha = 1.0
         self.contentView?.frame = CGRect(x: 0, y: ScreenHeight-contentViewH, width: ScreenWidth, height: contentViewH)
         
@@ -87,12 +99,12 @@ class BookInputCommentView: UIView {
     }
     
     @objc func keyboardWillShow(_ noti:Notification) {
-        let userInfo = noti.userInfo as! NSDictionary
-        var keyBoardBounds = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let userInfo = noti.userInfo as! [String:Any]
+        let keyBoardBounds = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         var keyBoardBoundsRect = self.convert(keyBoardBounds, to: nil)
         var keyBaoardViewFrame = contentView?.frame
-        var deltaY = keyBoardBounds.size.height
+        let deltaY = keyBoardBounds.size.height
         
         let animations:(() -> Void) = {
             self.contentView?.transform = CGAffineTransform.init(translationX: 0, y: -deltaY)
@@ -107,7 +119,19 @@ class BookInputCommentView: UIView {
     }
     
     @objc func keyboardWillHide(_ noti:Notification) {
+        let userInfo = noti.userInfo as! [String:Any]
+        let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         
+        let animations:(() -> Void) = {
+            self.contentView?.transform = CGAffineTransform.identity
+        }
+        
+        if duration > 0 {
+            let options = UIViewAnimationOptions.init(rawValue: UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).intValue << 16))
+            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
+        } else {
+            animations()
+        }
     }
     
     //移除监听
@@ -116,7 +140,22 @@ class BookInputCommentView: UIView {
     }
 }
 
-
+//UITextFieldDelegate
+extension BookInputCommentView: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            self.disMiss()
+            print("inputText = \(textView.text)")
+            //保存输入的评论
+            UserdefaultsTool.saveInputComment(textView.text, key: INPUTCOMMENTKEY)
+            return false
+        }
+        return true
+    }
+}
 
 
 

@@ -161,6 +161,9 @@ let KeyboardWillShow_Notification = NSNotification.Name.UIKeyboardWillShow
 ///KeyboardWillHide_Notification
 let KeyboardWillHide_Notification = NSNotification.Name.UIKeyboardWillHide
 
+///INPUTCOMMENTKEY
+let INPUTCOMMENTKEY = "INPUTCOMMENTKEY"
+
 //MARK: BaiduLink
 let BaiduLink = "https://www.baidu.com/"
 

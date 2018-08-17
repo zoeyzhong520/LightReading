@@ -25,4 +25,14 @@ extension String {
         let size = (self as NSString).boundingRect(with: CGSize(width: width, height: height), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:font], context: nil).size
         return size
     }
+    
+    ///计算单行字符串尺寸
+    func sizeArrtibutes(_ font:UIFont) -> CGSize {
+        let size = (self as NSString).size(withAttributes: [NSAttributedStringKey.font:font])
+        return size
+    }
 }
+
+
+
+

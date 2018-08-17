@@ -25,6 +25,10 @@
 		36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4520F741E0008C2E81 /* UIButton+Extension.swift */; };
 		36284B4820F75E7B008C2E81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4720F75E7B008C2E81 /* String+Extension.swift */; };
 		3645BC8A20FCA399002C938A /* LRAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645BC8920FCA399002C938A /* LRAlertView.swift */; };
+		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
+		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
+		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
+		3690F6CC2126D1C300BBB9D2 /* SquareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6CB2126D1C300BBB9D2 /* SquareFilterView.swift */; };
 		36B298722109BADE004CED7D /* BookIntroductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B298712109BADE004CED7D /* BookIntroductionTableViewCell.swift */; };
 		36B298742109C1FF004CED7D /* LRStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B298732109C1FF004CED7D /* LRStarView.swift */; };
 		36B298762109CD93004CED7D /* BookIntroductionFunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B298752109CD93004CED7D /* BookIntroductionFunctionView.swift */; };
@@ -185,6 +189,10 @@
 		36284B4520F741E0008C2E81 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		36284B4720F75E7B008C2E81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3645BC8920FCA399002C938A /* LRAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRAlertView.swift; sourceTree = "<group>"; };
+		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
+		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
+		3690F6CB2126D1C300BBB9D2 /* SquareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareFilterView.swift; sourceTree = "<group>"; };
 		36B298712109BADE004CED7D /* BookIntroductionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookIntroductionTableViewCell.swift; sourceTree = "<group>"; };
 		36B298732109C1FF004CED7D /* LRStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRStarView.swift; sourceTree = "<group>"; };
 		36B298752109CD93004CED7D /* BookIntroductionFunctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookIntroductionFunctionView.swift; sourceTree = "<group>"; };
@@ -716,6 +724,9 @@
 			isa = PBXGroup;
 			children = (
 				36D6822B20F5EE8A0043B459 /* SquareView.swift */,
+				3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */,
+				3690F6C92126C52700BBB9D2 /* SquareButton.swift */,
+				3690F6CB2126D1C300BBB9D2 /* SquareFilterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -867,6 +878,7 @@
 				36284B4720F75E7B008C2E81 /* String+Extension.swift */,
 				D84EAECA20F8F86200CC6F4D /* UIImageView+Extension.swift */,
 				36C732942100821A00201B01 /* UIScrollView+Extension.swift */,
+				3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1254,11 +1266,13 @@
 				D8FE1FFB210B69C800949C6B /* TableOfContentsTableHeaderView.swift in Sources */,
 				D8B0D3BA20F6552800AAD399 /* MJRefreshFooter.m in Sources */,
 				36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */,
+				3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */,
 				D8684F7B20F794A3005A4CCB /* SDAnimatedImageRep.m in Sources */,
 				D8684F8620F794A3005A4CCB /* SDWebImageImageIOCoder.m in Sources */,
 				D8F053A5210210AA0012D633 /* HomeChildViewController.swift in Sources */,
 				36D6822220F5EE440043B459 /* BaseViewController.swift in Sources */,
 				36FF9206210AC46300FE9098 /* StarView.m in Sources */,
+				3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */,
 				D8684F7820F794A3005A4CCB /* SDWebImagePrefetcher.m in Sources */,
 				36FF9208210ACD3300FE9098 /* BookTableOfContentsTableViewCell.swift in Sources */,
 				36284B4020F73D5C008C2E81 /* LoginModel.swift in Sources */,
@@ -1289,6 +1303,7 @@
 				D8684F6C20F794A3005A4CCB /* MKAnnotationView+WebCache.m in Sources */,
 				D8B0D3AE20F6552800AAD399 /* UIScrollView+MJExtension.m in Sources */,
 				D8684F8720F794A3005A4CCB /* UIButton+WebCache.m in Sources */,
+				3690F6CC2126D1C300BBB9D2 /* SquareFilterView.swift in Sources */,
 				D8684F7120F794A3005A4CCB /* SDWebImageCodersManager.m in Sources */,
 				36C732952100821A00201B01 /* UIScrollView+Extension.swift in Sources */,
 				D8B0D3AB20F6552800AAD399 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1341,6 +1356,7 @@
 				D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */,
 				D8ED045020FB72C8007D732A /* PersonalAvatarView.swift in Sources */,
 				D8684F7920F794A3005A4CCB /* SDWebImageCoder.m in Sources */,
+				3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */,
 				D8684F8520F794A3005A4CCB /* UIView+WebCache.m in Sources */,
 				D8684F7620F794A3005A4CCB /* SDWebImageCoderHelper.m in Sources */,
 				D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */,

@@ -14,6 +14,11 @@ class BookIntroductionFunctionView: UIView {
     
     var tapBlock:((Enums.BookDetailCellType) -> Void)?
     
+    //是否收藏
+    var isCollect = false
+    
+    var collectImgView:UIImageView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -52,6 +57,9 @@ class BookIntroductionFunctionView: UIView {
             let img = UIImage.init(named: imgsArray[i])?.withRenderingMode(.alwaysTemplate)
             let imgView = UIImageView.init(image: img)
             imgView.tintColor = BlueColor
+            if i == 0 {
+                self.collectImgView = imgView
+            }
             view.addSubview(imgView)
             imgView.snp.makeConstraints({ (make) in
                 make.centerY.equalToSuperview()
@@ -76,6 +84,7 @@ class BookIntroductionFunctionView: UIView {
             switch tag {
             case 0:
                 clickType = .Collect
+                self.collectBook()
             case 1:
                 clickType = .Download
             case 2:
@@ -88,6 +97,17 @@ class BookIntroductionFunctionView: UIView {
                 self.tapBlock!(clickType)
             }
         }
+    }
+    
+    ///收藏事件
+    func collectBook() {
+        if isCollect {
+            isCollect = false
+        } else {
+            isCollect = true
+        }
+        
+        self.collectImgView.image = UIImage.init(named: isCollect ? "collectImg_select" : "collectImg")?.withRenderingMode(.alwaysTemplate)
     }
 }
 

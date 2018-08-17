@@ -11,8 +11,13 @@ import UIKit
 class SquareViewController: BaseViewController {
 
     lazy var squareView:SquareView = {
-        let squareView = SquareView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: self.view.bounds.size.height - StatusBarHeight - NavigationBarHeight - TabBarHeight))
+        let squareView = SquareView(frame: .zero)
         return squareView
+    }()
+    
+    lazy var headerView:SquareTableHeaderView = {
+        let headerView = SquareTableHeaderView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: fontSizeScale(50)))
+        return headerView
     }()
     
     override func viewDidLoad() {
@@ -23,8 +28,22 @@ class SquareViewController: BaseViewController {
     }
 
     func setPage() {
+        
+        self.addBarButtonItemWithImage(.right, image: "writeImg", action: #selector(writeAction))
+        
+        self.view.addSubview(self.headerView)
+        
         self.view.addSubview(self.squareView)
         self.squareView.advertisingPageScrollView.dataArray = [FifthImageUrl, SixthImageUrl, SeventhImageUrl, EighthImageUrl, NinethImageUrl, TenthImageUrl]
+        self.squareView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.headerView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
+    }
+    
+    //撰写
+    @objc func writeAction() {
+        print("撰写")
     }
     
     override func didReceiveMemoryWarning() {

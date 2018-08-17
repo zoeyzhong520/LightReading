@@ -24,7 +24,28 @@ class UserdefaultsTool: NSObject {
         return token
     }
     
+    ///保存输入的评论
+    class func saveInputComment(_ inputStr:String?, key:String) {
+        let defaults = UserDefaults.standard
+        defaults.set(inputStr, forKey: key)
+        defaults.synchronize()
+    }
     
+    ///获取输入的评论
+    class func getInputComment(_ key:String) -> String {
+        let defaults = UserDefaults.standard
+        if let inputComment = defaults.object(forKey: key) as? String {
+            return inputComment
+        } else {
+            print("获取输入的评论失败！")
+            return ""
+        }
+    }
+    
+    ///删除输入的评论
+    class func deleteInputComment(_ key:String) {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }
 
 
