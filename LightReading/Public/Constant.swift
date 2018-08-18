@@ -122,7 +122,7 @@ let AvatarImageUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_
 let BookCoverUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532360982661&di=5d0be83b0689776cd6ab319b6e8e7ce7&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F88ed9cd706b70f88ec6f5ea895d95f5bafc3686c.jpg"
 
 //MARK: 动画执行时长
-let AnimateDuration:TimeInterval = 0.3
+let AnimateDuration:TimeInterval = 0.25
 
 //MARK: key window
 let LRKeyWindow = UIApplication.shared.keyWindow
@@ -167,7 +167,8 @@ let INPUTCOMMENTKEY = "INPUTCOMMENTKEY"
 //MARK: BaiduLink
 let BaiduLink = "https://www.baidu.com/"
 
-
+///SquareFilterViewFrame
+let SquareFilterViewFrame = CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight+fontSizeScale(50), width: ScreenWidth, height: ScreenHeight-(StatusBarHeight+NavigationBarHeight+fontSizeScale(50)))
 
 
 
