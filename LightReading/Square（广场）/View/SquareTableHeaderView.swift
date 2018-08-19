@@ -14,8 +14,8 @@ class SquareTableHeaderView: UIView {
         let leftDefaultBtn = SquareButton(frame: .zero)
         leftDefaultBtn.titleText = "全部"
         leftDefaultBtn.imgName = "topArrow"
-        leftDefaultBtn.clickBlock = { [weak self] in
-            self?.setSquareFilterView()
+        leftDefaultBtn.clickBlock = { [weak self] isClicked in
+            self?.setSquareFilterView(["全部", "一天前", "一周前", "一个月前"], shouldShow: isClicked)
         }
         return leftDefaultBtn
     }()
@@ -24,8 +24,8 @@ class SquareTableHeaderView: UIView {
         let rightDefaultBtn = SquareButton(frame: .zero)
         rightDefaultBtn.titleText = "默认排序"
         rightDefaultBtn.imgName = "topArrow"
-        rightDefaultBtn.clickBlock = { [weak self] in
-            self?.setSquareFilterView()
+        rightDefaultBtn.clickBlock = { [weak self] isClicked in
+            self?.setSquareFilterView(["默认排序", "点赞排序", "评论数排序"], shouldShow: isClicked)
         }
         return rightDefaultBtn
     }()
@@ -39,6 +39,8 @@ class SquareTableHeaderView: UIView {
         let bottomLine = UIView(LineBackgroundColor)
         return bottomLine
     }()
+    
+    var filterView:SquareFilterView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,9 +80,15 @@ class SquareTableHeaderView: UIView {
     }
     
     //set SquareFilterView
-    func setSquareFilterView() {
-        let filterView = SquareFilterView(frame: .zero)
+    func setSquareFilterView(_ titles:[String], shouldShow:Bool) {
+        if shouldShow == false {
+            self.filterView?.disMiss()
+            return
+        }
+        
+        let filterView = SquareFilterView(frame: .zero, titles: titles)
         filterView.show()
+        self.filterView = filterView
     }
 }
 

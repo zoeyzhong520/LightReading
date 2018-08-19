@@ -39,9 +39,9 @@ class SquareButton: UIView {
         }
     }
     
-    var clickBlock:(() -> Void)?
+    var clickBlock:((Bool) -> Void)?
     
-    var isClicked = false
+    var isClicked:Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,10 +77,10 @@ class SquareButton: UIView {
     //点击事件
     @objc func tapAction() {
         if self.clickBlock != nil {
-            self.clickBlock!()
+            self.clickBlock!(isClicked)
         }
         
-        if isClicked {
+        if isClicked == true {
             isClicked = false
             UIView.animate(withDuration: AnimateDuration) {
                 self.imgView.transform = CGAffineTransform.identity
