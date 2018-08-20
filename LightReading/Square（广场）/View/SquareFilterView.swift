@@ -19,15 +19,21 @@ class SquareFilterView: UIView {
     //rowHeight
     var rowHeight = fontSizeScale(40)
     
+    ///蒙层
+    var blurView:UIView?
+    
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.rowHeight = rowHeight
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(SquareFilterTableViewCell.self, forCellReuseIdentifier: "SquareFilterTableViewCellID")
         return tableView
     }()
     
     var titles = [String]()
+    
+    var clickBlock:((Int) -> Void)?
     
     init(frame: CGRect, titles:[String]) {
         super.init(frame: frame)
@@ -41,9 +47,7 @@ class SquareFilterView: UIView {
     }
     
     func createView() {
-        self.backgroundColor = MongolianlayerColor
         self.frame = SquareFilterViewFrame
-        self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapClickAction)))
         
         if contentView == nil {
             contentView = UIView(.white)
@@ -51,6 +55,11 @@ class SquareFilterView: UIView {
             self.addSubview(contentView!)
             
             self.configContent()
+            
+            blurView = UIView(RGBA(0, 0, 0, 0.2))
+            blurView?.frame = CGRect(x: 0, y: contentView!.frame.maxY, width: ScreenWidth, height: self.bounds.size.height-contentViewH)
+            blurView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapClickAction)))
+            self.addSubview(blurView!)
         }
     }
     
@@ -72,16 +81,17 @@ class SquareFilterView: UIView {
     
     //点击事件
     @objc func tapClickAction() {
+        if self.clickBlock != nil {
+            self.clickBlock!(0)
+        }
         self.disMiss()
     }
     
     //MARK: 显示
     func show() {
         self.alpha = 0.0
-        self.contentView?.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -contentViewH)
         UIView.animate(withDuration: AnimateDuration, animations: {
             self.alpha = 1.0
-            self.contentView?.transform = CGAffineTransform.identity
             LRKeyWindow?.addSubview(self)
         }, completion: nil)
     }
@@ -89,10 +99,8 @@ class SquareFilterView: UIView {
     //MARK: 隐藏
     func disMiss() {
         self.alpha = 1.0
-        self.contentView?.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0)
         UIView.animate(withDuration: AnimateDuration, animations: {
             self.alpha = 0.0
-            self.contentView?.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.contentViewH)
         }) { (finished) in
             self.removeFromSuperview()
         }
@@ -110,11 +118,16 @@ extension SquareFilterView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = SquareFilterTableViewCell.createCell(tableView, indexPath: indexPath)
+        cell.titleText = self.titles[indexPath.row]
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if self.clickBlock != nil {
+            self.clickBlock!(indexPath.row)
+        }
+        disMiss()
     }
 }
 

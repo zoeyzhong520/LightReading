@@ -25,6 +25,8 @@
 		36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4520F741E0008C2E81 /* UIButton+Extension.swift */; };
 		36284B4820F75E7B008C2E81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36284B4720F75E7B008C2E81 /* String+Extension.swift */; };
 		3645BC8A20FCA399002C938A /* LRAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645BC8920FCA399002C938A /* LRAlertView.swift */; };
+		364C2FF3212A69AF009EC19E /* SquareFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */; };
+		364C2FF5212A747A009EC19E /* SquareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */; };
 		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
 		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
 		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
@@ -189,6 +191,8 @@
 		36284B4520F741E0008C2E81 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		36284B4720F75E7B008C2E81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3645BC8920FCA399002C938A /* LRAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRAlertView.swift; sourceTree = "<group>"; };
+		364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareFilterTableViewCell.swift; sourceTree = "<group>"; };
+		364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableViewCell.swift; sourceTree = "<group>"; };
 		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
 		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
@@ -727,6 +731,8 @@
 				3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */,
 				3690F6C92126C52700BBB9D2 /* SquareButton.swift */,
 				3690F6CB2126D1C300BBB9D2 /* SquareFilterView.swift */,
+				364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */,
+				364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1263,6 +1269,7 @@
 				36D681E620F5ED180043B459 /* ViewController.swift in Sources */,
 				36B298742109C1FF004CED7D /* LRStarView.swift in Sources */,
 				36284B3520F73916008C2E81 /* UIView+Extension.swift in Sources */,
+				364C2FF5212A747A009EC19E /* SquareTableViewCell.swift in Sources */,
 				D8FE1FFB210B69C800949C6B /* TableOfContentsTableHeaderView.swift in Sources */,
 				D8B0D3BA20F6552800AAD399 /* MJRefreshFooter.m in Sources */,
 				36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */,
@@ -1284,6 +1291,7 @@
 				D8B0D3B020F6552800AAD399 /* UIView+MJExtension.m in Sources */,
 				D8B4F99520F9825000A88D27 /* PersonalInformationTableViewCell.swift in Sources */,
 				36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */,
+				364C2FF3212A69AF009EC19E /* SquareFilterTableViewCell.swift in Sources */,
 				D8684F7C20F794A3005A4CCB /* SDImageCache.m in Sources */,
 				D825ACC920FE29B200A5E069 /* SettingTableViewCell.swift in Sources */,
 				3600A4F620FF16C900EB42E1 /* AboutUsViewController.swift in Sources */,

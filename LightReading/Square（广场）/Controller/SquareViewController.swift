@@ -17,6 +17,12 @@ class SquareViewController: BaseViewController {
     
     lazy var headerView:SquareTableHeaderView = {
         let headerView = SquareTableHeaderView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: fontSizeScale(50)))
+        headerView.leftDefaultBtn.filterView?.clickBlock = { [weak self] index in
+            
+        }
+        headerView.rightDefaultBtn.filterView?.clickBlock = { [weak self] index in
+            
+        }
         return headerView
     }()
     

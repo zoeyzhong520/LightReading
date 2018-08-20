@@ -39,12 +39,18 @@ class SquareButton: UIView {
         }
     }
     
-    var clickBlock:((Bool) -> Void)?
+    //搜索条件数组
+    var filterTitles = [String]()
+    
+    var clickBlock:(() -> Void)?
     
     var isClicked:Bool = false
     
-    override init(frame: CGRect) {
+    var filterView:SquareFilterView?
+    
+    init(frame: CGRect, filterTitles:[String]) {
         super.init(frame: frame)
+        self.filterTitles = filterTitles
         self.createView()
     }
     
@@ -76,20 +82,30 @@ class SquareButton: UIView {
     
     //点击事件
     @objc func tapAction() {
-        if self.clickBlock != nil {
-            self.clickBlock!(isClicked)
-        }
         
         if isClicked == true {
             isClicked = false
             UIView.animate(withDuration: AnimateDuration) {
                 self.imgView.transform = CGAffineTransform.identity
             }
+            
+            self.filterView?.disMiss()
         } else {
             isClicked = true
             UIView.animate(withDuration: AnimateDuration) {
                 self.imgView.transform = CGAffineTransform.identity.rotated(by: .pi)
             }
+            
+            let filterView = SquareFilterView(frame: .zero, titles: self.filterTitles)
+            filterView.show()
+            filterView.clickBlock = { [weak self] index in
+                self?.isClicked = false//恢复初始状态
+                UIView.animate(withDuration: AnimateDuration) {
+                    self?.imgView.transform = CGAffineTransform.identity
+                }
+                print("index = \(index)")
+            }
+            self.filterView = filterView
         }
     }
 }
