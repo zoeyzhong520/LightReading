@@ -18,9 +18,10 @@ class SquareView: UIView {
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
 //        tableView.separatorStyle = .none
-        tableView.rowHeight = fontSizeScale(100)
+        tableView.rowHeight = fontSizeScale(150)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(SquareTableViewCell.self, forCellReuseIdentifier: "SquareTableViewCellID")
         return tableView
     }()
     
@@ -58,7 +59,9 @@ extension SquareView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = SquareTableViewCell.createCell(tableView, indexPath: indexPath)
+        cell.selectionStyle = .none
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

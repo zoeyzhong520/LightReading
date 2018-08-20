@@ -12,7 +12,7 @@ class SquareTableViewCell: UITableViewCell {
 
     //头像
     lazy var avatarImgView:UIImageView = {
-        let avatarImgView = UIImageView()
+        let avatarImgView = UIImageView(image: UIImage.init(named: "avatarImg_default"))
         avatarImgView.layer.cornerRadius = 5
         avatarImgView.layer.masksToBounds = true
         return avatarImgView
@@ -32,7 +32,7 @@ class SquareTableViewCell: UITableViewCell {
     
     //内容
     lazy var contentLabel:UILabel = {
-        let contentLabel = UILabel("内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容", font: FourthFont, textColor: BlackColor, alignment: .left)
+        let contentLabel = UILabel("内容内容内容内容内容内容内容内容内容内容内容内容内容内容", font: FourthFont, textColor: BlackColor, alignment: .left)
         contentLabel.numberOfLines = 0
         return contentLabel
     }()
@@ -60,7 +60,7 @@ class SquareTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.createView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -112,7 +112,11 @@ class SquareTableViewCell: UITableViewCell {
     
     ///创建cell
     class func createCell(_ tableView:UITableView, indexPath:IndexPath) -> SquareTableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SquareTableViewCellID", for: indexPath) as? SquareTableViewCell
+        if cell == nil {
+            print("创建cell失败！")
+        }
+        return cell!
     }
     
     override func awakeFromNib() {
