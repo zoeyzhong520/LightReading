@@ -42,6 +42,12 @@ extension UIButton {
             self.addTarget(target, action: action, for: .touchUpInside)
         }
     }
+    
+    ///设置图片、文本偏移
+    func setEdgeInsets(_ imageEdgeInsets:UIEdgeInsets, titleEdgeInsets:UIEdgeInsets) {
+        self.imageEdgeInsets = imageEdgeInsets
+        self.titleEdgeInsets = titleEdgeInsets
+    }
 }
 
 

@@ -38,6 +38,14 @@ extension UIViewController {
         }
     }
     
+    ///present一个页面
+    func showViewControllerWithPresent(_ vcName:String) {
+        if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {
+            let navVC = UINavigationController.init(rootViewController: vc.init())
+            self.present(navVC, animated: true, completion: nil)
+        }
+    }
+    
     ///跳转到下一个页面
     func showViewController(_ vcName:String, hidesBottomBarWhenPushed:Bool=false) {
         if let vc = NSClassFromString("LightReading.\(vcName)") as? UIViewController.Type {

@@ -42,7 +42,7 @@ class SquareButton: UIView {
     //搜索条件数组
     var filterTitles = [String]()
     
-    var clickBlock:(() -> Void)?
+    var clickBlock:((Int) -> Void)?
     
     var isClicked:Bool = false
     
@@ -103,8 +103,12 @@ class SquareButton: UIView {
                 UIView.animate(withDuration: AnimateDuration) {
                     self?.imgView.transform = CGAffineTransform.identity
                 }
-                print("index = \(index)")
+
+                if self?.clickBlock != nil {
+                    self?.clickBlock!(index)
+                }
             }
+            
             self.filterView = filterView
         }
     }

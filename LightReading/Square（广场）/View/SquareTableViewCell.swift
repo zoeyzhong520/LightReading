@@ -40,7 +40,8 @@ class SquareTableViewCell: UITableViewCell {
     //评论按钮
     lazy var commentBtn:UIButton = {
         let commentBtn = UIButton("8888", textColor: LightGrayColor, font: SixthFont, target: self, action: #selector(clickAction(_:)))
-        commentBtn.setImage(UIImage.init(named: ""), for: .normal)
+        commentBtn.setImage(UIImage.init(named: "squareCommentImg"), for: .normal)
+        commentBtn.setEdgeInsets(UIEdgeInsetsMake(0, -fontSizeScale(5), 0, 0), titleEdgeInsets: UIEdgeInsetsMake(0, fontSizeScale(5), 0, 0))
         commentBtn.tag = 0
         return commentBtn
     }()
@@ -48,14 +49,27 @@ class SquareTableViewCell: UITableViewCell {
     //点赞按钮
     lazy var likeBtn:UIButton = {
         let likeBtn = UIButton("888", textColor: LightGrayColor, font: SixthFont, target: self, action: #selector(clickAction(_:)))
-        likeBtn.setImage(UIImage.init(named: ""), for: .normal)
+        likeBtn.setImage(UIImage.init(named: "squareLikeImg"), for: .normal)
+        likeBtn.setEdgeInsets(UIEdgeInsetsMake(0, -fontSizeScale(5), 0, 0), titleEdgeInsets: UIEdgeInsetsMake(0, fontSizeScale(5), 0, 0))
         likeBtn.tag = 1
         return likeBtn
     }()
     
+    ///是否点赞
+    var isLiked = false
+    
+    var clickBlock:(() -> Void)?
+    
     //点击事件
     @objc func clickAction(_ button:UIButton) {
-        
+        if button.tag == 1 {//点赞
+            isLiked = !isLiked
+            button.setImage(UIImage.init(named: isLiked ? "squareLikeImg_select" : "squareLikeImg"), for: .normal)
+        } else if button.tag == 0 {//评论
+            if clickBlock != nil {
+                clickBlock!()
+            }
+        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -99,14 +113,14 @@ class SquareTableViewCell: UITableViewCell {
         commentBtn.snp.makeConstraints { (make) in
             make.leftMargin.equalTo(contentLabel)
             make.top.equalTo(contentLabel.snp.bottom).offset(fontSizeScale(20))
-            make.size.equalTo(CGSize(width: fontSizeScale(100), height: fontSizeScale(24)))
+            make.size.equalTo(CGSize(width: fontSizeScale(60), height: fontSizeScale(24)))
         }
         
         self.contentView.addSubview(likeBtn)
         likeBtn.snp.makeConstraints { (make) in
             make.centerY.equalTo(commentBtn)
-            make.left.equalTo(commentBtn.snp.right).offset(fontSizeScale(30))
-            make.size.equalTo(CGSize(width: fontSizeScale(100), height: fontSizeScale(24)))
+            make.left.equalTo(commentBtn.snp.right).offset(fontSizeScale(20))
+            make.size.equalTo(CGSize(width: fontSizeScale(60), height: fontSizeScale(24)))
         }
     }
     

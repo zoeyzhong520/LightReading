@@ -27,6 +27,9 @@
 		3645BC8A20FCA399002C938A /* LRAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645BC8920FCA399002C938A /* LRAlertView.swift */; };
 		364C2FF3212A69AF009EC19E /* SquareFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */; };
 		364C2FF5212A747A009EC19E /* SquareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */; };
+		364C347A212BB689009EC19E /* SquareWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C3479212BB689009EC19E /* SquareWriteViewController.swift */; };
+		364C347C212BB6C0009EC19E /* SquareWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C347B212BB6C0009EC19E /* SquareWriteView.swift */; };
+		364C349D212C0BE1009EC19E /* NotificationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C349C212C0BE1009EC19E /* NotificationTool.swift */; };
 		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
 		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
 		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
@@ -193,6 +196,9 @@
 		3645BC8920FCA399002C938A /* LRAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRAlertView.swift; sourceTree = "<group>"; };
 		364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareFilterTableViewCell.swift; sourceTree = "<group>"; };
 		364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableViewCell.swift; sourceTree = "<group>"; };
+		364C3479212BB689009EC19E /* SquareWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareWriteViewController.swift; sourceTree = "<group>"; };
+		364C347B212BB6C0009EC19E /* SquareWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareWriteView.swift; sourceTree = "<group>"; };
+		364C349C212C0BE1009EC19E /* NotificationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTool.swift; sourceTree = "<group>"; };
 		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
 		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
@@ -506,6 +512,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		364C349B212C0BD1009EC19E /* NotificationTool */ = {
+			isa = PBXGroup;
+			children = (
+				364C349C212C0BE1009EC19E /* NotificationTool.swift */,
+			);
+			path = NotificationTool;
+			sourceTree = "<group>";
+		};
 		36D681D720F5ED180043B459 = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +601,7 @@
 		36D6821220F5EE0D0043B459 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				364C349B212C0BD1009EC19E /* NotificationTool */,
 				36FF91FD210AC02500FE9098 /* LRStarViewTool */,
 				D8FD8B812108B010002680DA /* ScanTool */,
 				3600A4F220FEECF800EB42E1 /* ClearCacheTool */,
@@ -712,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				36D6822520F5EE640043B459 /* SquareViewController.swift */,
+				364C3479212BB689009EC19E /* SquareWriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -733,6 +749,7 @@
 				3690F6CB2126D1C300BBB9D2 /* SquareFilterView.swift */,
 				364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */,
 				364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */,
+				364C347B212BB6C0009EC19E /* SquareWriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1270,6 +1287,7 @@
 				36B298742109C1FF004CED7D /* LRStarView.swift in Sources */,
 				36284B3520F73916008C2E81 /* UIView+Extension.swift in Sources */,
 				364C2FF5212A747A009EC19E /* SquareTableViewCell.swift in Sources */,
+				364C347C212BB6C0009EC19E /* SquareWriteView.swift in Sources */,
 				D8FE1FFB210B69C800949C6B /* TableOfContentsTableHeaderView.swift in Sources */,
 				D8B0D3BA20F6552800AAD399 /* MJRefreshFooter.m in Sources */,
 				36D6823820F600670043B459 /* MainTabBarViewController.swift in Sources */,
@@ -1293,6 +1311,7 @@
 				36D681E420F5ED180043B459 /* AppDelegate.swift in Sources */,
 				364C2FF3212A69AF009EC19E /* SquareFilterTableViewCell.swift in Sources */,
 				D8684F7C20F794A3005A4CCB /* SDImageCache.m in Sources */,
+				364C349D212C0BE1009EC19E /* NotificationTool.swift in Sources */,
 				D825ACC920FE29B200A5E069 /* SettingTableViewCell.swift in Sources */,
 				3600A4F620FF16C900EB42E1 /* AboutUsViewController.swift in Sources */,
 				36284B3E20F73D51008C2E81 /* LoginViewController.swift in Sources */,
@@ -1355,6 +1374,7 @@
 				3600A50420FF482F00EB42E1 /* TopTitleMainViewController.swift in Sources */,
 				3600A4F420FEED0300EB42E1 /* ClearCacheTool.swift in Sources */,
 				D8684F7F20F794A3005A4CCB /* NSData+ImageContentType.m in Sources */,
+				364C347A212BB689009EC19E /* SquareWriteViewController.swift in Sources */,
 				36B298762109CD93004CED7D /* BookIntroductionFunctionView.swift in Sources */,
 				D8FD8B862108B028002680DA /* ScanView.swift in Sources */,
 				D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */,

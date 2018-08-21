@@ -8,20 +8,25 @@
 
 import UIKit
 
+//MARK: - 广场页
+
 class SquareViewController: BaseViewController {
 
     lazy var squareView:SquareView = {
         let squareView = SquareView(frame: .zero)
+        squareView.clickBlock = { [weak self] in
+            print("广场 评论")
+        }
         return squareView
     }()
     
     lazy var headerView:SquareTableHeaderView = {
         let headerView = SquareTableHeaderView(frame: CGRect(x: 0, y: StatusBarHeight+NavigationBarHeight, width: ScreenWidth, height: fontSizeScale(50)))
-        headerView.leftDefaultBtn.filterView?.clickBlock = { [weak self] index in
-            
+        headerView.leftDefaultBtn.clickBlock = { [weak self] index in
+            print("index = \(index)")
         }
-        headerView.rightDefaultBtn.filterView?.clickBlock = { [weak self] index in
-            
+        headerView.rightDefaultBtn.clickBlock = { [weak self] index in
+            print("index = \(index)")
         }
         return headerView
     }()
@@ -50,6 +55,7 @@ class SquareViewController: BaseViewController {
     //撰写
     @objc func writeAction() {
         print("撰写")
+        self.showViewControllerWithPresent("SquareWriteViewController")
     }
     
     override func didReceiveMemoryWarning() {

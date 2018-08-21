@@ -32,7 +32,17 @@ class BaseViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UserdefaultsTool.deleteInputComment(INPUTCOMMENTKEY)
+        UserdefaultsTool.deleteInputComment(INPUTCOMMENTKEY)//删除输入的评论
+        NotificationTool.removeNotificationCenter(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationTool.registerApplicationWillTerminate(self, selector: #selector(applicationWillTerminate), object: nil)
+    }
+    
+    @objc func applicationWillTerminate() {
+        UserdefaultsTool.deleteInputComment(SQUAREINPUTCOMMENTKEY)
     }
 
     /*

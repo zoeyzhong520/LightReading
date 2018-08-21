@@ -25,6 +25,8 @@ class SquareView: UIView {
         return tableView
     }()
     
+    var clickBlock:(() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createView()
@@ -61,6 +63,7 @@ extension SquareView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SquareTableViewCell.createCell(tableView, indexPath: indexPath)
         cell.selectionStyle = .none
+        cell.clickBlock = self.clickBlock
         return cell
     }
     

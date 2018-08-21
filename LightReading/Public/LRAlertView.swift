@@ -21,7 +21,7 @@ class LRAlertView: UIView {
     init(frame: CGRect, buttonsArray:[String]) {
         super.init(frame: frame)
         self.buttonsArray = buttonsArray
-        self.ContentViewH = CGFloat(buttonsArray.count+1) * fontSizeScale(40) + fontSizeScale(5) + (iPhoneX ? 24 : 0)
+        self.ContentViewH = CGFloat(buttonsArray.count+1) * fontSizeScale(40) + fontSizeScale(5)
         self.createView()
     }
     
@@ -50,7 +50,7 @@ class LRAlertView: UIView {
             cancelBtn.tag = 888
             self.contentView?.addSubview(cancelBtn)
             cancelBtn.snp.makeConstraints({ (make) in
-                make.bottom.equalTo(iPhoneX ? -24 : 0)
+                make.bottom.equalToSuperview()
                 make.left.right.equalToSuperview()
                 make.height.equalTo(fontSizeScale(40))
             })
