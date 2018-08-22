@@ -30,6 +30,8 @@
 		364C347A212BB689009EC19E /* SquareWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C3479212BB689009EC19E /* SquareWriteViewController.swift */; };
 		364C347C212BB6C0009EC19E /* SquareWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C347B212BB6C0009EC19E /* SquareWriteView.swift */; };
 		364C349D212C0BE1009EC19E /* NotificationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C349C212C0BE1009EC19E /* NotificationTool.swift */; };
+		366EB239212D4B27007F4EE6 /* SquareCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB238212D4B27007F4EE6 /* SquareCommentViewController.swift */; };
+		366EB23B212D628A007F4EE6 /* SquareCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB23A212D628A007F4EE6 /* SquareCommentView.swift */; };
 		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
 		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
 		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
@@ -199,6 +201,8 @@
 		364C3479212BB689009EC19E /* SquareWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareWriteViewController.swift; sourceTree = "<group>"; };
 		364C347B212BB6C0009EC19E /* SquareWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareWriteView.swift; sourceTree = "<group>"; };
 		364C349C212C0BE1009EC19E /* NotificationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTool.swift; sourceTree = "<group>"; };
+		366EB238212D4B27007F4EE6 /* SquareCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentViewController.swift; sourceTree = "<group>"; };
+		366EB23A212D628A007F4EE6 /* SquareCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentView.swift; sourceTree = "<group>"; };
 		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
 		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
@@ -728,6 +732,7 @@
 			children = (
 				36D6822520F5EE640043B459 /* SquareViewController.swift */,
 				364C3479212BB689009EC19E /* SquareWriteViewController.swift */,
+				366EB238212D4B27007F4EE6 /* SquareCommentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				364C2FF2212A69AF009EC19E /* SquareFilterTableViewCell.swift */,
 				364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */,
 				364C347B212BB6C0009EC19E /* SquareWriteView.swift */,
+				366EB23A212D628A007F4EE6 /* SquareCommentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1324,6 +1330,7 @@
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
 				D8684F8120F794A3005A4CCB /* NSImage+WebCache.m in Sources */,
 				36B298722109BADE004CED7D /* BookIntroductionTableViewCell.swift in Sources */,
+				366EB23B212D628A007F4EE6 /* SquareCommentView.swift in Sources */,
 				D8B0D3B620F6552800AAD399 /* MJRefreshAutoNormalFooter.m in Sources */,
 				D84EAEC920F8E0A400CC6F4D /* ZZJTimer.swift in Sources */,
 				36284B4420F73E9B008C2E81 /* UITextField+Extension.swift in Sources */,
@@ -1344,6 +1351,7 @@
 				D8F053A7210213EF0012D633 /* HomeCollectionViewCell.swift in Sources */,
 				D825ACC320FE23B200A5E069 /* PersonalAvatarTool.swift in Sources */,
 				D8EF1BCB210A1CC700D70322 /* BookIntroductionBookCoverView.swift in Sources */,
+				366EB239212D4B27007F4EE6 /* SquareCommentViewController.swift in Sources */,
 				36C7329921008C0000201B01 /* Protocols.swift in Sources */,
 				D8B0D3C120F6552800AAD399 /* SVProgressHUD.m in Sources */,
 				D825ACC720FE284D00A5E069 /* SettingView.swift in Sources */,

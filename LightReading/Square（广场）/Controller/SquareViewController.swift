@@ -16,6 +16,7 @@ class SquareViewController: BaseViewController {
         let squareView = SquareView(frame: .zero)
         squareView.clickBlock = { [weak self] in
             print("广场 评论")
+            self?.showViewController("SquareCommentViewController", hidesBottomBarWhenPushed: true)
         }
         return squareView
     }()
@@ -65,12 +66,12 @@ class SquareViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.squareView.advertisingPageScrollView.enableTimer = true//开启定时器
+//        self.squareView.advertisingPageScrollView.enableTimer = true//开启定时器
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.squareView.advertisingPageScrollView.disableTimer = true //停止定时器
+//        self.squareView.advertisingPageScrollView.disableTimer = true //停止定时器
     }
     
     /*

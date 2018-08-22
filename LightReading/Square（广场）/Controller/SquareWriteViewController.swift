@@ -26,6 +26,7 @@ class SquareWriteViewController: BaseViewController {
 
     func setPage() {
         self.addBarButtonItemWithTitle(.right, title: "完成", action: #selector(doneAction))
+        self.addBarButtonItemWithTitle(.left, title: "❌", action: #selector(closeAction))
         
         self.view.addSubview(self.squareWriteView)
     }
@@ -33,6 +34,11 @@ class SquareWriteViewController: BaseViewController {
     //点击事件
     @objc func doneAction() {
         print("点击完成")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func closeAction() {
+        print("点击关闭")
         self.dismiss(animated: true, completion: nil)
     }
     

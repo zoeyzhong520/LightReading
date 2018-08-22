@@ -60,6 +60,18 @@ class SquareTableViewCell: UITableViewCell {
     
     var clickBlock:(() -> Void)?
     
+    ///广场-评论页不再显示评论按钮
+    var ISSQUARECOMMENT:Bool? {
+        didSet {
+            self.commentBtn.isHidden = ISSQUARECOMMENT == true ? true : false
+            self.likeBtn.snp.makeConstraints { (make) in
+                make.leftMargin.equalTo(contentLabel)
+                make.top.equalTo(contentLabel.snp.bottom).offset(fontSizeScale(20))
+                make.size.equalTo(CGSize(width: fontSizeScale(60), height: fontSizeScale(24)))
+            }
+        }
+    }
+    
     //点击事件
     @objc func clickAction(_ button:UIButton) {
         if button.tag == 1 {//点赞
