@@ -27,6 +27,9 @@ class MineViewController: BaseViewController {
     func setPage() {
         self.view.addSubview(self.mineView)
         self.mineView.cellClickBlock = { [weak self] cellType in
+            
+            self?.needLogin()
+            
             switch cellType {
             case .UserInfoType:
                 self?.showViewController("PersonalInformationViewController")
@@ -44,6 +47,13 @@ class MineViewController: BaseViewController {
         }
     }
 
+    //判断是否需要登录
+    func needLogin() {
+        if UserdefaultsTool.getToken().count <= 0 {
+            self.showLoginViewController()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

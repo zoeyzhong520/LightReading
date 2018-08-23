@@ -12,15 +12,17 @@ class SquareCommentView: UIView {
 
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: self.bounds, style: .plain)
-        tableView.backgroundColor = TableViewBackgroundColor
         tableView.rowHeight = fontSizeScale(150)
         tableView.sectionHeaderHeight = fontSizeScale(5)
 //        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SquareTableViewCell.self, forCellReuseIdentifier: "SquareTableViewCellID")
+        tableView.register(SquareCommentTableViewCell.self, forCellReuseIdentifier: "SquareCommentTableViewCellID")
         return tableView
     }()
+    
+    var replayBlock:(() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,7 +58,10 @@ extension SquareCommentView: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        return UITableViewCell()
+        let cell = SquareCommentTableViewCell.createCell(tableView, indexPath: indexPath)
+        cell.selectionStyle = .none
+        cell.replayBlock = self.replayBlock
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,7 +69,7 @@ extension SquareCommentView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? fontSizeScale(150) : fontSizeScale(75)
+        return indexPath.section == 0 ? fontSizeScale(150) : SquareCommentTableViewCell.getHeight()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

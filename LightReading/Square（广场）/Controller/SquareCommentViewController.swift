@@ -14,6 +14,10 @@ class SquareCommentViewController: BaseViewController {
 
     lazy var squareCommentView:SquareCommentView = {
         let squareCommentView = SquareCommentView(frame: self.view.bounds)
+        squareCommentView.replayBlock = { [weak self] in
+            print("回复Ta")
+            self?.addCommentView()
+        }
         return squareCommentView
     }()
     
@@ -28,6 +32,11 @@ class SquareCommentViewController: BaseViewController {
         self.title = "评论"
         
         self.view.addSubview(self.squareCommentView)
+    }
+    
+    func addCommentView() {
+        let commentView = BookInputCommentView(frame: .zero)
+        commentView.show()
     }
     
     override func didReceiveMemoryWarning() {

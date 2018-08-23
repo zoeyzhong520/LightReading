@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController {
     
     ///登录
     func login(_ account:String, password:String) {
-        if account == "Joe" && password == "123" {
+        if account.count > 0 && password.count > 0 {
             appDelegate.window?.rootViewController = MainTabBarViewController()
             UserdefaultsTool.setToken(account)
         } else {

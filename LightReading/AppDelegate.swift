@@ -72,13 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ///判断登录
     func setupRootViewController() {
-        if UserdefaultsTool.getToken().isEmpty == true {
-            //未登录
-            self.window?.rootViewController = LoginViewController()
-        } else {
-            //已登陆
-            self.window?.rootViewController = MainTabBarViewController()
-        }
+        //已登陆
+        self.window?.rootViewController = MainTabBarViewController()
     }
 }
 

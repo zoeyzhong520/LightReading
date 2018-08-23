@@ -32,6 +32,8 @@
 		364C349D212C0BE1009EC19E /* NotificationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C349C212C0BE1009EC19E /* NotificationTool.swift */; };
 		366EB239212D4B27007F4EE6 /* SquareCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB238212D4B27007F4EE6 /* SquareCommentViewController.swift */; };
 		366EB23B212D628A007F4EE6 /* SquareCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB23A212D628A007F4EE6 /* SquareCommentView.swift */; };
+		366EB23D212E5062007F4EE6 /* SquareCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB23C212E5062007F4EE6 /* SquareCommentTableViewCell.swift */; };
+		366EB243212EA94D007F4EE6 /* SquareCommentReplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB242212EA94D007F4EE6 /* SquareCommentReplayView.swift */; };
 		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
 		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
 		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
@@ -203,6 +205,8 @@
 		364C349C212C0BE1009EC19E /* NotificationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTool.swift; sourceTree = "<group>"; };
 		366EB238212D4B27007F4EE6 /* SquareCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentViewController.swift; sourceTree = "<group>"; };
 		366EB23A212D628A007F4EE6 /* SquareCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentView.swift; sourceTree = "<group>"; };
+		366EB23C212E5062007F4EE6 /* SquareCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentTableViewCell.swift; sourceTree = "<group>"; };
+		366EB242212EA94D007F4EE6 /* SquareCommentReplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentReplayView.swift; sourceTree = "<group>"; };
 		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
 		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
@@ -756,6 +760,8 @@
 				364C2FF4212A747A009EC19E /* SquareTableViewCell.swift */,
 				364C347B212BB6C0009EC19E /* SquareWriteView.swift */,
 				366EB23A212D628A007F4EE6 /* SquareCommentView.swift */,
+				366EB23C212E5062007F4EE6 /* SquareCommentTableViewCell.swift */,
+				366EB242212EA94D007F4EE6 /* SquareCommentReplayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1325,6 +1331,7 @@
 				D8684F7020F794A3005A4CCB /* UIImage+ForceDecode.m in Sources */,
 				D89AF3DA20FA54A600016A6A /* PersonalAvatarViewController.swift in Sources */,
 				D8B4F99720FA2FBA00A88D27 /* PersonalInformationDefaultTableViewCell.swift in Sources */,
+				366EB243212EA94D007F4EE6 /* SquareCommentReplayView.swift in Sources */,
 				36FF920A210AEF7200FE9098 /* BookCommentTableViewCell.swift in Sources */,
 				D8E6B85321060DC000886B52 /* BookDetailViewController.swift in Sources */,
 				D8684F8220F794A3005A4CCB /* SDWebImageGIFCoder.m in Sources */,
@@ -1387,6 +1394,7 @@
 				D8FD8B862108B028002680DA /* ScanView.swift in Sources */,
 				D8B0D36A20F654EF00AAD399 /* MineUserInfoTableViewCell.swift in Sources */,
 				D8684F7420F794A3005A4CCB /* UIImage+GIF.m in Sources */,
+				366EB23D212E5062007F4EE6 /* SquareCommentTableViewCell.swift in Sources */,
 				36284B4620F741E0008C2E81 /* UIButton+Extension.swift in Sources */,
 				D8FD8B882108B034002680DA /* ScanModel.swift in Sources */,
 				D8AD7FF021042B14002FA05E /* HomeMainViewController.swift in Sources */,

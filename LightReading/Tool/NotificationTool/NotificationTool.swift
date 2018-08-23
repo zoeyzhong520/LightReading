@@ -22,10 +22,17 @@ class NotificationTool: NSObject {
         NotificationCenter.default.removeObserver(observer)
     }
     
+    ///销毁指定的通知
+    class func removeNotificationCenter(_ observer:Any, name:NSNotification.Name) {
+        NotificationCenter.default.removeObserver(observer, name: name, object: nil)
+    }
+    
     ///监听程序即将结束
     class func registerApplicationWillTerminate(_ observer:Any, selector:Selector, object:Any?) {
         NotificationTool.registerNotificationCenter(observer, selector: selector, name: NSNotification.Name.UIApplicationWillTerminate, object: object)
     }
+    
+    
 }
 
 
