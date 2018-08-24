@@ -16,7 +16,11 @@ class SquareViewController: BaseViewController {
         let squareView = SquareView(frame: .zero)
         squareView.clickBlock = { [weak self] in
             print("广场 评论")
-            self?.showViewController("SquareCommentViewController", hidesBottomBarWhenPushed: true)
+            if UserdefaultsTool.getToken().count <= 0 {
+                self?.showLoginViewController(showAlert: false, withCloseButton: true)
+            } else {
+                self?.showViewController("SquareCommentViewController", hidesBottomBarWhenPushed: true)
+            }
         }
         return squareView
     }()
@@ -56,7 +60,11 @@ class SquareViewController: BaseViewController {
     //撰写
     @objc func writeAction() {
         print("撰写")
-        self.showViewControllerWithPresent("SquareWriteViewController")
+        if UserdefaultsTool.getToken().count <= 0 {
+            self.showLoginViewController(showAlert: false, withCloseButton: true)
+        } else {
+            self.showViewControllerWithPresent("SquareWriteViewController")
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -13,10 +13,11 @@ class MineView: UIView {
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: self.bounds, style: .grouped)
         tableView.backgroundColor = TableViewBackgroundColor
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.sectionHeaderHeight = fontSizeScale(15)
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cellID")
+        tableView.register(MineTableViewCell.self, forCellReuseIdentifier: "MineTableViewCellID")
         tableView.register(MineUserInfoTableViewCell.classForCoder(), forCellReuseIdentifier: "MineUserInfoTableViewCellID")
         return tableView
     }()
@@ -58,15 +59,12 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //头像、ID、积分
             let cell = MineUserInfoTableViewCell.createCell(tableView, indexPath: indexPath)
-            cell.model = MineModel.setupModel("Joe", userID: "zoeyzhong", score: "1000000000", avatarImg: AvatarImageUrl)
+            cell.model = UserdefaultsTool.getToken().count > 0 ? MineModel.setupModel("Joe", userID: "zoeyzhong", score: "1000000000", avatarImg: AvatarImageUrl) : MineModel.setupModel("XXX", userID: "0", score: "0", avatarImg: "")
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
-            cell.textLabel?.font = FourthFont
-            cell.textLabel?.textColor = BlackColor
-            cell.textLabel?.text = self.dataArray[indexPath.section][indexPath.row]
-            cell.imageView?.image = UIImage.init(named: self.imagesArray[indexPath.section][indexPath.row])
-            cell.accessoryType = .disclosureIndicator
+            let cell = MineTableViewCell.createCell(tableView, indexPath: indexPath)
+            cell.imgStr = self.imagesArray[indexPath.section][indexPath.row]
+            cell.titleText = self.dataArray[indexPath.section][indexPath.row]
             return cell
         }
     }

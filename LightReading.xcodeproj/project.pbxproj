@@ -34,6 +34,7 @@
 		366EB23B212D628A007F4EE6 /* SquareCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB23A212D628A007F4EE6 /* SquareCommentView.swift */; };
 		366EB23D212E5062007F4EE6 /* SquareCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB23C212E5062007F4EE6 /* SquareCommentTableViewCell.swift */; };
 		366EB243212EA94D007F4EE6 /* SquareCommentReplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB242212EA94D007F4EE6 /* SquareCommentReplayView.swift */; };
+		366EB268212FE659007F4EE6 /* MineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EB267212FE659007F4EE6 /* MineTableViewCell.swift */; };
 		3690F6C62126A1CE00BBB9D2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */; };
 		3690F6C82126B75100BBB9D2 /* SquareTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */; };
 		3690F6CA2126C52700BBB9D2 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690F6C92126C52700BBB9D2 /* SquareButton.swift */; };
@@ -207,6 +208,7 @@
 		366EB23A212D628A007F4EE6 /* SquareCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentView.swift; sourceTree = "<group>"; };
 		366EB23C212E5062007F4EE6 /* SquareCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentTableViewCell.swift; sourceTree = "<group>"; };
 		366EB242212EA94D007F4EE6 /* SquareCommentReplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCommentReplayView.swift; sourceTree = "<group>"; };
+		366EB267212FE659007F4EE6 /* MineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewCell.swift; sourceTree = "<group>"; };
 		3690F6C52126A1CE00BBB9D2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3690F6C72126B75100BBB9D2 /* SquareTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTableHeaderView.swift; sourceTree = "<group>"; };
 		3690F6C92126C52700BBB9D2 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 				D825ACC620FE284D00A5E069 /* SettingView.swift */,
 				D825ACC820FE29B200A5E069 /* SettingTableViewCell.swift */,
 				3600A4F720FF1C1500EB42E1 /* AboutUsView.swift */,
+				366EB267212FE659007F4EE6 /* MineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1404,6 +1407,7 @@
 				D8684F8520F794A3005A4CCB /* UIView+WebCache.m in Sources */,
 				D8684F7620F794A3005A4CCB /* SDWebImageCoderHelper.m in Sources */,
 				D8684F8820F794A3005A4CCB /* SDWebImageWebPCoder.m in Sources */,
+				366EB268212FE659007F4EE6 /* MineTableViewCell.swift in Sources */,
 				36D6823420F5EEB50043B459 /* HomeModel.swift in Sources */,
 				3600A50220FF442500EB42E1 /* TopTitle.swift in Sources */,
 				D8B0D3AC20F6552800AAD399 /* MJRefreshConst.m in Sources */,

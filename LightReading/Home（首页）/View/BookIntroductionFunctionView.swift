@@ -41,11 +41,12 @@ class BookIntroductionFunctionView: UIView {
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 5
             view.layer.borderWidth = fontSizeScale(1)
-            view.layer.borderColor = BlueColor.cgColor
+            view.layer.borderColor = UserdefaultsTool.getToken().count > 0 ? BlueColor.cgColor : LightGrayColor.cgColor
             
             let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
             view.addGestureRecognizer(tap)
             view.tag = i
+            view.isUserInteractionEnabled = UserdefaultsTool.getToken().count > 0
             
             self.addSubview(view)
             view.snp.makeConstraints({ (make) in
@@ -56,7 +57,7 @@ class BookIntroductionFunctionView: UIView {
             
             let img = UIImage.init(named: imgsArray[i])?.withRenderingMode(.alwaysTemplate)
             let imgView = UIImageView.init(image: img)
-            imgView.tintColor = BlueColor
+            imgView.tintColor = UserdefaultsTool.getToken().count > 0 ? BlueColor : LightGrayColor
             if i == 0 {
                 self.collectImgView = imgView
             }
@@ -67,7 +68,7 @@ class BookIntroductionFunctionView: UIView {
                 make.left.equalTo(fontSizeScale(15))
             })
             
-            let label = UILabel.init(btnNamesArray[i], font: FifthFont, textColor: BlueColor, alignment: .left)
+            let label = UILabel.init(btnNamesArray[i], font: FifthFont, textColor: UserdefaultsTool.getToken().count > 0 ? BlueColor : LightGrayColor, alignment: .left)
             view.addSubview(label)
             label.snp.makeConstraints({ (make) in
                 make.left.equalTo(imgView.snp.right)

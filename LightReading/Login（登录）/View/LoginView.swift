@@ -149,6 +149,9 @@ class LoginView: UIView {
             if self.loginBlock != nil {
                 self.loginBlock!(LoginModel.setupModel(self.accountTF.text!, password: self.passwordTF.text!))
             }
+            
+            self.accountTF.resignFirstResponder()
+            self.passwordTF.resignFirstResponder()
         }
     }
     

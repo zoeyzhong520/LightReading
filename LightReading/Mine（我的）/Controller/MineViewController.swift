@@ -14,6 +14,9 @@ class MineViewController: BaseViewController {
 
     lazy var mineView:MineView = {
         let mineView = MineView(frame: self.view.bounds)
+        mineView.cellClickBlock = { [weak self] cellType in
+            self?.needLogin(cellType)
+        }
         return mineView
     }()
     
@@ -26,13 +29,16 @@ class MineViewController: BaseViewController {
     
     func setPage() {
         self.view.addSubview(self.mineView)
-        self.mineView.cellClickBlock = { [weak self] cellType in
-            
-            self?.needLogin()
-            
+    }
+
+    //判断是否需要登录
+    func needLogin(_ cellType:Enums.MineCellType) {
+        if UserdefaultsTool.getToken().count <= 0 {
+            self.showLoginViewController(withCloseButton: true)
+        } else {
             switch cellType {
             case .UserInfoType:
-                self?.showViewController("PersonalInformationViewController")
+                self.showViewController("PersonalInformationViewController")
             case .DownloadBookType:
                 break
             case .CollectionType:
@@ -42,15 +48,8 @@ class MineViewController: BaseViewController {
             case .PointsMallType:
                 break
             case .SettingType:
-                self?.showViewController("SettingViewController")
+                self.showViewController("SettingViewController")
             }
-        }
-    }
-
-    //判断是否需要登录
-    func needLogin() {
-        if UserdefaultsTool.getToken().count <= 0 {
-            self.showLoginViewController()
         }
     }
     

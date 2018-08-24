@@ -56,7 +56,7 @@ extension UIViewController {
     }
     
     ///跳转至登录页
-    func showLoginViewController(showAlert:Bool=false) {
+    func showLoginViewController(showAlert:Bool=false, withCloseButton:Bool=false) {
         
         if showAlert {
             let alert = UIAlertController.init(title: "提示", message: "您确定要退出登录吗？", preferredStyle: .alert)
@@ -71,7 +71,9 @@ extension UIViewController {
         } else {
             if let vc = NSClassFromString("LightReading.LoginViewController") as? UIViewController.Type {
                 UserdefaultsTool.setToken("")//清空token
-                self.present(vc.init(), animated: true, completion: nil)
+                let loginVC = vc.init() as! LoginViewController
+                loginVC.closeVisible = withCloseButton
+                self.present(loginVC, animated: true, completion: nil)
             }
         }
     }

@@ -55,8 +55,12 @@ class BookDetailViewController: BaseViewController {
     
     ///点击评论
     func addCommentView() {
-        let commentView = BookInputCommentView(frame: .zero)
-        commentView.show()
+        if UserdefaultsTool.getToken().count <= 0 {
+            self.showLoginViewController(withCloseButton: true)
+        } else {
+            let commentView = BookInputCommentView(frame: .zero)
+            commentView.show()
+        }
     }
     
     override func didReceiveMemoryWarning() {

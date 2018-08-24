@@ -14,8 +14,20 @@ class LoginViewController: BaseViewController {
 
     lazy var loginView:LoginView = {
         let loginView = LoginView(frame: self.view.bounds)
+        loginView.loginBlock = { [weak self] loginModel in
+            print("account == \(loginModel.account), password == \(loginModel.password)")
+            self?.login(loginModel.account, password: loginModel.password)
+        }
         return loginView
     }()
+    
+    lazy var closeBtn:UIButton = {
+        let closeBtn = UIButton("❌", textColor: BlueColor, font: FourthFont, target: self, action: #selector(closeButonClick))
+        return closeBtn
+    }()
+    
+    ///是否需要显示关闭按钮
+    var closeVisible = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +38,8 @@ class LoginViewController: BaseViewController {
 
     func setPage() {
         self.view.addSubview(self.loginView)
-        self.loginView.loginBlock = { [weak self] loginModel in
-            print("account == \(loginModel.account), password == \(loginModel.password)")
-            self?.login(loginModel.account, password: loginModel.password)
-        }
+        
+        self.setCloseButton()
     }
     
     ///登录
@@ -40,6 +50,23 @@ class LoginViewController: BaseViewController {
         } else {
             SVProgressHUD.showError(withStatus: LoginFailureStr)
         }
+    }
+    
+    //设置关闭按钮
+    func setCloseButton() {
+        if closeVisible {
+            self.view.addSubview(closeBtn)
+            closeBtn.snp.makeConstraints { (make) in
+                make.top.equalTo(fontSizeScale(20)+StatusBarHeight)
+                make.left.equalTo(fontSizeScale(20))
+                make.size.equalTo(CGSize(width: fontSizeScale(24), height: fontSizeScale(24)))
+            }
+        }
+    }
+    
+    //点击事件
+    @objc func closeButonClick() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
